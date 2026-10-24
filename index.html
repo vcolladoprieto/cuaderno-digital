@@ -1,0 +1,3143 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuaderno Digital</title>
+
+    <!--
+      1. ESTILOS E ICONOS
+      Vuetify proporciona los componentes, la distribución y los estilos.
+      v-icon utiliza Material Design Icons (mdi), el juego de iconos de Vuetify.
+      Las bibliotecas se cargan desde CDN; no hay CSS personalizado ni compilación.
+      integrity comprueba que lo descargado coincide con la versión indicada.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.13.7/dist/vuetify.min.css"
+      integrity="sha384-5+5h9ocqYUnTgj1O7+eDW/K2AwLfZpVW0zReSqTcd8JjpA4LI7ofNcB5IpnbdlAM"
+      crossorigin="anonymous"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+      integrity="sha384-HphS8cQyN+eYiJ5PMbzShG6qZdRtvHPVLPkYb8JwMkmNgaIxrFVDhQe3jIbq3EZ2"
+      crossorigin="anonymous"
+    >
+  </head>
+  <body>
+    <noscript><p class="pa-3">Activa JavaScript para utilizar el cuaderno.</p></noscript>
+    <p id="loading" class="pa-3" role="status">Cargando el cuaderno. Se necesita conexión para cargar sus bibliotecas.</p>
+
+    <!--
+      Vue utiliza el contenido de #app como plantilla al ejecutar mount('#app').
+      {{ unaVariable }} muestra un dato. v-model conecta el campo con su borrador.
+      @click llama a una función. v-if muestra un bloque cuando se cumple su condición.
+      v-row y v-col ajustan las columnas al ancho de la pantalla, sin CSS adicional.
+    -->
+    <!-- 2. Vue interpreta esta plantilla. Vuetify aporta todos los componentes, estilos e iconos. -->
+    <div id="app" hidden>
+      <v-app :theme="temaOscuro ? 'cuadernoOscuro' : 'cuadernoClaro'">
+        <v-main :inert="edicionAbierta">
+          <v-container fluid class="pa-2 pa-sm-4">
+            <v-sheet max-width="1280" color="transparent" class="mx-auto">
+              <v-card border rounded="lg" elevation="0">
+                <!-- Cabecera: asignatura como título; usuario y tema como controles independientes. -->
+                <header class="pa-3 pa-sm-4">
+                  <v-row align="center" dense>
+                    <v-col cols="12" md="8">
+                      <div class="d-flex align-center ga-3">
+                        <div class="flex-shrink-0 bg-white rounded">
+                          <!-- El PNG se incluye en el HTML para conservar un único archivo. -->
+                          <v-img
+                            src="data:image/png;base64,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"
+                            alt="Universitat Oberta de Catalunya"
+                            :width="$vuetify.display.xs ? 72 : 100"
+                            :height="$vuetify.display.xs ? 26 : 36"
+                            eager
+                          >
+                          </v-img>
+                        </div>
+                        <div class="text-break">
+                          <h1 class="text-subtitle-1 font-weight-bold">{{ cuaderno.project.course || 'Asignatura del proyecto' }}</h1>
+                          <p class="text-caption text-medium-emphasis">Cuaderno digital</p>
+                        </div>
+                      </div>
+                    </v-col>
+                    <v-col cols="12" md="4">
+                      <div class="d-flex flex-wrap align-center justify-end ga-2">
+                        <v-btn
+                          v-if="usuarioConfirmado"
+                          ref="userButton"
+                          variant="text"
+                          color="secondary"
+                          append-icon="mdi-account-switch-outline"
+                          class="text-body-2 font-weight-medium px-2"
+                          max-width="100%"
+                          title="Cambiar usuario"
+                          :aria-label="'Cambiar usuario: ' + nombreMiembro(miembroActualId)"
+                          :disabled="archivoEnCurso"
+                          @click="cambiarUsuario"
+                        >
+                          <span class="text-truncate">{{ nombreMiembro(miembroActualId) }}</span>
+                        </v-btn>
+                        <v-btn
+                          width="36"
+                          height="36"
+                          :icon="temaOscuro ? 'mdi-white-balance-sunny' : 'mdi-weather-night'"
+                          variant="text"
+                          color="secondary"
+                          :aria-label="temaOscuro ? 'Activar modo claro' : 'Activar modo oscuro'"
+                          :title="temaOscuro ? 'Activar modo claro' : 'Activar modo oscuro'"
+                          @click="temaOscuro = !temaOscuro"
+                        >
+                        </v-btn>
+                      </div>
+                    </v-col>
+                  </v-row>
+                </header>
+                <!-- El inicio solo identifica a quien va a trabajar. No valida campos antes de continuar. -->
+                <section v-if="!usuarioConfirmado" class="d-flex align-center justify-center px-4 py-6 py-sm-10 border-t" aria-labelledby="user-title">
+                  <v-sheet width="100%" max-width="420" border rounded="lg" class="pa-4 pa-sm-6 text-center">
+                    <h2 id="user-title" class="text-h6 font-weight-medium mb-2">Selecciona tu usuario</h2>
+                    <p class="text-body-2 text-medium-emphasis mb-4">El trabajo que guardes quedará registrado a tu nombre.</p>
+                    <v-progress-linear v-if="!carpetaPreparada" indeterminate color="primary" aria-label="Cargando el equipo"></v-progress-linear>
+                    <p v-else-if="carpetaCuaderno && contenidoEnCarpeta === null" class="text-body-2">Usa Abrir cuaderno en el pie para cargar el equipo de la carpeta.</p>
+                    <v-form v-else-if="miembrosActivos.length" class="text-start" @submit.prevent="validarYGuardar($event, confirmarUsuario)">
+                      <v-select
+                        id="actor"
+                        ref="actor"
+                        v-model="miembroActualId"
+                        :items="miembrosActivos"
+                        item-title="name"
+                        item-value="id"
+                        label="Miembro del equipo"
+                        placeholder="Selecciona tu nombre"
+                        :rules="[reglas.obligatorio]"
+                        :disabled="archivoEnCurso"
+                      >
+                      </v-select>
+                      <v-btn type="submit" block class="mt-3" append-icon="mdi-arrow-right" :disabled="!miembroActualId || archivoEnCurso">Continuar</v-btn>
+                      <v-divider class="my-4"></v-divider>
+                      <div class="text-center">
+                        <p class="text-caption text-medium-emphasis mb-1">¿No apareces en la lista?</p>
+                        <v-btn variant="text" prepend-icon="mdi-account-plus-outline" :disabled="archivoEnCurso || guardadoBloqueado" @click="abrirMiembro()">
+                          Añadirme al equipo
+                        </v-btn>
+                      </div>
+                    </v-form>
+                    <div v-else>
+                      <p class="text-body-2 text-medium-emphasis mb-3">Añádete al equipo para empezar, o elige la carpeta de un cuaderno existente desde el pie.</p>
+                      <v-btn
+                        v-if="!formularioMiembro"
+                        ref="firstMemberButton"
+                        block
+                        prepend-icon="mdi-account-plus-outline"
+                        :disabled="archivoEnCurso || guardadoBloqueado"
+                        @click="abrirMiembro()"
+                      >
+                        Añadirme al equipo
+                      </v-btn>
+                    </div>
+                  </v-sheet>
+                </section>
+                <!-- Las pestañas cambian la sección sin recargar ni perder los borradores. -->
+                <nav v-if="usuarioConfirmado" class="border-t border-b bg-surface-light px-sm-3" aria-label="Apartados">
+                  <v-tabs v-model="apartadoActual" color="primary" height="44" show-arrows>
+                    <v-tab
+                      v-for="(label, key) in apartados"
+                      :key="key"
+                      :value="key"
+                      :prepend-icon="$vuetify.display.xs ? undefined : iconosApartados[key]"
+                      :aria-label="label"
+                      :aria-controls="key"
+                      height="44"
+                      rounded="0"
+                      min-width="0"
+                      class="text-none text-body-2 px-1 px-sm-4"
+                    >
+                      {{ key === 'equipo' ? 'Equipo' : label }}
+                    </v-tab>
+                  </v-tabs>
+                </nav>
+                <!-- Los formularios contienen borradores. Guardar es la única acción que confirma sus cambios. -->
+                <div v-show="usuarioConfirmado" class="pa-3 pa-sm-4" :inert="archivoEnCurso || !carpetaPreparada || (carpetaCuaderno && contenidoEnCarpeta === null)">
+                  <!-- La cabecera común mantiene la misma jerarquía y posición de las acciones en las cinco vistas. -->
+                  <div class="d-flex flex-wrap align-center justify-space-between ga-2 mb-3">
+                    <h2 id="section-title" class="text-subtitle-1 font-weight-bold">
+                      {{ apartados[apartadoActual] }}
+                      <span v-if="totalApartado !== null" class="text-caption text-medium-emphasis font-weight-regular ms-2">{{ totalApartado }}</span>
+                    </h2>
+                    <v-btn v-if="apartadoActual === 'equipo'" ref="membersButton" prepend-icon="mdi-plus" @click="abrirMiembro()">Añadir miembro</v-btn>
+                    <v-btn v-if="apartadoActual === 'proyecto'" ref="projectButton" prepend-icon="mdi-pencil-outline" @click="abrirProyecto">Editar proyecto</v-btn>
+                    <v-btn v-if="apartadoActual === 'diario'" ref="entriesButton" prepend-icon="mdi-plus" @click="abrirEntrada()">Nueva entrada</v-btn>
+                    <v-btn v-if="apartadoActual === 'tareas'" ref="tasksButton" prepend-icon="mdi-plus" @click="abrirTarea()">Nueva tarea</v-btn>
+                  </div>
+                  <!-- Equipo: cada persona aparece junto a sus propias cifras de participación. -->
+                  <section id="equipo" v-show="apartadoActual === 'equipo'" aria-labelledby="section-title">
+                    <v-sheet border rounded="lg" class="overflow-hidden">
+                      <!-- El usuario activo se distingue también por texto, sin depender solo del color. -->
+                      <div v-for="(member, i) in cuaderno.members" :key="member.id" :class="{ 'border-t': i > 0, 'bg-surface-light': member.id === miembroActualId }">
+                        <v-row dense align="center" class="pa-3 ma-0">
+                          <v-col cols="8" md="4" class="text-body-2 text-break">
+                            <h3 class="text-body-2 font-weight-bold" :class="{ 'text-primary': member.id === miembroActualId }">
+                              {{ member.name }}
+                              <v-chip v-if="member.id === miembroActualId" color="primary" size="x-small" variant="tonal" class="ms-2">Tú</v-chip>
+                              <v-chip v-if="!member.active" size="x-small" variant="tonal">Inactivo</v-chip>
+                            </h3>
+                            <p class="text-medium-emphasis mt-1">{{ member.role }}</p>
+                            <p class="text-caption text-medium-emphasis text-truncate" :title="member.email">{{ member.email }}</p>
+                          </v-col>
+                          <v-col cols="12" md="6" class="order-3 order-md-2 px-md-4" :class="{ 'border-s': $vuetify.display.mdAndUp }">
+                            <!-- La actividad y el avance de tareas se distinguen sin duplicar datos en el JSON. -->
+                            <v-row dense align="start">
+                              <v-col cols="6" sm="3">
+                                <p class="text-h6 font-weight-bold">{{ participacion[i].entradas }}</p>
+                                <p class="text-caption text-medium-emphasis">Participaciones</p>
+                              </v-col>
+                              <v-col cols="6" sm="3">
+                                <p class="text-h6 font-weight-bold">{{ participacion[i].cambios }}</p>
+                                <p class="text-caption text-medium-emphasis">Cambios</p>
+                              </v-col>
+                              <v-col cols="12" sm="6">
+                                <div class="d-flex flex-wrap align-center justify-space-between ga-1">
+                                  <v-btn variant="text" size="small" height="24" min-width="0" class="px-0" :aria-label="member.id === miembroActualId ? 'Ver todas tus tareas' : 'Ver todas las tareas de ' + member.name" @click="verTareasDe(member.id)">{{ member.id === miembroActualId ? 'Todas tus tareas' : 'Todas sus tareas' }}</v-btn>
+                                  <v-chip tag="button" type="button" variant="tonal" size="small" color="success" :aria-label="'Ver tareas completadas de ' + member.name" @click="verTareasDe(member.id, 'completada')">{{ participacion[i].completadas }}/{{ participacion[i].tareas }} completadas</v-chip>
+                                </div>
+                                <v-progress-linear
+                                  :model-value="participacion[i].porcentaje"
+                                  :color="participacion[i].porcentaje === 100 ? 'success' : 'primary'"
+                                  :aria-label="participacion[i].completadas + ' de ' + participacion[i].tareas + ' tareas completadas de ' + member.name"
+                                  height="6"
+                                  rounded
+                                  class="mt-1"
+                                >
+                                </v-progress-linear>
+                                <div v-if="participacion[i].tareas" class="d-flex flex-wrap ga-1 mt-2">
+                                  <v-chip v-if="participacion[i].pendientes" tag="button" type="button" size="small" variant="tonal" color="secondary" :aria-label="'Ver tareas pendientes de ' + member.name" @click="verTareasDe(member.id, 'pendiente')">
+                                    {{ participacion[i].pendientes }} pendiente{{ participacion[i].pendientes === 1 ? '' : 's' }}
+                                  </v-chip>
+                                  <v-chip v-if="participacion[i].enProceso" tag="button" type="button" size="small" variant="tonal" color="primary" :aria-label="'Ver tareas en proceso de ' + member.name" @click="verTareasDe(member.id, 'en_proceso')">
+                                    {{ participacion[i].enProceso }} en proceso
+                                  </v-chip>
+                                  <v-chip v-if="participacion[i].bloqueadas" tag="button" type="button" size="small" variant="tonal" color="error" :aria-label="'Ver tareas bloqueadas de ' + member.name" @click="verTareasDe(member.id, 'bloqueada')">
+                                    {{ participacion[i].bloqueadas }} bloqueada{{ participacion[i].bloqueadas === 1 ? '' : 's' }}
+                                  </v-chip>
+                                </div>
+                              </v-col>
+                            </v-row>
+                          </v-col>
+                          <v-col cols="4" md="2" class="d-flex justify-end order-2 order-md-3">
+                            <v-btn
+                              width="36"
+                              height="36"
+                              icon="mdi-pencil-outline"
+                              variant="text"
+                              color="secondary"
+                              :aria-label="'Editar a ' + member.name"
+                              title="Editar miembro"
+                              @click="abrirMiembro(member)"
+                            >
+                            </v-btn>
+                            <v-btn
+                              width="36"
+                              height="36"
+                              :icon="member.active ? 'mdi-account-off-outline' : 'mdi-account-check-outline'"
+                              variant="text"
+                              color="secondary"
+                              :aria-label="(member.active ? 'Desactivar a ' : 'Activar a ') + member.name"
+                              :title="member.active ? 'Desactivar miembro' : 'Activar miembro'"
+                              @click="cambiarActividadMiembro(member)"
+                            >
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                      </div>
+                      <div class="pa-3 bg-surface-light border-t">
+                        <div class="d-flex align-center justify-space-between ga-3 mb-2">
+                          <h3 class="text-body-2 font-weight-medium">Progreso de tareas</h3>
+                          <span class="text-body-2">{{ porcentajeCompletado }} %</span>
+                        </div>
+                        <v-progress-linear :model-value="porcentajeCompletado" color="primary" height="4" rounded aria-label="Progreso de tareas"></v-progress-linear>
+                        <p class="text-caption text-medium-emphasis mt-2">{{ tareasCompletadas }} de {{ cuaderno.tasks.length }} tareas completadas</p>
+                      </div>
+                      <p class="text-caption text-medium-emphasis pa-3 border-t">
+                        Las participaciones cuentan las entradas de cada persona; en las copias antiguas solo consta la autoría. Las tareas compartidas cuentan para cada responsable. Estas cifras no valoran la calidad del trabajo.
+                      </p>
+                    </v-sheet>
+                  </section>
+                  <section id="proyecto" v-show="apartadoActual === 'proyecto'" aria-labelledby="section-title">
+                    <v-card border rounded="lg" elevation="0" class="h-100">
+                      <dl class="pa-4 text-body-2 text-break">
+                        <dt class="text-caption text-medium-emphasis">Proyecto</dt>
+                        <dd class="font-weight-medium mb-3">{{ cuaderno.project.name || 'Sin completar' }}</dd>
+                        <dt class="text-caption text-medium-emphasis">Asignatura</dt>
+                        <dd class="mb-3">{{ cuaderno.project.course || 'Sin completar' }}</dd>
+                        <dt class="text-caption text-medium-emphasis">Profesor/a</dt>
+                        <dd>{{ cuaderno.project.teacher || 'Sin completar' }}</dd>
+                        <template v-if="cuaderno.project.description">
+                          <dt class="text-caption text-medium-emphasis mt-3">Objetivo</dt>
+                          <dd>
+                            <p v-for="(line, i) in cuaderno.project.description.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                          </dd>
+                        </template>
+                      </dl>
+                    </v-card>
+                  </section>
+                  <!-- Diario: cada entrada tiene una cabecera y un cuerpo diferenciados. -->
+                  <section id="diario" tabindex="-1" v-show="apartadoActual === 'diario'" aria-labelledby="section-title">
+                    <v-sheet border rounded="lg" color="surface-light" class="overflow-hidden">
+                      <form role="search" class="pa-3 border-b bg-surface" @submit.prevent>
+                        <v-row dense>
+                          <v-col cols="12" md="6">
+                            <v-text-field id="entry-search" v-model="filtroDiario.texto" label="Buscar en el diario" prepend-inner-icon="mdi-magnify" hide-details></v-text-field>
+                          </v-col>
+                          <v-col cols="6" md="3">
+                            <v-select id="entry-filter-author" v-model="filtroDiario.autor" :items="autoresFiltro" label="Autoría" hide-details></v-select>
+                          </v-col>
+                          <v-col cols="6" md="3">
+                            <v-select id="entry-filter-type" v-model="filtroDiario.actividad" :items="actividadesFiltro" label="Actividad" hide-details></v-select>
+                          </v-col>
+                        </v-row>
+                        <div v-if="filtroDiario.texto || filtroDiario.autor || filtroDiario.actividad" class="d-flex align-center justify-space-between mt-1">
+                          <span class="text-caption text-medium-emphasis" aria-live="polite">{{ entradasFiltradas.length }} resultados</span>
+                          <v-btn variant="text" color="secondary" prepend-icon="mdi-filter-remove-outline" @click="limpiarFiltrosDiario">Limpiar filtros</v-btn>
+                        </div>
+                      </form>
+                      <!-- El diario se lee por días. La línea une las anotaciones, no tareas ni fichas de formulario. -->
+                      <section v-for="dia in diarioPorFecha" :key="dia.fecha" class="ma-2 ma-sm-3 border rounded-lg overflow-hidden bg-surface" :aria-label="dia.fecha">
+                        <div class="d-flex align-center justify-space-between ga-2 px-4 py-2 border-b bg-surface-light">
+                          <h3 class="text-subtitle-2 font-weight-bold">{{ dia.fecha }}</h3>
+                          <span class="text-caption text-medium-emphasis">{{ dia.entradas.length }} entrada{{ dia.entradas.length === 1 ? '' : 's' }}</span>
+                        </div>
+                        <v-timeline side="end" align="start" density="compact" truncate-line="both" class="pa-2 pa-sm-4">
+                          <v-timeline-item v-for="entry in dia.entradas" :key="entry.id" dot-color="primary" :size="$vuetify.display.xs ? 8 : 12" width="100%" fill-dot>
+                            <article :aria-labelledby="'entry-heading-' + entry.id" class="pb-2">
+                              <div class="d-flex flex-wrap align-start justify-space-between ga-2 mb-2">
+                                <div class="text-break">
+                                  <p class="text-caption text-medium-emphasis">
+                                    <time :datetime="entry.at" class="font-weight-bold text-primary">{{ mostrarHora(entry.at) }}</time>
+                                    · {{ nombreMiembro(entry.authorId) }} · {{ tiposActividad[entry.type] }}
+                                  </p>
+                                  <h4 :id="'entry-heading-' + entry.id" class="text-subtitle-1 font-weight-bold mt-1">{{ entry.title }}</h4>
+                                </div>
+                                <div class="d-flex flex-shrink-0">
+                                  <v-btn
+                                    width="36"
+                                    height="36"
+                                    icon="mdi-pencil-outline"
+                                    variant="text"
+                                    color="secondary"
+                                    :aria-label="'Editar ' + entry.title"
+                                    title="Editar entrada"
+                                    @click="abrirEntrada(entry)"
+                                  >
+                                  </v-btn>
+                                  <v-btn
+                                    width="36"
+                                    height="36"
+                                    icon="mdi-delete-outline"
+                                    variant="text"
+                                    color="secondary"
+                                    :aria-label="'Eliminar ' + entry.title"
+                                    title="Eliminar entrada"
+                                    @click="eliminarEntrada(entry)"
+                                  >
+                                  </v-btn>
+                                </div>
+                              </div>
+                              <!-- Todo el contenido sigue un único orden de lectura; no hay columnas paralelas. -->
+                              <v-sheet max-width="900" color="transparent" class="text-body-2 text-break">
+                                <p v-for="(line, i) in entry.description.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                                <div v-if="entry.decisions" class="mt-3 ps-3 border-s">
+                                  <h5 class="text-caption font-weight-bold text-medium-emphasis mb-1">Decisiones y justificación</h5>
+                                  <p v-for="(line, i) in entry.decisions.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                                </div>
+                                <div v-if="entry.results" class="mt-3 ps-3 border-s">
+                                  <h5 class="text-caption font-weight-bold text-medium-emphasis mb-1">Resultados</h5>
+                                  <p v-for="(line, i) in entry.results.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                                </div>
+                                <div v-if="entry.contributions?.length" class="mt-3">
+                                  <h5 class="text-caption font-weight-bold text-medium-emphasis mb-1">Participantes y aportaciones</h5>
+                                  <div v-for="aportacion in entry.contributions" :key="aportacion.memberId" class="mb-2">
+                                    <p class="font-weight-medium">{{ nombreMiembro(aportacion.memberId) }}</p>
+                                    <p v-for="(line, i) in aportacion.description.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                                  </div>
+                                </div>
+                                <div v-if="entry.evidence?.length" class="mt-3">
+                                  <h5 class="text-caption font-weight-bold text-medium-emphasis mb-1">Evidencias</h5>
+                                  <ul class="ps-4">
+                                    <li v-for="(evidencia, i) in entry.evidence" :key="i">
+                                      <a :href="evidencia.url" target="_blank" rel="noopener noreferrer" class="text-primary text-break">{{ evidencia.title || evidencia.url }} <v-icon icon="mdi-open-in-new" size="14" aria-label="Abre otra pestaña"></v-icon></a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </v-sheet>
+                            </article>
+                          </v-timeline-item>
+                        </v-timeline>
+                      </section>
+                      <v-sheet v-if="!entradasFiltradas.length" border rounded="sm" class="pa-4 text-center">
+                        <v-icon icon="mdi-notebook-outline" size="32" color="secondary" class="mb-2"></v-icon>
+                        <p class="text-body-2">
+                          {{ cuaderno.entries.length ? 'No hay entradas que coincidan con estos filtros.' : 'Todavía no hay entradas. Registra el primer trabajo del equipo.' }}
+                        </p>
+                      </v-sheet>
+                      <!-- Los tres paginadores permanecen visibles incluso con una sola página. -->
+                      <div class="d-flex flex-wrap align-center justify-space-between ga-2 border-t px-3 py-1 bg-surface-light">
+                        <p class="text-caption text-medium-emphasis" aria-live="polite">
+                          {{ diarioPaginado.desde }}–{{ diarioPaginado.hasta }} de {{ diarioPaginado.total }} entradas · Página {{ diarioPaginado.pagina }} de {{ diarioPaginado.paginas }}
+                        </p>
+                        <v-pagination
+                          v-model="paginaDiario"
+                          @update:model-value="irAlInicio('diario')"
+                          :length="diarioPaginado.paginas"
+                          :total-visible="$vuetify.display.xs ? 1 : 5"
+                          show-first-last-page
+                          aria-label="Páginas del diario"
+                        >
+                        </v-pagination>
+                      </div>
+                    </v-sheet>
+                  </section>
+                  <!-- Tareas: filas alineadas en escritorio; estado y acciones permanecen visibles en móvil. -->
+                  <!-- Cada tarea separa trabajo, estado y planificación. El menú de estado guarda directamente. -->
+                  <section id="tareas" tabindex="-1" v-show="apartadoActual === 'tareas'" aria-labelledby="section-title">
+                    <v-alert v-if="tareasSinMotivo.length" type="warning" variant="tonal" density="compact" class="mb-3">
+                      Esta copia contiene {{ tareasSinMotivo.length }} tarea{{ tareasSinMotivo.length === 1 ? '' : 's' }} bloqueada{{ tareasSinMotivo.length === 1 ? '' : 's' }} sin motivo. Usa «Completar motivo» en cada tarea para indicarlo.
+                      <v-btn variant="text" size="small" @click="filtroTareas = { estado: 'bloqueada', responsable: '' }">Ver bloqueadas</v-btn>
+                    </v-alert>
+                    <v-sheet border rounded="lg" color="surface-light" class="overflow-hidden">
+                      <div class="pa-3 border-b bg-surface">
+                        <v-row dense>
+                          <v-col cols="12" sm="6">
+                            <v-select v-model="filtroTareas.estado" :items="[{ title: 'Todos los estados', value: '' }, ...opcionesEstado]" label="Estado"></v-select>
+                          </v-col>
+                          <v-col cols="12" sm="6">
+                            <v-select v-model="filtroTareas.responsable" :items="autoresFiltro" label="Responsable"></v-select>
+                          </v-col>
+                        </v-row>
+                        <div v-if="filtroTareas.estado || filtroTareas.responsable" class="d-flex flex-wrap align-center justify-space-between ga-2 mt-1">
+                          <span class="text-caption text-medium-emphasis">{{ tareasOrdenadas.length }} de {{ cuaderno.tasks.length }} tareas</span>
+                          <v-btn variant="text" prepend-icon="mdi-filter-remove-outline" @click="filtroTareas = { estado: '', responsable: '' }">Limpiar filtros</v-btn>
+                        </div>
+                      </div>
+                      <article
+                        v-for="task in tareasPaginadas.elementos"
+                        :key="task.id"
+                        class="border rounded-lg overflow-hidden ma-3 bg-surface"
+                        :aria-labelledby="'task-heading-' + task.id"
+                      >
+                        <v-row dense align="start" class="pa-3 ma-0">
+                          <v-col cols="12" md="8" class="text-break">
+                            <h3 :id="'task-heading-' + task.id" class="text-subtitle-1 font-weight-bold">{{ task.title }}</h3>
+                            <div v-if="task.description" class="text-body-2 mt-1">
+                              <p v-for="(line, i) in task.description.split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                            </div>
+                          </v-col>
+                          <v-col cols="12" md="4">
+                            <div class="d-flex align-center justify-space-between justify-md-end ga-2">
+                              <v-menu>
+                                <template v-slot:activator="{ props }">
+                                  <v-btn
+                                    v-bind="props"
+                                    variant="tonal"
+                                    class="px-2"
+                                    :color="coloresEstado[task.status]"
+                                    :prepend-icon="iconosEstado[task.status]"
+                                    append-icon="mdi-chevron-down"
+                                    :aria-label="'Cambiar estado de ' + task.title + ': ' + estadosTarea[task.status]"
+                                    :disabled="archivoEnCurso"
+                                  >
+                                    {{ estadosTarea[task.status] }}
+                                  </v-btn>
+                                </template>
+                                <v-list density="compact" aria-label="Estado de la tarea">
+                                  <v-list-item
+                                    v-for="(label, estado) in estadosTarea"
+                                    :key="estado"
+                                    :title="label"
+                                    :prepend-icon="iconosEstado[estado]"
+                                    :active="task.status === estado"
+                                    :color="coloresEstado[estado]"
+                                    @click="cambiarEstadoTarea(task, estado)"
+                                  >
+                                  </v-list-item>
+                                </v-list>
+                              </v-menu>
+                              <div class="d-flex">
+                                <v-btn
+                                  width="36"
+                                  height="36"
+                                  icon="mdi-pencil-outline"
+                                  variant="text"
+                                  color="secondary"
+                                  :aria-label="'Editar ' + task.title"
+                                  title="Editar tarea"
+                                  @click="abrirTarea(task)"
+                                >
+                                </v-btn>
+                                <v-btn
+                                  width="36"
+                                  height="36"
+                                  icon="mdi-delete-outline"
+                                  variant="text"
+                                  color="secondary"
+                                  :aria-label="'Eliminar ' + task.title"
+                                  title="Eliminar tarea"
+                                  @click="eliminarTarea(task)"
+                                >
+                                </v-btn>
+                              </div>
+                            </div>
+                          </v-col>
+                        </v-row>
+                        <div v-if="task.status === 'bloqueada'" class="px-4 pb-3 text-body-2 text-break">
+                          <p class="text-error font-weight-medium mb-1">Motivo del bloqueo</p>
+                          <p v-for="(line, i) in (task.blockReason || 'Pendiente de completar en esta copia antigua.').split('\n')" :key="i">{{ line || '\u00a0' }}</p>
+                          <v-btn v-if="!task.blockReason" variant="text" size="small" class="mt-1" @click="abrirTarea(task, true)">Completar motivo</v-btn>
+                        </div>
+                        <div class="d-flex flex-wrap align-start ga-4 px-4 py-2 border-t bg-surface-light">
+                          <div class="text-break">
+                            <p class="text-caption text-medium-emphasis">Responsables</p>
+                            <p class="text-body-2">
+                              <v-icon icon="mdi-account-multiple-outline" size="16" class="me-1"></v-icon>
+                              {{ nombresResponsables(task) }}
+                            </p>
+                          </div>
+                          <div>
+                            <p class="text-caption text-medium-emphasis">Fecha límite</p>
+                            <p class="text-body-2">
+                              <v-icon icon="mdi-calendar-outline" size="16" class="me-1"></v-icon>
+                              {{ mostrarFecha(task.due) }}
+                              <v-chip v-if="estaVencida(task)" color="error" size="x-small" variant="tonal" class="ms-1">Vencida</v-chip>
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                      <v-sheet v-if="!tareasOrdenadas.length" border rounded="sm" class="pa-4 text-center">
+                        <v-icon icon="mdi-clipboard-check-outline" size="32" color="secondary" class="mb-2"></v-icon>
+                        <p class="text-body-2">{{ cuaderno.tasks.length ? 'No hay tareas que coincidan con estos filtros.' : 'Todavía no hay tareas. Añade el siguiente trabajo del equipo.' }}</p>
+                      </v-sheet>
+                      <div class="d-flex flex-wrap align-center justify-space-between ga-2 border-t px-3 py-1 bg-surface-light">
+                        <p class="text-caption text-medium-emphasis" aria-live="polite">
+                          {{ tareasPaginadas.desde }}–{{ tareasPaginadas.hasta }} de {{ tareasPaginadas.total }} tareas · Página {{ tareasPaginadas.pagina }} de {{ tareasPaginadas.paginas }}
+                        </p>
+                        <v-pagination
+                          v-model="paginaTareas"
+                          @update:model-value="irAlInicio('tareas')"
+                          :length="tareasPaginadas.paginas"
+                          :total-visible="$vuetify.display.xs ? 1 : 5"
+                          show-first-last-page
+                          aria-label="Páginas de tareas"
+                        >
+                        </v-pagination>
+                      </div>
+                    </v-sheet>
+                  </section>
+                  <!-- Seguimiento: las cifras se calculan; solo el historial se conserva en el JSON. -->
+                  <section id="seguimiento" tabindex="-1" v-show="apartadoActual === 'seguimiento'" aria-labelledby="section-title">
+                    <!-- Estos filtros se aplican tanto a la curva como al listado situado debajo. -->
+                    <v-sheet border rounded="lg" class="overflow-hidden mb-3">
+                      <v-row dense align="center" class="px-4 py-3 ma-0">
+                        <v-col cols="12" md="6">
+                          <h3 id="activity-chart-title" class="text-subtitle-2 font-weight-bold">Actividad y cambios registrados</h3>
+                          <p class="text-caption text-medium-emphasis">El mes y la persona seleccionados filtran el gráfico y el historial.</p>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="3">
+                          <v-select :model-value="graficoHistorial.mes" :items="mesesHistorial" label="Mes" @update:model-value="mesHistorial = $event"></v-select>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="3">
+                          <v-select :model-value="graficoHistorial.miembroId" :items="graficoHistorial.opcionesMiembro" label="Persona" @update:model-value="miembroHistorial = $event"></v-select>
+                        </v-col>
+                      </v-row>
+                      <v-divider></v-divider>
+                      <v-row no-gutters>
+                        <v-col cols="12" md="8" class="pa-4">
+                          <div class="d-flex flex-wrap align-center justify-space-between ga-3 mb-3">
+                            <div>
+                              <h4 class="text-body-2 font-weight-medium">Cambios diarios</h4>
+                              <p class="text-caption text-medium-emphasis">{{ graficoHistorial.totalSeleccion }} cambios · {{ graficoHistorial.diasActivos }} días con actividad</p>
+                            </div>
+                          </div>
+                          <!-- SVG nativo: .camel conserva viewBox al interpretar el HTML. No añadimos bibliotecas. -->
+                          <svg
+                            :view-box.camel="'0 0 ' + graficoHistorial.ancho + ' 190'"
+                            class="d-block w-100"
+                            role="img"
+                            aria-labelledby="activity-chart-title activity-chart-description"
+                          >
+                            <desc id="activity-chart-description">{{ graficoHistorial.resumen }}</desc>
+                            <g v-for="nivel in graficoHistorial.niveles" :key="nivel">
+                              <line x1="26" :x2="graficoHistorial.ancho - 12" :y1="145 - nivel / graficoHistorial.maximo * 120" :y2="145 - nivel / graficoHistorial.maximo * 120" stroke="currentColor" opacity="0.12"></line>
+                              <text x="18" :y="149 - nivel / graficoHistorial.maximo * 120" text-anchor="end" fill="currentColor" font-size="11">{{ nivel }}</text>
+                            </g>
+                            <text x="26" y="12" fill="currentColor" font-size="11">Cambios</text>
+                            <path :d="graficoHistorial.area" fill="rgb(var(--v-theme-primary))" opacity="0.08"></path>
+                            <polyline :points="graficoHistorial.puntos" fill="none" stroke="rgb(var(--v-theme-primary))" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"></polyline>
+                            <g v-for="dia in graficoHistorial.dias" :key="dia.numero">
+                              <title>{{ dia.detalle }}</title>
+                              <circle :cx="dia.x" :cy="dia.y" :r="dia.cantidad ? 3 : 2" fill="rgb(var(--v-theme-primary))"></circle>
+                              <text v-if="dia.etiqueta" :x="dia.x" y="164" text-anchor="middle" fill="currentColor" font-size="11">{{ dia.numero }}</text>
+                            </g>
+                            <text :x="graficoHistorial.ancho / 2" y="185" text-anchor="middle" fill="currentColor" font-size="11">Día del mes</text>
+                          </svg>
+                          <p v-if="!graficoHistorial.totalSeleccion" class="text-caption text-medium-emphasis mt-2">Sin cambios registrados para esta selección.</p>
+                        </v-col>
+                        <v-col cols="12" md="4" class="pa-4 bg-surface-light" :class="$vuetify.display.mdAndUp ? 'border-s' : 'border-t'">
+                          <h4 class="text-body-2 font-weight-medium">Reparto del mes</h4>
+                          <p class="text-caption text-medium-emphasis mb-3">{{ graficoHistorial.total }} cambios del equipo</p>
+                          <div v-for="miembro in graficoHistorial.miembros" :key="miembro.id" class="mb-3">
+                            <div class="d-flex align-center ga-2 text-body-2 mb-1">
+                              <span class="text-break">{{ miembro.nombre }}</span>
+                              <span class="font-weight-medium ms-auto text-no-wrap">{{ miembro.total }}</span>
+                              <span class="text-caption text-medium-emphasis text-no-wrap">{{ miembro.porcentaje }} %</span>
+                            </div>
+                            <v-progress-linear :model-value="miembro.porcentaje" color="primary" height="4" rounded :aria-label="miembro.nombre + ': ' + miembro.total + ' cambios en el mes'"></v-progress-linear>
+                          </div>
+                          <p v-if="!graficoHistorial.miembros.length" class="text-caption text-medium-emphasis">Todavía no hay miembros en el equipo.</p>
+                        </v-col>
+                      </v-row>
+                      <p class="text-caption text-medium-emphasis px-4 py-2 border-t">Se cuentan las modificaciones guardadas, no la calidad de las aportaciones.</p>
+                    </v-sheet>
+                    <v-sheet border rounded="lg" class="overflow-hidden">
+                      <v-expansion-panels variant="accordion" flat multiple>
+                        <v-expansion-panel v-for="event in historialPaginado.elementos" :key="event.id" :value="event.id" elevation="0" class="border-b">
+                          <v-expansion-panel-title class="px-3" min-height="52">
+                            <div class="text-break">
+                              <p class="text-body-2 font-weight-medium">
+                                {{ event.action }}
+                                <span v-if="event.label" class="font-weight-regular">· {{ event.label }}</span>
+                              </p>
+                              <p class="text-caption text-medium-emphasis mt-1">{{ event.actorName }} · {{ mostrarFechaHora(event.at) }}</p>
+                            </div>
+                          </v-expansion-panel-title>
+                          <v-expansion-panel-text>
+                            <!-- Cada campo conserva su etiqueta. Una alta no tiene un valor anterior. -->
+                            <div v-for="(change, i) in event.changes" :key="i" class="py-2 border-t text-body-2 text-break">
+                              <v-row dense>
+                                <v-col cols="12" sm="4">
+                                  <h4 class="text-body-2 font-weight-medium">{{ change.field }}</h4>
+                                </v-col>
+                                <v-col v-if="!event.action.startsWith('Alta de ')" cols="12" :sm="event.action.startsWith('Eliminación de ') ? 8 : 4">
+                                  <p class="text-caption text-medium-emphasis mb-1">{{ event.action.startsWith('Eliminación de ') ? 'Valor eliminado' : 'Antes' }}</p>
+                                  <p v-for="(line, j) in (change.before || '—').split('\n')" :key="j">{{ line || '\u00a0' }}</p>
+                                </v-col>
+                                <v-col v-if="!event.action.startsWith('Eliminación de ')" cols="12" :sm="event.action.startsWith('Alta de ') ? 8 : 4">
+                                  <p v-if="!event.action.startsWith('Alta de ')" class="text-caption text-medium-emphasis mb-1">Después</p>
+                                  <p v-for="(line, j) in (change.after || '—').split('\n')" :key="j">{{ line || '\u00a0' }}</p>
+                                </v-col>
+                              </v-row>
+                            </div>
+                          </v-expansion-panel-text>
+                        </v-expansion-panel>
+                      </v-expansion-panels>
+                      <p v-if="!historialReciente.length" class="text-body-2 text-medium-emphasis pa-4">{{ cuaderno.history.length ? 'No hay cambios para el mes y la persona seleccionados.' : 'Aquí aparecerán los cambios cuando guardes el primer dato.' }}</p>
+                      <div class="d-flex flex-wrap align-center justify-space-between ga-2 border-t px-3 py-1 bg-surface-light">
+                        <p class="text-caption text-medium-emphasis" aria-live="polite">
+                          {{ historialPaginado.desde }}–{{ historialPaginado.hasta }} de {{ historialPaginado.total }} cambios · Página {{ historialPaginado.pagina }} de {{ historialPaginado.paginas }}
+                        </p>
+                        <v-pagination
+                          v-model="paginaHistorial"
+                          @update:model-value="irAlInicio('seguimiento')"
+                          :length="historialPaginado.paginas"
+                          :total-visible="$vuetify.display.xs ? 1 : 5"
+                          show-first-last-page
+                          aria-label="Páginas del historial"
+                        >
+                        </v-pagination>
+                      </div>
+                    </v-sheet>
+                  </section>
+                </div>
+                <!-- El pie y las copias quedan disponibles también antes de elegir usuario. -->
+                <v-divider></v-divider>
+                <footer>
+                  <div class="pa-3">
+                    <v-row align="center" dense>
+                      <v-col cols="12" md="8">
+                        <div class="d-flex flex-wrap align-center ga-3 text-body-2 text-medium-emphasis">
+                          <span class="d-inline-flex align-center ga-2" role="status">
+                            <v-icon :icon="estadoGuardado.icono" :color="estadoGuardado.color" size="18"></v-icon>
+                            {{ estadoGuardado.texto }}
+                          </span>
+                          <v-btn
+                            v-if="carpetaCuaderno"
+                            variant="text"
+                            color="secondary"
+                            prepend-icon="mdi-folder-outline"
+                            append-icon="mdi-chevron-down"
+                            class="px-2"
+                            max-width="100%"
+                            :title="'Cambiar carpeta: ' + carpetaCuaderno.name"
+                            :aria-label="'Cambiar carpeta: ' + carpetaCuaderno.name"
+                            :disabled="archivoEnCurso || !carpetaPreparada"
+                            @click="cambiarCarpetaCuaderno"
+                          >
+                            <span class="text-truncate">Carpeta: {{ carpetaCuaderno.name }}</span>
+                          </v-btn>
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="4">
+                        <div class="d-flex flex-wrap justify-end ga-2">
+                          <v-btn
+                            v-if="soportaCarpetas && !carpetaCuaderno"
+                            variant="text"
+                            color="secondary"
+                            prepend-icon="mdi-folder-outline"
+                            :disabled="archivoEnCurso || !carpetaPreparada"
+                            @click="cambiarCarpetaCuaderno"
+                          >
+                            Elegir carpeta
+                          </v-btn>
+                          <v-btn
+                            v-if="carpetaCuaderno && (contenidoEnCarpeta === null || hayConflictoArchivo)"
+                            variant="tonal"
+                            :disabled="archivoEnCurso || !carpetaPreparada"
+                            @click="abrirCarpetaRecordada"
+                          >
+                            Abrir cuaderno
+                          </v-btn>
+                          <v-btn
+                            variant="text"
+                            color="secondary"
+                            :append-icon="mostrarCopias ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                            :aria-expanded="mostrarCopias"
+                            aria-controls="copias"
+                            :disabled="archivoEnCurso"
+                            @click="mostrarCopias = !mostrarCopias"
+                          >
+                            Copias
+                          </v-btn>
+                        </div>
+                      </v-col>
+                    </v-row>
+                    <p v-if="!soportaCarpetas" class="text-caption text-medium-emphasis mt-2">Usa Copias para conservar o compartir el cuaderno en este navegador.</p>
+                    <input ref="file" type="file" accept=".json,application/json" hidden @change="leerArchivoImportado">
+                  </div>
+                  <!-- Cerrar estos avisos no elimina ningún bloqueo ni modifica los datos. -->
+                  <div v-if="avisoAlmacenamiento || avisoCarpeta" class="px-3 px-sm-4 pb-3">
+                    <v-alert v-if="avisoAlmacenamiento" type="warning" variant="tonal" closable class="mb-2" @click:close="avisoAlmacenamiento = ''">
+                      {{ avisoAlmacenamiento }}
+                    </v-alert>
+                    <v-alert v-if="avisoCarpeta" type="warning" variant="tonal" closable @click:close="avisoCarpeta = ''">{{ avisoCarpeta }}</v-alert>
+                  </div>
+                  <!-- El guardado habitual ya se indica en el estado del pie; aquí quedan incidencias y acciones puntuales. -->
+                  <v-alert
+                    v-if="mensaje && esError && !edicionAbierta"
+                    type="error"
+                    variant="tonal"
+                    density="compact"
+                    closable
+                    role="alert"
+                    class="mx-3 mb-3"
+                    @click:close="mensaje = ''"
+                  >
+                    {{ mensaje }}
+                  </v-alert>
+                  <div
+                    v-if="mensaje && !esError && !edicionAbierta"
+                    class="d-flex align-center justify-space-between ga-2 px-3 pb-2 text-caption text-medium-emphasis"
+                    role="status"
+                  >
+                    <span>{{ mensaje }}</span>
+                    <v-btn width="36" height="36" icon="mdi-close" variant="text" color="secondary" aria-label="Cerrar aviso" @click="mensaje = ''"></v-btn>
+                  </div>
+                  <!-- El panel se despliega debajo de la barra, nunca por encima del botón que lo abre. -->
+                  <v-expand-transition>
+                    <div v-show="mostrarCopias" id="copias" class="border-t pa-3">
+                      <v-row align="center" dense class="mb-3">
+                        <v-col cols="12" md="6">
+                          <h2 class="text-subtitle-2">Copia de hoy</h2>
+                          <p class="text-body-2 text-medium-emphasis">
+                            {{ carpetaCuaderno && contenidoEnCarpeta !== null ? 'Todo el cuaderno acumulado. Se actualiza al guardar cada cambio.' : 'Descarga el cuaderno completo con la fecha de hoy.' }}
+                          </p>
+                        </v-col>
+                        <v-col cols="12" md="6">
+                          <div class="d-flex flex-wrap justify-end ga-2">
+                            <v-btn
+                              v-if="carpetaCuaderno && contenidoEnCarpeta !== null"
+                              variant="outlined"
+                              color="secondary"
+                              prepend-icon="mdi-folder-outline"
+                              :disabled="archivoEnCurso || guardadoBloqueado"
+                              @click="guardarCopiaDelDia"
+                            >
+                              Guardar en carpeta
+                            </v-btn>
+                            <v-btn variant="outlined" color="secondary" prepend-icon="mdi-download" :disabled="archivoEnCurso" @click="descargarCuaderno">Descargar copia</v-btn>
+                          </div>
+                        </v-col>
+                      </v-row>
+                      <v-divider class="mb-3"></v-divider>
+                      <v-row align="center" dense>
+                        <v-col cols="12" md="6">
+                          <h2 class="text-subtitle-2">Restaurar cuaderno</h2>
+                          <p class="text-body-2 text-medium-emphasis">Antes de reemplazar el cuaderno se conservará una copia de recuperación {{ carpetaCuaderno ? 'en la carpeta' : 'en este navegador' }}.</p>
+                        </v-col>
+                        <v-col cols="12" md="6" class="text-right">
+                          <v-btn
+                            variant="outlined"
+                            color="secondary"
+                            prepend-icon="mdi-restore"
+                            :disabled="archivoEnCurso || !carpetaPreparada || (!usuarioConfirmado && cuaderno.members.length > 0)"
+                            @click="seleccionarArchivoImportacion"
+                          >
+                            Restaurar copia
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                      <div v-if="copiaRecuperacion" class="d-flex flex-wrap align-center justify-space-between ga-2 border-t mt-3 pt-3">
+                        <div>
+                          <h3 class="text-subtitle-2">Última copia local previa a una restauración</h3>
+                          <p class="text-caption text-medium-emphasis">{{ copiaRecuperacion.nombre }}</p>
+                        </div>
+                        <v-btn variant="text" prepend-icon="mdi-download" :disabled="archivoEnCurso" @click="descargarArchivo(copiaRecuperacion.contenido, copiaRecuperacion.nombre)">Descargar recuperación</v-btn>
+                      </div>
+                    </div>
+                  </v-expand-transition>
+                  <!-- Importar primero muestra el resumen. Solo Restaurar y reemplazar confirma la escritura. -->
+                  <div v-if="cuadernoImportado && (usuarioConfirmado || !cuaderno.members.length)" class="border-t pa-3" :inert="archivoEnCurso">
+                    <h2 class="text-subtitle-1 font-weight-bold mb-2">Restaurar {{ cuadernoImportado.project.name || 'cuaderno sin nombre' }}</h2>
+                    <p class="text-body-2 mb-3">
+                      {{ cuadernoImportado.members.length }} miembros · {{ cuadernoImportado.entries.length }} entradas · {{ cuadernoImportado.tasks.length }} tareas. Sustituirá el cuaderno actual.
+                    </p>
+                    <v-form @submit.prevent="validarYGuardar($event, confirmarImportacion)">
+                      <v-select
+                        id="import-actor"
+                        v-model="responsableImportacionId"
+                        :items="responsablesImportacion"
+                        item-title="name"
+                        item-value="id"
+                        label="Quién realiza la importación"
+                        :disabled="usuarioConfirmado"
+                        :rules="[reglas.obligatorio]"
+                        class="mb-3"
+                      >
+                      </v-select>
+                      <div class="d-flex flex-wrap ga-2">
+                        <v-btn type="submit" :loading="archivoEnCurso" prepend-icon="mdi-restore">Restaurar y reemplazar</v-btn>
+                        <v-btn variant="text" color="secondary" @click="cancelarImportacion">Cancelar</v-btn>
+                      </div>
+                    </v-form>
+                  </div>
+                </footer>
+              </v-card>
+            </v-sheet>
+          </v-container>
+        </v-main>
+        <!--
+          Panel de edición: permanece montado para que Vuetify anime su entrada y salida.
+          Cerrado queda inactivo y oculto para lectores de pantalla; los borradores se gestionan aparte.
+        -->
+        <v-navigation-drawer
+          :model-value="edicionAbierta"
+          :inert="!edicionAbierta"
+          location="right"
+          temporary
+          touchless
+          disable-resize-watcher
+          disable-route-watcher
+          :width="Math.min(560, $vuetify.display.width)"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="tituloEdicion"
+          @update:model-value="cerrarEdicion"
+          @keydown.esc.stop.prevent="cerrarEdicion(false)"
+        >
+          <div class="d-flex flex-column h-100">
+            <div class="d-flex align-center justify-space-between ga-2 px-4 py-3 border-b flex-shrink-0">
+              <h2 class="text-h6 font-weight-medium">{{ tituloEdicion }}</h2>
+              <v-btn
+                width="36"
+                height="36"
+                icon="mdi-close"
+                variant="text"
+                color="secondary"
+                aria-label="Cerrar edición"
+                :disabled="archivoEnCurso"
+                @click="cerrarEdicion(false)"
+              >
+              </v-btn>
+            </div>
+            <v-alert
+              v-if="mensaje && esError"
+              type="error"
+              variant="tonal"
+              density="compact"
+              closable
+              role="alert"
+              class="ma-3 flex-shrink-0"
+              @click:close="mensaje = ''"
+            >
+              {{ mensaje }}
+            </v-alert>
+            <v-form :disabled="archivoEnCurso" class="d-flex flex-column flex-grow-1 overflow-hidden" v-if="formularioEntrada" @submit.prevent="validarYGuardar($event, guardarEntrada)">
+              <div class="pa-4 flex-grow-1 overflow-y-auto" :inert="archivoEnCurso" :aria-busy="archivoEnCurso">
+                <v-row dense>
+                  <v-col cols="12">
+                    <v-text-field id="entry-at" v-model="formularioEntrada.at" label="Fecha y hora" type="datetime-local" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <!-- Los miembros inactivos solo se pueden conservar en sus registros anteriores. -->
+                  <v-col cols="12">
+                    <v-select id="entry-author" v-model="formularioEntrada.authorId" :items="autoresEntrada" label="Autoría" :rules="[reglas.obligatorio]"></v-select>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-select id="entry-type" v-model="formularioEntrada.type" :items="opcionesActividad" label="Actividad"></v-select>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field id="entry-title" ref="entryTitle" v-model.trim="formularioEntrada.title" label="Título" maxlength="200" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                      id="entry-work"
+                      v-model.trim="formularioEntrada.description"
+                      label="Trabajo realizado"
+                      rows="3"
+                      auto-grow
+                      maxlength="20000"
+                      :rules="[reglas.obligatorio]"
+                    >
+                    </v-textarea>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                      id="entry-decisions"
+                      v-model.trim="formularioEntrada.decisions"
+                      label="Decisiones y justificación"
+                      rows="3"
+                      auto-grow
+                      maxlength="20000"
+                      :rules="formularioEntrada.type === 'decision' ? [reglas.obligatorio] : []"
+                    >
+                    </v-textarea>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea id="entry-results" v-model.trim="formularioEntrada.results" label="Resultados (opcional)" rows="3" auto-grow maxlength="20000"></v-textarea>
+                  </v-col>
+                  <!-- La autoría firma el registro; cada participante explica por separado su trabajo. -->
+                  <v-col cols="12">
+                    <h3 class="text-subtitle-2 mb-2 mt-3">Participantes y aportaciones</h3>
+                    <v-select id="entry-participants" v-model="participantesEntrada" :items="opcionesParticipantes" label="Quiénes han participado" multiple chips :rules="[reglas.participantes]"></v-select>
+                  </v-col>
+                  <v-col v-for="aportacion in formularioEntrada.contributions" :key="aportacion.memberId" cols="12">
+                    <v-textarea v-model.trim="aportacion.description" :label="'Aportación de ' + nombreMiembro(aportacion.memberId)" rows="2" auto-grow maxlength="20000" :rules="[reglas.obligatorio]"></v-textarea>
+                  </v-col>
+                  <v-col cols="12">
+                    <div class="d-flex flex-wrap align-center justify-space-between ga-2 mt-3 mb-2">
+                      <h3 class="text-subtitle-2">Evidencias</h3>
+                      <v-btn variant="text" size="small" prepend-icon="mdi-link-plus" @click="formularioEntrada.evidence.push({ title: '', url: '' })">Añadir enlace</v-btn>
+                    </div>
+                    <p v-if="!formularioEntrada.evidence.length" class="text-caption text-medium-emphasis">Puedes enlazar documentos o resultados del trabajo.</p>
+                    <v-sheet v-for="(evidencia, i) in formularioEntrada.evidence" :key="i" border rounded="lg" class="pa-3 mb-3">
+                      <div class="d-flex align-center justify-space-between mb-2">
+                        <span class="text-caption">Enlace {{ i + 1 }}</span>
+                        <v-btn icon="mdi-close" variant="text" width="28" height="28" :aria-label="'Quitar enlace ' + (i + 1)" @click="formularioEntrada.evidence.splice(i, 1)"></v-btn>
+                      </div>
+                      <v-text-field v-model.trim="evidencia.title" label="Nombre del documento (opcional)" maxlength="200" class="mb-3"></v-text-field>
+                      <v-text-field v-model.trim="evidencia.url" label="Enlace https://…" type="url" maxlength="2000" :rules="[reglas.obligatorio, reglas.enlace]"></v-text-field>
+                    </v-sheet>
+                  </v-col>
+                </v-row>
+              </div>
+              <div class="d-flex flex-wrap ga-2 pa-4 border-t">
+                <v-btn type="submit" prepend-icon="mdi-check" :loading="archivoEnCurso">Guardar entrada</v-btn>
+                <v-btn variant="text" color="secondary" :disabled="archivoEnCurso" @click="cancelarEntrada">Cancelar</v-btn>
+              </div>
+            </v-form>
+            <v-form :disabled="archivoEnCurso" class="d-flex flex-column flex-grow-1 overflow-hidden" v-if="formularioTarea" @submit.prevent="validarYGuardar($event, guardarTarea)">
+              <div class="pa-4 flex-grow-1 overflow-y-auto" :inert="archivoEnCurso" :aria-busy="archivoEnCurso">
+                <v-text-field
+                  id="task-title"
+                  ref="taskTitle"
+                  v-model.trim="formularioTarea.title"
+                  label="Título"
+                  maxlength="200"
+                  :rules="[reglas.obligatorio]"
+                  class="mb-3"
+                >
+                </v-text-field>
+                <v-textarea
+                  id="task-description"
+                  v-model.trim="formularioTarea.description"
+                  label="Descripción (opcional)"
+                  rows="2"
+                  auto-grow
+                  maxlength="20000"
+                  class="mb-3"
+                >
+                </v-textarea>
+                <v-select
+                  id="task-assignees"
+                  v-model="formularioTarea.assigneeIds"
+                  :items="responsablesTarea"
+                  label="Responsables"
+                  multiple
+                  chips
+                  :rules="[reglas.responsables]"
+                  class="mb-3"
+                >
+                </v-select>
+                <v-row dense>
+                  <v-col cols="12">
+                    <v-text-field id="task-due" v-model="formularioTarea.due" label="Fecha límite" type="date" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-select id="task-status" v-model="formularioTarea.status" :items="opcionesEstado" label="Estado"></v-select>
+                  </v-col>
+                  <!-- El motivo forma parte de la tarea y de su historial; nunca se guarda un bloqueo sin explicación. -->
+                  <v-col v-if="formularioTarea.status === 'bloqueada'" cols="12">
+                    <v-textarea
+                      id="task-block-reason"
+                      ref="taskBlockReason"
+                      v-model.trim="formularioTarea.blockReason"
+                      label="Motivo del bloqueo"
+                      hint="Explica qué impide avanzar y qué falta para continuar."
+                      persistent-hint
+                      rows="3"
+                      auto-grow
+                      maxlength="20000"
+                      :rules="[reglas.obligatorio]"
+                    >
+                    </v-textarea>
+                  </v-col>
+                </v-row>
+              </div>
+              <div class="d-flex flex-wrap ga-2 pa-4 border-t">
+                <v-btn type="submit" prepend-icon="mdi-check" :loading="archivoEnCurso">Guardar tarea</v-btn>
+                <v-btn variant="text" color="secondary" :disabled="archivoEnCurso" @click="cancelarTarea">Cancelar</v-btn>
+              </div>
+            </v-form>
+            <v-form :disabled="archivoEnCurso" class="d-flex flex-column flex-grow-1 overflow-hidden" v-if="formularioMiembro" @submit.prevent="validarYGuardar($event, guardarMiembro)">
+              <div class="pa-4 flex-grow-1 overflow-y-auto" :inert="archivoEnCurso" :aria-busy="archivoEnCurso">
+                <v-text-field
+                  id="member-name"
+                  ref="memberName"
+                  v-model.trim="formularioMiembro.name"
+                  label="Nombre"
+                  maxlength="200"
+                  :rules="[reglas.obligatorio]"
+                  class="mb-3"
+                >
+                </v-text-field>
+                <v-text-field id="member-role" v-model.trim="formularioMiembro.role" label="Rol" maxlength="200" :rules="[reglas.obligatorio]" class="mb-3"></v-text-field>
+                <v-text-field
+                  id="member-email"
+                  v-model.trim="formularioMiembro.email"
+                  label="Correo institucional"
+                  type="email"
+                  maxlength="200"
+                  :rules="[reglas.obligatorio, reglas.correo]"
+                  class="mb-3"
+                >
+                </v-text-field>
+              </div>
+              <div class="d-flex flex-wrap ga-2 pa-4 border-t">
+                <v-btn type="submit" :loading="archivoEnCurso">Guardar miembro</v-btn>
+                <v-btn variant="text" color="secondary" :disabled="archivoEnCurso" @click="cancelarMiembro">Cancelar</v-btn>
+              </div>
+            </v-form>
+            <v-form :disabled="archivoEnCurso" class="d-flex flex-column flex-grow-1 overflow-hidden" v-if="editarProyecto" @submit.prevent="validarYGuardar($event, guardarProyecto)">
+              <div class="pa-4 flex-grow-1 overflow-y-auto" :inert="archivoEnCurso" :aria-busy="archivoEnCurso">
+                <v-row dense>
+                  <v-col cols="12">
+                    <v-text-field id="course" ref="course" v-model.trim="formularioProyecto.course" label="Asignatura" maxlength="200" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field id="project-name" v-model.trim="formularioProyecto.name" label="Proyecto" maxlength="200" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field id="teacher" v-model.trim="formularioProyecto.teacher" label="Profesor/a" maxlength="200" :rules="[reglas.obligatorio]"></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea id="objective" v-model.trim="formularioProyecto.description" label="Objetivo (opcional)" rows="2" auto-grow maxlength="20000"></v-textarea>
+                  </v-col>
+                </v-row>
+              </div>
+              <div class="d-flex flex-wrap ga-2 pa-4 border-t">
+                <v-btn type="submit" :loading="archivoEnCurso">Guardar proyecto</v-btn>
+                <v-btn variant="text" color="secondary" :disabled="archivoEnCurso" @click="cancelarProyecto">Cancelar</v-btn>
+              </div>
+            </v-form>
+          </div>
+        </v-navigation-drawer>
+      </v-app>
+    </div>
+
+    <!-- Vue interpreta la plantilla; Vuetify registra los componentes v-*. -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/vue@3.5.44/dist/vue.global.prod.js"
+      integrity="sha384-tORx0bXmMnTC28EYQe1coaGZKSQupXQEYDBNex8xkzJ9iqUoNy9Y+VFBhVxi4kUr"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/vuetify@3.13.7/dist/vuetify.min.js"
+      integrity="sha384-vDn6yU+XR+TNmLDg/VzxTPqzsrCiXHukKgafnrfR5CUgFo0HIYWEaR3MVp+87a0z"
+      crossorigin="anonymous"
+    ></script>
+    <script id="app-js">
+      'use strict';
+
+      // 1. Opciones del cuaderno. Estas listas también alimentan los desplegables.
+      // Esta clave permite recuperar el mismo cuaderno al volver a abrir la página.
+      const CLAVE_ALMACENAMIENTO = 'cuaderno-digital.v1';
+      // La recuperación es una copia aparte; restaurar nunca la mezcla con el contenido nuevo.
+      const CLAVE_RECUPERACION = 'cuaderno-digital.recuperacion';
+
+      // Cambia las etiquetas visibles con libertad; las claves se usan en las copias JSON.
+      const TIPOS_ACTIVIDAD = {
+        reunion: 'Reunión',
+        investigacion: 'Investigación',
+        desarrollo: 'Desarrollo',
+        decision: 'Decisión',
+        resultado: 'Resultado',
+        revision: 'Revisión'
+      };
+
+      const ESTADOS_TAREA = {
+        pendiente: 'Pendiente',
+        en_proceso: 'En proceso',
+        bloqueada: 'Bloqueada',
+        completada: 'Completada'
+      };
+
+      // El historial usa estas etiquetas para que no aparezcan los nombres técnicos del JSON.
+      const NOMBRES_CAMPOS = {
+        name: 'Nombre',
+        course: 'Asignatura',
+        teacher: 'Profesor/a',
+        description: 'Descripción',
+        role: 'Rol',
+        email: 'Correo institucional',
+        active: 'Miembro activo',
+        at: 'Fecha y hora',
+        authorId: 'Autoría',
+        type: 'Actividad',
+        title: 'Título',
+        decisions: 'Decisiones y justificación',
+        results: 'Resultados',
+        assigneeIds: 'Responsables',
+        due: 'Fecha límite',
+        status: 'Estado',
+        blockReason: 'Motivo del bloqueo',
+        contributions: 'Participantes y aportaciones',
+        evidence: 'Evidencias'
+      };
+
+      // Si falla una biblioteca, mostramos un aviso en lugar de una pantalla vacía.
+      if (!window.Vue || !window.Vuetify) {
+        const aviso = document.getElementById('loading');
+        aviso.textContent = 'No se han podido cargar Vue y Vuetify. Comprueba la conexión y recarga la página.';
+      } else {
+        // Vuetify aporta los estilos: colores, campos e iconos se configuran aquí, sin CSS propio.
+        const vuetify = Vuetify.createVuetify({
+          icons: { defaultSet: 'mdi' },
+          theme: {
+            defaultTheme: 'cuadernoClaro',
+            themes: {
+              cuadernoClaro: {
+                dark: false,
+                colors: {
+                  primary: '#254C78', secondary: '#526174',
+                  background: '#F3F5F7', surface: '#FFFFFF', 'surface-light': '#F7F8FA',
+                  success: '#15803D', error: '#B91C1C', warning: '#92400E'
+                }
+              },
+              cuadernoOscuro: {
+                dark: true,
+                colors: {
+                  primary: '#93B4FF', secondary: '#CBD5E1',
+                  background: '#0F172A', surface: '#1E293B', 'surface-light': '#273449',
+                  success: '#86EFAC', error: '#FCA5A5', warning: '#FCD34D'
+                }
+              }
+            }
+          },
+          // Valores comunes para que todos los formularios y botones tengan el mismo aspecto.
+          defaults: {
+            // Los errores aparecen al enviar, nunca al abrir un formulario vacío.
+            VForm: { validateOn: 'submit' },
+            VBtn: { color: 'primary', variant: 'flat', rounded: 'lg', height: 36, class: 'text-none text-body-2 font-weight-medium' },
+            VTextField: { variant: 'outlined', density: 'compact', hideDetails: 'auto', color: 'primary' },
+            VSelect: { variant: 'outlined', density: 'compact', hideDetails: 'auto', color: 'primary' },
+            VTextarea: { variant: 'outlined', density: 'compact', hideDetails: 'auto', color: 'primary' },
+            VPagination: { color: 'primary', rounded: 'lg', density: 'compact' }
+          },
+          // Traducciones de los componentes utilizados, incluidas sus etiquetas para lectores de pantalla.
+          locale: {
+            locale: 'es', fallback: 'es',
+            messages: {
+              es: {
+                badge: 'Distintivo', open: 'Abrir', close: 'Cerrar', dismiss: 'Cerrar',
+                noDataText: 'No hay opciones disponibles', loading: 'Cargando…',
+                input: { clear: 'Borrar {0}', prependAction: 'Acción anterior de {0}', appendAction: 'Acción de {0}' },
+                pagination: {
+                  ariaLabel: {
+                    root: 'Paginación', next: 'Página siguiente', previous: 'Página anterior',
+                    page: 'Ir a la página {0}', currentPage: 'Página actual, página {0}',
+                    first: 'Primera página', last: 'Última página'
+                  }
+                }
+              }
+            }
+          }
+        });
+
+        const aplicacion = Vue.createApp({
+          // 2. Datos guardados y formularios. Editar un formulario no modifica aún el cuaderno.
+          data() {
+            return {
+              // Solo cuaderno se exporta: los formularios son borradores que se pueden cancelar.
+              cuaderno: crearCuadernoVacio(),
+              formularioProyecto: crearCuadernoVacio().project,
+              editarProyecto: false,
+              formularioMiembro: null,
+              formularioEntrada: null,
+              formularioTarea: null,
+              // Estas copias iniciales permiten detectar si alguien ha editado un formulario.
+              miembroInicial: '',
+              entradaInicial: '',
+              tareaInicial: '',
+              // Al editar registros antiguos se permite conservar a sus miembros ahora inactivos.
+              autorOriginalEntrada: '',
+              participantesOriginalesEntrada: [],
+              responsablesOriginalesTarea: [],
+              // La persona se elige manualmente; el cuaderno no tiene cuentas ni inicio de sesión.
+              miembroActualId: '',
+              // El usuario confirmado se recuerda en este navegador, separado de los datos del proyecto.
+              usuarioConfirmado: false,
+              // El tema es una preferencia del navegador, no forma parte del cuaderno ni del historial.
+              temaOscuro: false,
+              // Recordamos el último texto guardado para detectar cambios hechos en otra pestaña.
+              versionGuardada: null,
+              guardadoBloqueado: false,
+              avisoAlmacenamiento: '',
+              // Los avisos son de pantalla: no se incorporan a la copia del proyecto.
+              mensaje: '',
+              esError: false,
+              tiposActividad: TIPOS_ACTIVIDAD,
+              estadosTarea: ESTADOS_TAREA,
+              // El texto, el icono y el color identifican cada estado sin depender solo del color.
+              coloresEstado: {
+                pendiente: 'secondary', en_proceso: 'primary', bloqueada: 'error', completada: 'success'
+              },
+              iconosEstado: {
+                pendiente: 'mdi-clock-outline', en_proceso: 'mdi-progress-clock',
+                bloqueada: 'mdi-alert-circle-outline', completada: 'mdi-check-circle-outline'
+              },
+              // Estas etiquetas construyen la navegación; sus claves coinciden con las secciones HTML.
+              apartados: {
+                equipo: 'Equipo',
+                proyecto: 'Proyecto',
+                diario: 'Diario',
+                tareas: 'Tareas',
+                seguimiento: 'Historial'
+              },
+              iconosApartados: {
+                equipo: 'mdi-account-group-outline',
+                proyecto: 'mdi-folder-outline',
+                diario: 'mdi-notebook-outline',
+                tareas: 'mdi-clipboard-check-outline',
+                seguimiento: 'mdi-history'
+              },
+              // Estas reglas muestran el error junto al campo. El JSON también se valida antes de guardar.
+              reglas: {
+                obligatorio: valor => !!String(valor ?? '').trim() || 'Completa este campo.',
+                correo: valor => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor) || 'Introduce un correo válido.',
+                responsables: valor => valor.length > 0 || 'Selecciona al menos un responsable.',
+                participantes: valor => valor.length > 0 || 'Selecciona al menos un participante.',
+                enlace: valor => esEnlaceWeb(valor) || 'Introduce un enlace completo que empiece por https:// o http://.'
+              },
+              apartadoActual: 'equipo',
+              filtroDiario: {
+                texto: '',
+                autor: '',
+                actividad: ''
+              },
+              filtroTareas: { estado: '', responsable: '' },
+              // Cada lista recuerda su página mientras usamos el cuaderno; no forma parte del JSON.
+              paginaDiario: 1,
+              paginaTareas: 1,
+              paginaHistorial: 1,
+              // El gráfico y la lista del historial comparten el mismo mes y la misma persona.
+              mesHistorial: '',
+              miembroHistorial: '',
+              copiaRecuperacion: null,
+              // La referencia a la carpeta se guarda aparte, en IndexedDB; no se exporta al JSON.
+              soportaCarpetas: typeof window.showDirectoryPicker === 'function',
+              carpetaCuaderno: null,
+              contenidoEnCarpeta: null,
+              hayConflictoArchivo: false,
+              carpetaPreparada: false,
+              avisoCarpeta: '',
+              archivoEnCurso: false,
+              mostrarCopias: false,
+              // Un archivo leído queda aquí hasta que se confirme su importación.
+              cuadernoImportado: null,
+              responsableImportacionId: ''
+            };
+          },
+
+          // 3. Listas e indicadores que se calculan a partir de los datos guardados.
+          // Vue recalcula computed cuando cambian sus datos; evitamos guardar totales duplicados.
+          computed: {
+            // El estado del pie resume el guardado real; cerrar un aviso no modifica estas condiciones.
+            estadoGuardado() {
+              if (this.archivoEnCurso) return { texto: 'Guardando…', icono: 'mdi-sync', color: 'secondary' };
+              if (this.guardadoBloqueado || this.hayConflictoArchivo) return { texto: 'Guardado detenido', icono: 'mdi-alert-circle-outline', color: 'warning' };
+              if (this.carpetaCuaderno && this.contenidoEnCarpeta === null) return { texto: 'Carpeta pendiente', icono: 'mdi-folder-alert-outline', color: 'warning' };
+              if (this.contenidoEnCarpeta !== null) return { texto: 'Guardado', icono: 'mdi-check-circle-outline', color: 'success' };
+              return { texto: 'Guardado en este navegador', icono: 'mdi-laptop', color: 'secondary' };
+            },
+
+            totalApartado() {
+              const listas = {
+                equipo: this.cuaderno.members,
+                diario: this.cuaderno.entries,
+                tareas: this.cuaderno.tasks,
+                seguimiento: this.historialReciente
+              };
+              return listas[this.apartadoActual]?.length ?? null;
+            },
+
+            edicionAbierta() {
+              return this.editarProyecto || Boolean(this.formularioMiembro || this.formularioEntrada || this.formularioTarea);
+            },
+
+            tituloEdicion() {
+              if (this.editarProyecto) return 'Editar proyecto';
+              if (this.formularioMiembro) return this.formularioMiembro.id ? 'Editar miembro' : 'Añadir miembro';
+              if (this.formularioEntrada) return this.formularioEntrada.id ? 'Editar entrada' : 'Nueva entrada';
+              if (this.formularioTarea) return this.formularioTarea.id ? 'Editar tarea' : 'Nueva tarea';
+              return '';
+            },
+
+            // v-select utiliza una etiqueta visible (title) y una clave guardada (value).
+            opcionesActividad() {
+              return Object.entries(this.tiposActividad).map(([value, title]) => ({ value, title }));
+            },
+
+            opcionesEstado() {
+              return Object.entries(this.estadosTarea).map(([value, title]) => ({ value, title }));
+            },
+
+            autoresEntrada() {
+              return this.cuaderno.members.map(miembro => ({
+                title: miembro.name + (miembro.active ? '' : ' (inactivo)'),
+                value: miembro.id,
+                props: { disabled: !miembro.active && miembro.id !== this.autorOriginalEntrada }
+              }));
+            },
+
+            opcionesParticipantes() {
+              return this.cuaderno.members.map(miembro => ({
+                title: miembro.name + (miembro.active ? '' : ' (inactivo)'),
+                value: miembro.id,
+                props: { disabled: !miembro.active && !this.participantesOriginalesEntrada.includes(miembro.id) }
+              }));
+            },
+
+            // v-model lee los IDs seleccionados y conserva las descripciones al añadir o quitar personas.
+            participantesEntrada: {
+              get() {
+                return this.formularioEntrada?.contributions.map(aportacion => aportacion.memberId) || [];
+              },
+              set(identificadores) {
+                const anteriores = this.formularioEntrada.contributions;
+                this.formularioEntrada.contributions = identificadores.map(memberId =>
+                  anteriores.find(aportacion => aportacion.memberId === memberId) || { memberId, description: '' });
+              }
+            },
+
+            responsablesTarea() {
+              return this.cuaderno.members.map(miembro => ({
+                title: miembro.name + (miembro.active ? '' : ' (inactivo)'),
+                value: miembro.id,
+                props: { disabled: !miembro.active && !this.responsablesOriginalesTarea.includes(miembro.id) }
+              }));
+            },
+
+            autoresFiltro() {
+              const miembros = this.cuaderno.members.map(miembro => ({ title: miembro.name, value: miembro.id }));
+              return [{ title: 'Todo el equipo', value: '' }, ...miembros];
+            },
+
+            actividadesFiltro() {
+              return [{ title: 'Todas', value: '' }, ...this.opcionesActividad];
+            },
+
+            // Las nuevas acciones solo pueden atribuirse a personas activas.
+            miembrosActivos() {
+              return this.cuaderno.members.filter(miembro => miembro.active);
+            },
+
+            tareasOrdenadas() {
+              const tareas = this.cuaderno.tasks.filter(tarea => {
+                return (!this.filtroTareas.estado || tarea.status === this.filtroTareas.estado)
+                  && (!this.filtroTareas.responsable || tarea.assigneeIds.includes(this.filtroTareas.responsable));
+              });
+              // Primero el trabajo abierto; dentro de cada grupo, el vencimiento más próximo.
+              tareas.sort((primera, segunda) => Number(primera.status === 'completada') - Number(segunda.status === 'completada')
+                || primera.due.localeCompare(segunda.due));
+              return tareas;
+            },
+
+            tareasSinMotivo() {
+              return this.cuaderno.tasks.filter(tarea => tarea.status === 'bloqueada' && !tarea.blockReason);
+            },
+
+            // Presentamos primero los cambios recientes, sin invertir la lista original.
+            historialReciente() {
+              return this.cambiosDelMes.filter(cambio => !this.miembroHistorialActual || cambio.actorId === this.miembroHistorialActual)
+                .sort((primero, segundo) => segundo.at.localeCompare(primero.at));
+            },
+
+            mesHistorialActual() {
+              return this.mesesHistorial.find(mes => mes.value === this.mesHistorial) || this.mesesHistorial[0];
+            },
+
+            miembrosHistorial() {
+              const miembros = this.cuaderno.members.map(miembro => ({ id: miembro.id, nombre: miembro.name }));
+              for (const cambio of this.cuaderno.history) {
+                if (!miembros.some(miembro => miembro.id === cambio.actorId)) {
+                  miembros.push({ id: cambio.actorId, nombre: cambio.actorName });
+                }
+              }
+              return miembros;
+            },
+
+            miembroHistorialActual() {
+              return this.miembrosHistorial.some(miembro => miembro.id === this.miembroHistorial) ? this.miembroHistorial : '';
+            },
+
+            cambiosDelMes() {
+              return this.cuaderno.history.filter(cambio => fechaHoraParaFormulario(new Date(cambio.at)).startsWith(this.mesHistorialActual.value + '-'));
+            },
+
+            // Usamos fechas locales, igual que el diario; un cambio cercano a medianoche debe caer en el mismo día.
+            mesesHistorial() {
+              const meses = this.cuaderno.history.map(cambio => fechaHoraParaFormulario(new Date(cambio.at)).slice(0, 7));
+              if (!meses.length) meses.push(fechaDeHoy().slice(0, 7));
+              return [...new Set(meses)].sort().reverse().map(mes => ({
+                value: mes,
+                title: new Date(`${mes}-01T12:00:00`).toLocaleDateString('es', { month: 'long', year: 'numeric' })
+              }));
+            },
+
+            graficoHistorial() {
+              // Si cambia el cuaderno o el mes deja de existir, mostramos el más reciente disponible.
+              const seleccion = this.mesHistorialActual;
+              const [anio, mes] = seleccion.value.split('-').map(Number);
+              const numeroDias = new Date(anio, mes, 0).getDate();
+              const dias = Array.from({ length: numeroDias }, (_, i) => ({ numero: i + 1, total: 0, porMiembro: Object.create(null) }));
+              const miembros = this.miembrosHistorial.map(miembro => ({ ...miembro, total: 0 }));
+
+              for (const cambio of this.cambiosDelMes) {
+                const fecha = fechaHoraParaFormulario(new Date(cambio.at));
+                const miembro = miembros.find(persona => persona.id === cambio.actorId);
+                miembro.total++;
+                const dia = dias[Number(fecha.slice(8, 10)) - 1];
+                dia.total++;
+                dia.porMiembro[miembro.id] = (dia.porMiembro[miembro.id] || 0) + 1;
+              }
+              const total = dias.reduce((suma, dia) => suma + dia.total, 0);
+              miembros.forEach(miembro => {
+                miembro.porcentaje = total ? Math.round(miembro.total / total * 100) : 0;
+              });
+
+              // El filtro permite consultar los días de una persona sin mezclar varias series de colores.
+              const miembroElegido = miembros.find(miembro => miembro.id === this.miembroHistorialActual);
+              const miembroId = miembroElegido?.id || '';
+              const nombreSeleccion = miembroElegido?.nombre || 'Todo el equipo';
+              for (const dia of dias) {
+                dia.cantidad = miembroId ? (dia.porMiembro[miembroId] || 0) : dia.total;
+              }
+              // La escala parte de cero y conserva los días sin cambios, también al filtrar.
+              const maximo = Math.max(2, Math.ceil(Math.max(...dias.map(dia => dia.cantidad)) / 2) * 2);
+              const ancho = this.$vuetify.display.xs ? 320 : 640;
+              for (const dia of dias) {
+                dia.x = 26 + (dia.numero - 1) * (ancho - 38) / (numeroDias - 1);
+                dia.y = 145 - dia.cantidad / maximo * 120;
+                dia.etiqueta = dia.numero === 1 || dia.numero === numeroDias
+                  || (dia.numero % 5 === 0 && numeroDias - dia.numero >= 3);
+                dia.detalle = `${dia.numero} de ${seleccion.title}: ${dia.cantidad} cambios. ${nombreSeleccion}.`;
+              }
+              const puntos = dias.map(dia => `${dia.x},${dia.y}`).join(' ');
+              return {
+                mes: seleccion.value, dias, miembros, ancho, maximo, miembroId, total,
+                niveles: [0, maximo / 2, maximo], puntos,
+                area: `M 26,145 L ${puntos} L ${ancho - 12},145 Z`,
+                totalSeleccion: dias.reduce((suma, dia) => suma + dia.cantidad, 0),
+                diasActivos: dias.filter(dia => dia.cantidad > 0).length,
+                opcionesMiembro: [
+                  { title: 'Todo el equipo', value: '' },
+                  ...miembros.map(miembro => ({ title: miembro.nombre, value: miembro.id }))
+                ],
+                resumen: `${nombreSeleccion}, ${seleccion.title}. ` + dias.map(dia => `Día ${dia.numero}: ${dia.cantidad}`).join('. ')
+              };
+            },
+
+            tareasCompletadas() {
+              const completadas = this.cuaderno.tasks.filter(tarea => tarea.status === 'completada');
+              return completadas.length;
+            },
+
+            porcentajeCompletado() {
+              const total = this.cuaderno.tasks.length;
+              // Un cuaderno sin tareas muestra cero y evita una división entre cero.
+              if (total === 0) {
+                return 0;
+              }
+              return Math.round(this.tareasCompletadas / total * 100);
+            },
+
+            // En un navegador vacío podemos identificar a quien importa usando el equipo del archivo.
+            responsablesImportacion() {
+              if (this.cuaderno.members.length > 0) {
+                return this.miembrosActivos;
+              }
+              if (this.cuadernoImportado === null) {
+                return [];
+              }
+              return this.cuadernoImportado.members.filter(miembro => miembro.active);
+            },
+
+            entradasFiltradas() {
+              let entradas = this.cuaderno.entries.slice();
+              // Normalizamos ambos textos para que la búsqueda no dependa de tildes o mayúsculas.
+              const busqueda = prepararBusqueda(this.filtroDiario.texto.trim());
+
+              if (busqueda !== '') {
+                entradas = entradas.filter(entrada => {
+                  const contenido = [
+                    entrada.title,
+                    entrada.description,
+                    entrada.decisions,
+                    entrada.results,
+                    this.nombreMiembro(entrada.authorId),
+                    ...(entrada.contributions || []).map(aportacion => `${this.nombreMiembro(aportacion.memberId)} ${aportacion.description}`),
+                    ...(entrada.evidence || []).map(evidencia => `${evidencia.title} ${evidencia.url}`)
+                  ].join(' ');
+                  return prepararBusqueda(contenido).includes(busqueda);
+                });
+              }
+              // Cada filtro reduce el resultado del anterior: se pueden combinar los tres.
+              if (this.filtroDiario.autor !== '') {
+                entradas = entradas.filter(entrada => entrada.authorId === this.filtroDiario.autor);
+              }
+              if (this.filtroDiario.actividad !== '') {
+                entradas = entradas.filter(entrada => entrada.type === this.filtroDiario.actividad);
+              }
+
+              entradas.sort((primera, segunda) => segunda.at.localeCompare(primera.at));
+              return entradas;
+            },
+
+            // Primero filtramos y ordenamos todos los registros; después seleccionamos una página.
+            diarioPaginado() {
+              return paginarLista(this.entradasFiltradas, this.paginaDiario);
+            },
+
+            // Agrupamos solo la página visible por su fecha local, sin modificar entradas ni copias.
+            diarioPorFecha() {
+              const dias = [];
+              for (const entrada of this.diarioPaginado.elementos) {
+                const fecha = new Date(entrada.at).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                let dia = dias[dias.length - 1];
+                if (!dia || dia.fecha !== fecha) {
+                  dia = { fecha, entradas: [] };
+                  dias.push(dia);
+                }
+                dia.entradas.push(entrada);
+              }
+              return dias;
+            },
+
+            tareasPaginadas() {
+              return paginarLista(this.tareasOrdenadas, this.paginaTareas);
+            },
+
+            historialPaginado() {
+              return paginarLista(this.historialReciente, this.paginaHistorial);
+            },
+
+            // Una tarea compartida cuenta para cada responsable; no repartimos su valor entre ellos.
+            participacion() {
+              const resumen = [];
+              for (const miembro of this.cuaderno.members) {
+                const entradas = this.cuaderno.entries.filter(entrada => participantesConocidos(entrada).includes(miembro.id));
+                const tareas = this.cuaderno.tasks.filter(tarea => tarea.assigneeIds.includes(miembro.id));
+                const completadas = tareas.filter(tarea => tarea.status === 'completada');
+                const cambios = this.cuaderno.history.filter(cambio => cambio.actorId === miembro.id);
+
+                resumen.push({
+                  id: miembro.id,
+                  nombre: miembro.name,
+                  activo: miembro.active,
+                  entradas: entradas.length,
+                  tareas: tareas.length,
+                  completadas: completadas.length,
+                  pendientes: tareas.filter(tarea => tarea.status === 'pendiente').length,
+                  enProceso: tareas.filter(tarea => tarea.status === 'en_proceso').length,
+                  bloqueadas: tareas.filter(tarea => tarea.status === 'bloqueada').length,
+                  porcentaje: tareas.length ? Math.round(completadas.length / tareas.length * 100) : 0,
+                  cambios: cambios.length
+                });
+              }
+              return resumen;
+            },
+
+            // Abrir un formulario no cuenta como cambio: comparamos sus valores, no su visibilidad.
+            hayCambiosPendientes() {
+              const proyectoCambiado = JSON.stringify(this.formularioProyecto) !== JSON.stringify(this.cuaderno.project);
+              const miembroCambiado = formularioModificado(this.formularioMiembro, this.miembroInicial);
+              const entradaCambiada = formularioModificado(this.formularioEntrada, this.entradaInicial);
+              const tareaCambiada = formularioModificado(this.formularioTarea, this.tareaInicial);
+
+              return proyectoCambiado || miembroCambiado || entradaCambiada || tareaCambiada;
+            }
+          },
+
+          // watch reacciona a cambios de pantalla, como el tema o los filtros de búsqueda.
+          watch: {
+            // Cambiar de usuario elimina la preferencia; confirmar guarda únicamente su ID.
+            usuarioConfirmado(confirmado) {
+              try {
+                if (confirmado) {
+                  localStorage.setItem('cuaderno-digital.usuario', this.miembroActualId);
+                } else {
+                  localStorage.removeItem('cuaderno-digital.usuario');
+                }
+              } catch (error) {
+                // Sin almacenamiento de preferencias, se mantiene la identidad durante esta sesión.
+              }
+            },
+
+            temaOscuro(oscuro) {
+              const tema = oscuro ? 'dark' : 'light';
+              try {
+                localStorage.setItem('cuaderno-digital.tema', tema);
+              } catch (error) {
+                // Sin acceso al almacenamiento, el tema sigue funcionando durante esta sesión.
+              }
+            },
+
+            filtroDiario: {
+              deep: true,
+              handler() {
+                this.paginaDiario = 1;
+              }
+            },
+
+            filtroTareas: {
+              deep: true,
+              handler() { this.paginaTareas = 1; }
+            },
+
+            mesHistorialActual() { this.paginaHistorial = 1; },
+            miembroHistorialActual() { this.paginaHistorial = 1; },
+
+            // Si desaparece la última página al borrar, conservamos la última que aún tiene registros.
+            'diarioPaginado.paginas'(total) {
+              this.paginaDiario = Math.min(this.paginaDiario, total);
+            },
+
+            'tareasPaginadas.paginas'(total) {
+              this.paginaTareas = Math.min(this.paginaTareas, total);
+            },
+
+            'historialPaginado.paginas'(total) {
+              this.paginaHistorial = Math.min(this.paginaHistorial, total);
+            }
+          },
+
+          // 4. Acciones de los botones, agrupadas igual que los apartados de la pantalla.
+          methods: {
+            // Después de paginar, situamos lectura y teclado al inicio de los nuevos registros.
+            irAlInicio(seccion) {
+              this.$nextTick(() => {
+                const elemento = document.getElementById(seccion);
+                elemento.scrollIntoView({ block: 'start' });
+                elemento.focus({ preventScroll: true });
+              });
+            },
+
+            revisarMotivosPendientes() {
+              if (this.tareasSinMotivo.length) {
+                this.apartadoActual = 'tareas';
+                this.filtroTareas = { estado: 'bloqueada', responsable: '' };
+              }
+            },
+
+            // Equipo y Tareas usan los mismos filtros; estos enlaces no cambian la identidad del usuario.
+            verTareasDe(miembroId, estado = '') {
+              this.filtroTareas = { responsable: miembroId, estado };
+              this.paginaTareas = 1;
+              this.apartadoActual = 'tareas';
+              this.irAlInicio('tareas');
+            },
+            // Cerrar con la X, Escape o el fondo pide confirmación si quedan cambios sin guardar.
+            cerrarEdicion(abierto) {
+              if (abierto || this.archivoEnCurso) return;
+              if (this.editarProyecto) {
+                if (confirmarNuevaEdicion(this.formularioProyecto, JSON.stringify(this.cuaderno.project))) this.cancelarProyecto();
+              } else if (this.formularioMiembro) {
+                if (confirmarNuevaEdicion(this.formularioMiembro, this.miembroInicial)) this.cancelarMiembro();
+              } else if (this.formularioEntrada) {
+                if (confirmarNuevaEdicion(this.formularioEntrada, this.entradaInicial)) this.cancelarEntrada();
+              } else if (this.formularioTarea) {
+                if (confirmarNuevaEdicion(this.formularioTarea, this.tareaInicial)) this.cancelarTarea();
+              }
+            },
+
+            abrirProyecto() {
+              if (!this.obtenerResponsable()) return;
+              this.editarProyecto = true;
+              this.enfocarControl('course');
+            },
+
+            cancelarProyecto() {
+              this.formularioProyecto = copiarDatos(this.cuaderno.project);
+              this.editarProyecto = false;
+              this.enfocarControl('projectButton');
+            },
+
+            // v-form espera las reglas de sus campos antes de ejecutar la acción de guardado.
+            async validarYGuardar(evento, guardar) {
+              const resultado = await evento;
+              if (resultado.valid) {
+                await guardar();
+              }
+            },
+
+            // Las referencias de Vuetify son componentes. Buscamos su campo o botón real para el teclado.
+            enfocarControl(nombre) {
+              this.$nextTick(() => {
+                const referencia = this.$refs[nombre];
+                const elemento = referencia?.$el || referencia;
+                const control = elemento?.matches?.('input, textarea, button')
+                  ? elemento
+                  : elemento?.querySelector?.('input, textarea, button');
+                control?.focus();
+              });
+            },
+
+            // Exponemos estas funciones auxiliares para poder usarlas en la plantilla HTML.
+            mostrarFechaHora,
+            mostrarFecha,
+
+            mostrarHora(fecha) {
+              return new Date(fecha).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+            },
+
+            mostrarMensaje(texto, esError = false) {
+              this.mensaje = texto;
+              this.esError = esError;
+            },
+
+            // Confirmar la identidad solo habilita la interfaz: no modifica el cuaderno ni su historial.
+            confirmarUsuario() {
+              if (this.archivoEnCurso || !this.carpetaPreparada || (this.carpetaCuaderno && this.contenidoEnCarpeta === null)) {
+                return;
+              }
+              if (!this.miembrosActivos.some(miembro => miembro.id === this.miembroActualId)) {
+                return;
+              }
+              this.usuarioConfirmado = true;
+              this.responsableImportacionId = this.miembroActualId;
+              this.enfocarControl('userButton');
+            },
+
+            // Los borradores se conservan al cambiar de usuario, pero no se guardan hasta confirmar quién actúa.
+            cambiarUsuario() {
+              this.usuarioConfirmado = false;
+              this.enfocarControl('actor');
+            },
+
+            // Los registros guardan IDs estables; consultamos el equipo para mostrar sus nombres.
+            nombreMiembro(id) {
+              const miembro = this.cuaderno.members.find(persona => persona.id === id);
+              if (!miembro) {
+                return 'Miembro no disponible';
+              }
+              return miembro.name;
+            },
+
+            nombresResponsables(tarea) {
+              const nombres = tarea.assigneeIds.map(id => this.nombreMiembro(id));
+              return nombres.join(', ');
+            },
+
+            estaVencida(tarea) {
+              return tarea.status !== 'completada' && tarea.due < fechaDeHoy();
+            },
+
+            // Centralizamos esta comprobación para que ningún cambio quede sin autoría.
+            obtenerResponsable() {
+              const responsable = this.miembrosActivos.find(miembro => miembro.id === this.miembroActualId);
+              if (!responsable || !this.usuarioConfirmado) {
+                this.mostrarMensaje('Selecciona tu nombre y pulsa Continuar antes de guardar cambios.', true);
+                this.cambiarUsuario();
+                return null;
+              }
+              return responsable;
+            },
+
+            // 4.1. Proyecto: validar los campos, preparar el cambio y solicitar su guardado.
+            async guardarProyecto() {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+              if (!this.formularioProyecto.name || !this.formularioProyecto.course || !this.formularioProyecto.teacher) {
+                this.mostrarMensaje('Completa proyecto, asignatura y profesor/a.', true);
+                return;
+              }
+
+              // Guardar sin modificar nada no debe añadir una entrada al historial.
+              const detalles = this.obtenerCambios(this.cuaderno.project, this.formularioProyecto);
+              if (detalles.length === 0) {
+                this.cancelarProyecto();
+                this.mostrarMensaje('No hay cambios que guardar.');
+                return;
+              }
+
+              // Trabajamos sobre una copia: el original sigue intacto si el guardado falla.
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              nuevoCuaderno.project = copiarDatos(this.formularioProyecto);
+              const cambio = {
+                action: 'Modificación de información general',
+                entity: 'project',
+                entityId: 'project',
+                label: nuevoCuaderno.project.name,
+                changes: detalles
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                this.cancelarProyecto();
+              }
+            },
+
+            // 4.2. Equipo: cada formulario edita una copia, nunca el miembro guardado directamente.
+            abrirMiembro(miembro = null) {
+              // Sin usuario confirmado solo se permite crear el propio miembro, nunca editar otro.
+              if ((miembro !== null || this.usuarioConfirmado) && !this.obtenerResponsable()) {
+                return;
+              }
+              if (!confirmarNuevaEdicion(this.formularioMiembro, this.miembroInicial)) {
+                return;
+              }
+
+              if (miembro === null) {
+                this.formularioMiembro = { id: '', name: '', role: '', email: '', active: true };
+              } else {
+                this.formularioMiembro = copiarDatos(miembro);
+              }
+              this.miembroInicial = JSON.stringify(this.formularioMiembro);
+              this.apartadoActual = 'equipo';
+              // nextTick espera a que Vue dibuje el formulario antes de enfocar su primer campo.
+              this.enfocarControl('memberName');
+            },
+
+            // Descartamos el borrador y devolvemos el foco al botón para facilitar el uso con teclado.
+            cancelarMiembro() {
+              this.formularioMiembro = null;
+              const control = this.usuarioConfirmado ? 'membersButton' : this.cuaderno.members.length ? 'actor' : 'firstMemberButton';
+              this.enfocarControl(control);
+            },
+
+            async guardarMiembro() {
+              const miembro = copiarDatos(this.formularioMiembro);
+              // findIndex devuelve -1 para un alta nueva y la posición del miembro para una edición.
+              const posicion = this.cuaderno.members.findIndex(persona => persona.id === miembro.id);
+              const anterior = this.cuaderno.members[posicion] || {};
+              const detalles = this.obtenerCambios(anterior, miembro);
+
+              if (detalles.length === 0) {
+                this.cancelarMiembro();
+                this.mostrarMensaje('No hay cambios que guardar.');
+                return;
+              }
+              if (miembro.id === '') {
+                // El ID no depende del nombre, así las referencias se conservan aunque este cambie.
+                miembro.id = crypto.randomUUID();
+              }
+
+              // Al incorporarse desde el inicio, la persona registra su propia alta.
+              const esAltaPropia = !this.usuarioConfirmado && posicion === -1;
+              let responsable = miembro;
+              if (!esAltaPropia) {
+                responsable = this.obtenerResponsable();
+              }
+              if (!responsable) {
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              let accion = 'Alta de miembro';
+              if (posicion === -1) {
+                nuevoCuaderno.members.push(miembro);
+              } else {
+                nuevoCuaderno.members[posicion] = miembro;
+                accion = 'Modificación de miembro';
+              }
+
+              const cambio = {
+                action: accion,
+                entity: 'member',
+                entityId: miembro.id,
+                label: miembro.name,
+                changes: detalles
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                if (esAltaPropia) {
+                  this.miembroActualId = miembro.id;
+                  this.responsableImportacionId = miembro.id;
+                  this.usuarioConfirmado = true;
+                }
+                this.cancelarMiembro();
+              }
+            },
+
+            // Desactivamos en lugar de borrar para conservar la autoría de entradas, tareas e historial.
+            async cambiarActividadMiembro(miembro) {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+              if (miembro.active && this.miembrosActivos.length === 1) {
+                this.mostrarMensaje('Debe quedar al menos un miembro activo.', true);
+                return;
+              }
+              if (miembro.active && !window.confirm(`¿Desactivar a ${miembro.name}? Se conservará su actividad.`)) {
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              const actualizado = nuevoCuaderno.members.find(persona => persona.id === miembro.id);
+              actualizado.active = !miembro.active;
+
+              let accion = 'Desactivación de miembro';
+              if (actualizado.active) {
+                accion = 'Reactivación de miembro';
+              }
+              const cambio = {
+                action: accion,
+                entity: 'member',
+                entityId: miembro.id,
+                label: miembro.name,
+                changes: this.obtenerCambios(miembro, actualizado)
+              };
+              await this.guardarCuaderno(nuevoCuaderno, cambio, responsable);
+            },
+
+            // 4.3. Diario: filtros de consulta y formularios para registrar el trabajo del equipo.
+            limpiarFiltrosDiario() {
+              this.filtroDiario = {
+                texto: '',
+                autor: '',
+                actividad: ''
+              };
+            },
+
+            // Un formulario nuevo propone la hora local y la persona seleccionada en la cabecera.
+            abrirEntrada(entrada = null) {
+              if (!this.obtenerResponsable()) {
+                return;
+              }
+              if (!confirmarNuevaEdicion(this.formularioEntrada, this.entradaInicial)) {
+                return;
+              }
+
+              this.autorOriginalEntrada = '';
+              this.participantesOriginalesEntrada = [];
+              if (entrada === null) {
+                this.formularioEntrada = {
+                  id: '',
+                  at: fechaHoraParaFormulario(new Date()),
+                  authorId: this.miembroActualId,
+                  type: 'reunion',
+                  title: '',
+                  description: '',
+                  decisions: '',
+                  results: '',
+                  contributions: [{ memberId: this.miembroActualId, description: '' }],
+                  evidence: []
+                };
+              } else {
+                this.formularioEntrada = copiarDatos(entrada);
+                // No deducimos aportaciones a partir del texto antiguo: se completan al editar la entrada.
+                this.formularioEntrada.contributions = copiarDatos(entrada.contributions || [{ memberId: entrada.authorId, description: '' }]);
+                this.formularioEntrada.evidence = copiarDatos(entrada.evidence || []);
+                this.participantesOriginalesEntrada = participantesConocidos(entrada);
+                this.formularioEntrada.at = fechaHoraParaFormulario(new Date(entrada.at));
+                this.autorOriginalEntrada = entrada.authorId;
+              }
+              this.entradaInicial = JSON.stringify(this.formularioEntrada);
+              this.enfocarControl('entryTitle');
+            },
+
+            cancelarEntrada() {
+              this.formularioEntrada = null;
+              this.enfocarControl('entriesButton');
+            },
+
+            async guardarEntrada() {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+
+              const entrada = copiarDatos(this.formularioEntrada);
+              // datetime-local usa la hora del navegador; el JSON conserva un instante UTC con Z.
+              const fecha = new Date(entrada.at);
+              if (!Number.isFinite(fecha.getTime()) || fechaHoraParaFormulario(fecha) !== entrada.at) {
+                this.mostrarMensaje('Fecha y hora no válidas.', true);
+                return;
+              }
+
+              const posicion = this.cuaderno.entries.findIndex(registro => registro.id === entrada.id);
+              const anterior = this.cuaderno.entries[posicion];
+              // Conserva los segundos originales cuando la fecha del formulario no se ha cambiado.
+              if (anterior && fechaHoraParaFormulario(new Date(anterior.at)) === entrada.at) {
+                entrada.at = anterior.at;
+              } else {
+                entrada.at = fecha.toISOString();
+              }
+
+              const detalles = this.obtenerCambios(anterior || {}, entrada);
+              if (detalles.length === 0) {
+                this.cancelarEntrada();
+                this.mostrarMensaje('No hay cambios que guardar.');
+                return;
+              }
+              if (entrada.id === '') {
+                entrada.id = crypto.randomUUID();
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              let accion = 'Alta de entrada';
+              if (posicion === -1) {
+                nuevoCuaderno.entries.push(entrada);
+              } else {
+                nuevoCuaderno.entries[posicion] = entrada;
+                accion = 'Modificación de entrada';
+              }
+
+              const cambio = {
+                action: accion,
+                entity: 'entry',
+                entityId: entrada.id,
+                label: entrada.title,
+                changes: detalles
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                this.cancelarEntrada();
+              }
+            },
+
+            // La entrada desaparece del diario, pero su eliminación y valores quedan en el historial.
+            async eliminarEntrada(entrada) {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+              if (!window.confirm(`¿Eliminar «${entrada.title}»? Quedará registrado en el historial.`)) {
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              nuevoCuaderno.entries = nuevoCuaderno.entries.filter(registro => registro.id !== entrada.id);
+              const cambio = {
+                action: 'Eliminación de entrada',
+                entity: 'entry',
+                entityId: entrada.id,
+                label: entrada.title,
+                changes: this.obtenerCambios(entrada, {})
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                if (this.formularioEntrada && this.formularioEntrada.id === entrada.id) {
+                  this.cancelarEntrada();
+                }
+              }
+            },
+
+            // 4.4. Tareas: los responsables son una lista de IDs porque una tarea puede ser compartida.
+            abrirTarea(tarea = null, enfocarMotivo = false) {
+              if (!this.obtenerResponsable()) {
+                return;
+              }
+              if (!confirmarNuevaEdicion(this.formularioTarea, this.tareaInicial)) {
+                return;
+              }
+
+              this.responsablesOriginalesTarea = [];
+              if (tarea === null) {
+                this.formularioTarea = {
+                  id: '',
+                  title: '',
+                  description: '',
+                  assigneeIds: [],
+                  due: fechaDeHoy(),
+                  status: 'pendiente',
+                  blockReason: ''
+                };
+              } else {
+                // Las copias anteriores pueden no incluir todavía el motivo.
+                this.formularioTarea = { blockReason: '', ...copiarDatos(tarea) };
+                this.responsablesOriginalesTarea = tarea.assigneeIds.slice();
+              }
+              this.tareaInicial = JSON.stringify(this.formularioTarea);
+              this.enfocarControl(enfocarMotivo ? 'taskBlockReason' : 'taskTitle');
+              return true;
+            },
+
+            cancelarTarea() {
+              this.formularioTarea = null;
+              this.enfocarControl('tasksButton');
+            },
+
+            async guardarTarea() {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+
+              const tarea = copiarDatos(this.formularioTarea);
+              if (tarea.status === 'bloqueada' && !tarea.blockReason.trim()) {
+                this.mostrarMensaje('Indica el motivo del bloqueo antes de guardar la tarea.', true);
+                return;
+              }
+              // Al resolver el bloqueo, el motivo deja de estar vigente, pero sigue en el historial.
+              if (tarea.status !== 'bloqueada') tarea.blockReason = '';
+              const posicion = this.cuaderno.tasks.findIndex(registro => registro.id === tarea.id);
+              const anterior = this.cuaderno.tasks[posicion] || {};
+              const detalles = this.obtenerCambios(anterior, tarea);
+              if (detalles.length === 0) {
+                this.cancelarTarea();
+                this.mostrarMensaje('No hay cambios que guardar.');
+                return;
+              }
+              if (tarea.id === '') {
+                tarea.id = crypto.randomUUID();
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              let accion = 'Alta de tarea';
+              if (posicion === -1) {
+                nuevoCuaderno.tasks.push(tarea);
+              } else {
+                nuevoCuaderno.tasks[posicion] = tarea;
+                accion = 'Modificación de tarea';
+              }
+
+              const cambio = {
+                action: accion,
+                entity: 'task',
+                entityId: tarea.id,
+                label: tarea.title,
+                changes: detalles
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                this.cancelarTarea();
+              }
+            },
+
+            // Bloquear abre el borrador para pedir el motivo. Los demás estados se guardan directamente.
+            async cambiarEstadoTarea(tarea, estado) {
+              if (estado === tarea.status) {
+                return;
+              }
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+
+              if (estado === 'bloqueada') {
+                if (this.abrirTarea(tarea)) {
+                  this.formularioTarea.status = 'bloqueada';
+                  this.enfocarControl('taskBlockReason');
+                }
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              const actualizada = nuevoCuaderno.tasks.find(registro => registro.id === tarea.id);
+              actualizada.status = estado;
+              actualizada.blockReason = '';
+              const cambio = {
+                action: 'Cambio de estado de tarea',
+                entity: 'task',
+                entityId: tarea.id,
+                label: tarea.title,
+                changes: this.obtenerCambios(tarea, actualizada)
+              };
+              // El botón muestra task.status: solo cambia cuando el guardado se confirma.
+              await this.guardarCuaderno(nuevoCuaderno, cambio, responsable);
+            },
+
+            async eliminarTarea(tarea) {
+              const responsable = this.obtenerResponsable();
+              if (!responsable) {
+                return;
+              }
+              if (!window.confirm(`¿Eliminar «${tarea.title}»? Quedará registrado en el historial.`)) {
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuaderno);
+              nuevoCuaderno.tasks = nuevoCuaderno.tasks.filter(registro => registro.id !== tarea.id);
+              const cambio = {
+                action: 'Eliminación de tarea',
+                entity: 'task',
+                entityId: tarea.id,
+                label: tarea.title,
+                changes: this.obtenerCambios(tarea, {})
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                if (this.formularioTarea && this.formularioTarea.id === tarea.id) {
+                  this.cancelarTarea();
+                }
+              }
+            },
+
+            // 4.5. Carpeta y copias: guardado automático, copia de hoy y restauración.
+            seleccionarArchivoImportacion() {
+              this.$refs.file.click();
+            },
+
+            cancelarImportacion() {
+              this.cuadernoImportado = null;
+            },
+
+            // Ambas formas de exportar usan el mismo contenido, incluida la recuperación de datos dañados.
+            prepararExportacion() {
+              // La sangría de dos espacios permite leer el JSON con cualquier editor de texto.
+              let contenido = JSON.stringify(this.cuaderno, null, 2);
+              // Si el guardado local está dañado, exportamos su texto intacto para poder recuperarlo.
+              if (this.guardadoBloqueado && this.versionGuardada !== null) {
+                contenido = this.versionGuardada;
+              }
+
+              // El mismo nombre diario sirve para guardar en carpeta y para descargar.
+              return {
+                contenido,
+                nombre: `cuaderno-${fechaParaArchivo(new Date())}.json`
+              };
+            },
+
+            // Esta descarga sigue disponible aunque no se pueda acceder a la carpeta recordada.
+            descargarCuaderno() {
+              const { contenido, nombre } = this.prepararExportacion();
+              this.descargarArchivo(contenido, nombre);
+            },
+
+            descargarArchivo(contenido, nombre) {
+              // Blob crea un archivo en memoria; el enlace temporal permite descargarlo sin servidor.
+              const archivo = new Blob([contenido], { type: 'application/json' });
+              const enlaceTemporal = URL.createObjectURL(archivo);
+              const enlace = document.createElement('a');
+              enlace.href = enlaceTemporal;
+              enlace.download = nombre;
+              document.body.append(enlace);
+              enlace.click();
+              enlace.remove();
+              // Liberamos el archivo en memoria después de dejar que el navegador inicie la descarga.
+              setTimeout(() => URL.revokeObjectURL(enlaceTemporal), 10000);
+            },
+
+            // Esta copia se termina ANTES de restaurar. Un fallo cancela el reemplazo.
+            async crearCopiaRecuperacion(fecha) {
+              const contenido = JSON.stringify(this.cuaderno, null, 2);
+              const base = `cuaderno-antes-de-restaurar-${fechaParaArchivo(fecha)}`;
+              let nombre = `${base}.json`;
+              if (this.carpetaCuaderno) {
+                // Varias restauraciones del mismo día conservan sus copias mediante un número, sin horas.
+                let numero = 1;
+                while (true) {
+                  try {
+                    await this.carpetaCuaderno.getFileHandle(nombre);
+                    numero++;
+                    nombre = `${base}-${numero}.json`;
+                  } catch (error) {
+                    if (error.name !== 'NotFoundError') throw error;
+                    break;
+                  }
+                }
+                const archivo = await this.carpetaCuaderno.getFileHandle(nombre, { create: true });
+                await escribirArchivo(archivo, contenido);
+                return `Copia previa conservada en la carpeta: ${nombre}.`;
+              }
+              // Sin carpeta guardamos la última recuperación local y ofrecemos su descarga desde Copias.
+              const copia = { nombre, contenido };
+              localStorage.setItem(CLAVE_RECUPERACION, JSON.stringify(copia));
+              this.copiaRecuperacion = copia;
+              return 'Copia previa conservada en este navegador. Puedes descargarla desde Copias.';
+            },
+
+            // El selector del navegador concede acceso; escribir una ruta en un campo no bastaría.
+            async seleccionarCarpetaCuaderno() {
+              let carpeta;
+              try {
+                carpeta = await window.showDirectoryPicker({
+                  id: 'cuaderno-exportacion',
+                  mode: 'readwrite'
+                });
+              } catch (error) {
+                // Cancelar el selector es una decisión normal, no un error de escritura.
+                if (error.name === 'AbortError') {
+                  return false;
+                }
+                throw error;
+              }
+
+              if (!await this.abrirCuadernoDeCarpeta(carpeta)) {
+                return false;
+              }
+
+              try {
+                await recordarCarpeta(carpeta);
+              } catch (error) {
+                // Si falla la preferencia, aún podemos trabajar con esta carpeta durante la sesión.
+                this.avisoCarpeta = 'La carpeta se puede usar ahora, pero este navegador no ha podido recordarla para la próxima vez.';
+              }
+              return true;
+            },
+
+            // Vincular una carpeta abre su archivo actual o lo crea con los datos guardados del navegador.
+            async cambiarCarpetaCuaderno() {
+              if (this.archivoEnCurso || !this.carpetaPreparada) {
+                return;
+              }
+              this.archivoEnCurso = true;
+              try {
+                if (await this.seleccionarCarpetaCuaderno()) {
+                  this.mostrarMensaje('Cuaderno vinculado. Cada cambio actualizará cuaderno-actual.json y la copia del día.');
+                }
+              } catch (error) {
+                this.mostrarMensaje(`No se pudo seleccionar la carpeta: ${error.message}`, true);
+              } finally {
+                this.archivoEnCurso = false;
+              }
+            },
+
+            // Reabrir permite recuperar el permiso o cargar la versión que haya llegado mediante Git.
+            async abrirCarpetaRecordada() {
+              if (this.archivoEnCurso || !this.carpetaCuaderno) {
+                return;
+              }
+              this.archivoEnCurso = true;
+              try {
+                if (await this.abrirCuadernoDeCarpeta(this.carpetaCuaderno)) {
+                  this.mostrarMensaje('Cuaderno abierto desde la carpeta.');
+                }
+              } catch (error) {
+                this.mostrarMensaje(`No se pudo abrir el cuaderno: ${error.message}`, true);
+              } finally {
+                this.archivoEnCurso = false;
+              }
+            },
+
+            async abrirCuadernoDeCarpeta(carpeta, automatico = false) {
+              if (this.guardadoBloqueado) {
+                throw new Error('Descarga primero la copia local original y revisa el aviso de almacenamiento.');
+              }
+              if (!await permitirEscritura(carpeta, !automatico)) {
+                this.avisoCarpeta = 'Pulsa Abrir cuaderno para autorizar el acceso a la carpeta.';
+                return false;
+              }
+
+              let archivo;
+              try {
+                archivo = await carpeta.getFileHandle('cuaderno-actual.json');
+              } catch (error) {
+                if (error.name !== 'NotFoundError') {
+                  throw error;
+                }
+              }
+
+              let texto;
+              let datos;
+              if (archivo) {
+                const fichero = await archivo.getFile();
+                if (fichero.size > 20 * 1024 * 1024) {
+                  throw new Error('El archivo supera 20 MB.');
+                }
+                texto = await fichero.text();
+                datos = validarCuaderno(JSON.parse(texto));
+              } else {
+                // Un archivo borrado no se recrea al arrancar sin una acción expresa del usuario.
+                if (automatico) {
+                  this.avisoCarpeta = 'No se encuentra cuaderno-actual.json. Pulsa Abrir cuaderno para crearlo con la copia local.';
+                  return false;
+                }
+                datos = copiarDatos(this.cuaderno);
+                validarCuaderno(datos);
+                texto = JSON.stringify(datos, null, 2);
+              }
+
+              const localVacio = JSON.stringify(this.cuaderno) === JSON.stringify(crearCuadernoVacio());
+              const esDiferente = JSON.stringify(datos) !== JSON.stringify(this.cuaderno);
+              // Una versión diferente o un borrador pendiente requieren una elección, no un reemplazo silencioso.
+              if (this.hayCambiosPendientes || (!localVacio && esDiferente)) {
+                if (automatico) {
+                  this.avisoCarpeta = 'La carpeta contiene otra versión. Puedes descargar la copia local en Copias antes de pulsar Abrir cuaderno.';
+                  return false;
+                }
+                if (!window.confirm('¿Abrir el cuaderno de esta carpeta y reemplazar la copia del navegador y los campos pendientes? Para conservar la copia local, cancela y descárgala desde Copias.')) {
+                  return false;
+                }
+              }
+              if (localStorage.getItem(CLAVE_ALMACENAMIENTO) !== this.versionGuardada) {
+                throw new Error('Otra pestaña ha cambiado el cuaderno. Recarga antes de abrir esta carpeta.');
+              }
+              if (!archivo) {
+                archivo = await carpeta.getFileHandle('cuaderno-actual.json', { create: true });
+                await escribirArchivo(archivo, texto);
+              }
+
+              this.avisoCarpeta = '';
+              try {
+                const contenidoLocal = JSON.stringify(datos);
+                localStorage.setItem(CLAVE_ALMACENAMIENTO, contenidoLocal);
+                this.versionGuardada = contenidoLocal;
+              } catch (error) {
+                this.avisoCarpeta = 'El archivo está disponible en la carpeta, pero no se pudo actualizar la copia del navegador.';
+              }
+              this.carpetaCuaderno = carpeta;
+              this.contenidoEnCarpeta = texto;
+              this.hayConflictoArchivo = false;
+              this.cuaderno = datos;
+              this.formularioProyecto = copiarDatos(datos.project);
+              this.formularioMiembro = null;
+              this.formularioEntrada = null;
+              this.formularioTarea = null;
+              this.cuadernoImportado = null;
+              this.filtroDiario = { texto: '', autor: '', actividad: '' };
+              this.filtroTareas = { estado: '', responsable: '' };
+              this.mesHistorial = '';
+              this.miembroHistorial = '';
+              this.paginaDiario = 1;
+              this.paginaTareas = 1;
+              this.paginaHistorial = 1;
+              // Conservamos el usuario de la sesión si sigue activo en el cuaderno abierto.
+              if (!this.miembrosActivos.some(miembro => miembro.id === this.miembroActualId)) {
+                this.miembroActualId = '';
+                this.cambiarUsuario();
+              }
+              this.revisarMotivosPendientes();
+              return true;
+            },
+
+            // Este botón permite volver a guardar la copia de hoy, por ejemplo si falló la copia automática.
+            async guardarCopiaDelDia() {
+              if (this.archivoEnCurso || !this.carpetaPreparada) {
+                return;
+              }
+              if (this.guardadoBloqueado) {
+                this.mostrarMensaje('La copia local está dañada. Usa Descargar copia para recuperarla sin sustituir la copia del día.', true);
+                return;
+              }
+              if (!this.carpetaCuaderno || this.contenidoEnCarpeta === null) {
+                this.descargarCuaderno();
+                return;
+              }
+
+              // Evitamos dos escrituras simultáneas desde los botones de esta pestaña.
+              this.archivoEnCurso = true;
+              try {
+                const carpeta = this.carpetaCuaderno;
+
+                if (!await permitirEscritura(carpeta)) {
+                  this.mostrarMensaje('No se ha guardado la copia. Autoriza el acceso a la carpeta o utiliza Descargar copia.', true);
+                  return;
+                }
+
+                // No sobrescribimos la copia diaria con datos antiguos si alguien ha cambiado el cuaderno.
+                const archivoActual = await carpeta.getFileHandle('cuaderno-actual.json');
+                const ficheroActual = await archivoActual.getFile();
+                if (await ficheroActual.text() !== this.contenidoEnCarpeta) {
+                  this.hayConflictoArchivo = true;
+                  throw new Error('El archivo actual ha cambiado. Usa Abrir cuaderno antes de guardar la copia');
+                }
+                if (localStorage.getItem(CLAVE_ALMACENAMIENTO) !== this.versionGuardada) {
+                  throw new Error('Otra pestaña ha cambiado el cuaderno. Recarga antes de guardar la copia');
+                }
+
+                const { contenido, nombre } = this.prepararExportacion();
+                const copiaDiaria = await carpeta.getFileHandle(nombre, { create: true });
+                // Todos los guardados de hoy usan este mismo archivo, sin horas ni copias numeradas.
+                await escribirArchivo(copiaDiaria, contenido);
+                this.mostrarMensaje(`Copia de hoy guardada: ${nombre} en ${carpeta.name}.`);
+              } catch (error) {
+                this.mostrarMensaje(`No se pudo guardar la copia: ${error.message}. Puedes utilizar Descargar copia.`, true);
+              } finally {
+                this.archivoEnCurso = false;
+              }
+            },
+
+            async leerArchivoImportado(evento) {
+              const archivo = evento.target.files[0];
+              // Vaciar el selector permite volver a escoger el mismo archivo tras un error.
+              evento.target.value = '';
+              if (!archivo) {
+                return;
+              }
+
+              this.cuadernoImportado = null;
+              try {
+                if (archivo.size > 20 * 1024 * 1024) {
+                  throw new Error('El archivo supera 20 MB.');
+                }
+                const texto = await archivo.text();
+                const datos = JSON.parse(texto);
+                // Leer JSON válido no basta: también debe respetar el formato de nuestro cuaderno.
+                validarCuaderno(datos);
+
+                if (this.cuaderno.members.length === 0 && datos.members.length === 0) {
+                  throw new Error('Añade tu nombre antes de importar un cuaderno vacío.');
+                }
+                // Todavía no guardamos: la pantalla mostrará el resumen y pedirá confirmación.
+                this.cuadernoImportado = datos;
+                this.responsableImportacionId = this.miembroActualId;
+                this.mensaje = '';
+              } catch (error) {
+                this.mostrarMensaje(`No se ha importado nada: ${error.message}`, true);
+              }
+            },
+
+            // La importación reemplaza datos e historial; se solicita confirmación para evitar pérdidas.
+            async confirmarImportacion() {
+              // Con un usuario confirmado, también la restauración queda a su nombre.
+              const responsable = this.usuarioConfirmado
+                ? this.obtenerResponsable()
+                : this.responsablesImportacion.find(miembro => miembro.id === this.responsableImportacionId);
+              if (!this.cuadernoImportado || !responsable) {
+                return;
+              }
+
+              let pregunta = '¿Reemplazar el cuaderno actual y su historial? Primero se conservará una copia de recuperación.';
+              if (this.hayCambiosPendientes) {
+                pregunta += ' Se descartarán también los campos sin guardar.';
+              }
+              if (!window.confirm(pregunta)) {
+                return;
+              }
+
+              const nuevoCuaderno = copiarDatos(this.cuadernoImportado);
+              const cambio = {
+                action: 'Importación de cuaderno',
+                entity: 'notebook',
+                entityId: 'notebook',
+                label: nuevoCuaderno.project.name,
+                changes: [{
+                  field: 'Cuaderno',
+                  before: resumirCuaderno(this.cuaderno),
+                  after: resumirCuaderno(nuevoCuaderno)
+                }]
+              };
+              if (await this.guardarCuaderno(nuevoCuaderno, cambio, responsable)) {
+                // Los borradores anteriores ya no pertenecen al cuaderno que acabamos de importar.
+                this.formularioProyecto = copiarDatos(nuevoCuaderno.project);
+                this.formularioMiembro = null;
+                this.formularioEntrada = null;
+                this.formularioTarea = null;
+                this.filtroDiario = { texto: '', autor: '', actividad: '' };
+                this.filtroTareas = { estado: '', responsable: '' };
+                this.mesHistorial = '';
+                this.miembroHistorial = '';
+                this.paginaDiario = 1;
+                this.paginaTareas = 1;
+                this.paginaHistorial = 1;
+                this.cuadernoImportado = null;
+                this.apartadoActual = 'equipo';
+                this.revisarMotivosPendientes();
+              }
+            },
+
+            // 5. Cada cambio confirmado actualiza el archivo de trabajo y una copia completa del día.
+            async guardarCuaderno(nuevoCuaderno, cambio, responsable) {
+              if (this.archivoEnCurso || !this.carpetaPreparada) {
+                return false;
+              }
+              // La única alta sin usuario previo es la incorporación de esa misma persona desde el inicio.
+              const altaPropia = !this.usuarioConfirmado
+                && cambio.action === 'Alta de miembro'
+                && cambio.entity === 'member'
+                && cambio.entityId === responsable.id
+                && !this.cuaderno.members.some(miembro => miembro.id === responsable.id);
+              if (this.cuaderno.members.length && !altaPropia && (!this.usuarioConfirmado || responsable.id !== this.miembroActualId)) {
+                this.mostrarMensaje('Confirma primero el usuario que realizará los cambios.', true);
+                this.cambiarUsuario();
+                return false;
+              }
+              if (this.guardadoBloqueado) {
+                this.mostrarMensaje('Guardado bloqueado. Descarga la copia original desde Copias y revisa el aviso de almacenamiento.', true);
+                return false;
+              }
+              if (this.carpetaCuaderno && this.contenidoEnCarpeta === null) {
+                this.mostrarMensaje('Abre primero el cuaderno de la carpeta para poder guardar cambios.', true);
+                return false;
+              }
+
+              this.archivoEnCurso = true;
+              try {
+                // Conservamos la protección frente a cambios hechos desde otra pestaña.
+                const contenidoActual = localStorage.getItem(CLAVE_ALMACENAMIENTO);
+                if (contenidoActual !== this.versionGuardada) {
+                  throw new Error('Otra pestaña ha cambiado el cuaderno. Conserva tus campos pendientes y recarga.');
+                }
+
+                // Usamos el mismo instante para el historial y el nombre de la copia diaria.
+                const ahora = new Date();
+                cambio.id = crypto.randomUUID();
+                cambio.at = ahora.toISOString();
+                cambio.actorId = responsable.id;
+                cambio.actorName = responsable.name;
+                nuevoCuaderno.history.push(cambio);
+                validarCuaderno(nuevoCuaderno);
+                const contenidoLocal = JSON.stringify(nuevoCuaderno);
+                let avisoCopiaDiaria = '';
+                let avisoRecuperacion = '';
+                const esRestauracion = cambio.action === 'Importación de cuaderno';
+
+                if (this.carpetaCuaderno) {
+                  if (!await permitirEscritura(this.carpetaCuaderno)) {
+                    throw new Error('No hay permiso para escribir en la carpeta. El formulario conserva tus cambios.');
+                  }
+                  const archivo = await this.carpetaCuaderno.getFileHandle('cuaderno-actual.json');
+                  const fichero = await archivo.getFile();
+                  // Git u otra aplicación pueden haber actualizado el archivo mientras trabajábamos.
+                  if (await fichero.text() !== this.contenidoEnCarpeta) {
+                    this.hayConflictoArchivo = true;
+                    throw new Error('El archivo de la carpeta ha cambiado. Conserva tus campos pendientes antes de abrir su nueva versión.');
+                  }
+                  if (localStorage.getItem(CLAVE_ALMACENAMIENTO) !== this.versionGuardada) {
+                    throw new Error('Otra pestaña ha cambiado el cuaderno mientras se autorizaba el acceso. Recarga antes de guardar.');
+                  }
+                  if (esRestauracion) {
+                    avisoRecuperacion = await this.crearCopiaRecuperacion(ahora);
+                    // La copia puede tardar: volvemos a comprobar que nadie haya escrito mientras tanto.
+                    if (await (await archivo.getFile()).text() !== this.contenidoEnCarpeta
+                      || localStorage.getItem(CLAVE_ALMACENAMIENTO) !== this.versionGuardada) {
+                      this.hayConflictoArchivo = true;
+                      throw new Error('El cuaderno cambió mientras se creaba la recuperación. No se ha reemplazado.');
+                    }
+                  }
+                  const contenidoArchivo = JSON.stringify(nuevoCuaderno, null, 2);
+                  await escribirArchivo(archivo, contenidoArchivo);
+                  this.contenidoEnCarpeta = contenidoArchivo;
+
+                  // La carpeta es el destino principal; un fallo de la copia local no invalida ese guardado.
+                  try {
+                    localStorage.setItem(CLAVE_ALMACENAMIENTO, contenidoLocal);
+                    this.versionGuardada = contenidoLocal;
+                  } catch (error) {
+                    this.avisoCarpeta = 'Guardado en la carpeta, pero no se pudo actualizar la copia del navegador.';
+                  }
+
+                  // La fecha local agrupa todos los guardados del día en un único archivo DD-MM-AAAA.
+                  const nombreCopiaDiaria = `cuaderno-${fechaParaArchivo(ahora)}.json`;
+                  try {
+                    const copiaDiaria = await this.carpetaCuaderno.getFileHandle(nombreCopiaDiaria, { create: true });
+                    // El contenido es idéntico al archivo actual: no filtramos registros ni cambiamos el JSON.
+                    // Sobrescribimos solo la copia de hoy; las de días anteriores quedan intactas.
+                    await escribirArchivo(copiaDiaria, contenidoArchivo);
+                  } catch (error) {
+                    // El archivo actual ya está guardado: avisamos del fallo sin pedir repetir el cambio.
+                    avisoCopiaDiaria = `Guardado en cuaderno-actual.json, pero no se pudo actualizar ${nombreCopiaDiaria}: ${error.message}`;
+                  }
+                } else {
+                  if (esRestauracion) avisoRecuperacion = await this.crearCopiaRecuperacion(ahora);
+                  if (localStorage.getItem(CLAVE_ALMACENAMIENTO) !== this.versionGuardada) {
+                    throw new Error('Otra pestaña ha cambiado el cuaderno. No se ha reemplazado.');
+                  }
+                  localStorage.setItem(CLAVE_ALMACENAMIENTO, contenidoLocal);
+                  this.versionGuardada = contenidoLocal;
+                }
+
+                // Solo sustituimos lo visible cuando el destino principal ha aceptado la escritura.
+                this.cuaderno = nuevoCuaderno;
+                // Guardar no cambia el usuario: solo se vuelve a elegir si ya no pertenece al equipo activo.
+                if (!this.miembrosActivos.some(miembro => miembro.id === this.miembroActualId)) {
+                  this.miembroActualId = '';
+                  this.cambiarUsuario();
+                }
+                if (avisoCopiaDiaria) {
+                  this.mostrarMensaje(`${avisoCopiaDiaria} ${avisoRecuperacion}`.trim(), true);
+                } else if (avisoRecuperacion) {
+                  this.mostrarMensaje(avisoRecuperacion);
+                } else {
+                  this.mensaje = '';
+                  this.esError = false;
+                }
+                return true;
+              } catch (error) {
+                this.mostrarMensaje(`No se ha guardado: ${error.message}`, true);
+                return false;
+              } finally {
+                this.archivoEnCurso = false;
+              }
+            },
+
+            // Comparamos solo los campos de usuario para que el historial no se llene de IDs internos.
+            obtenerCambios(anterior, nuevo) {
+              const cambios = [];
+              for (const campo of Object.keys(NOMBRES_CAMPOS)) {
+                const valorAnterior = anterior[campo];
+                const valorNuevo = nuevo[campo];
+                if (campo === 'blockReason' && !valorAnterior && !valorNuevo) continue;
+                if ((campo === 'contributions' || campo === 'evidence') && !valorAnterior?.length && !valorNuevo?.length) continue;
+                if (JSON.stringify(valorAnterior) === JSON.stringify(valorNuevo)) {
+                  continue;
+                }
+
+                cambios.push({
+                  field: NOMBRES_CAMPOS[campo],
+                  before: this.textoParaHistorial(campo, valorAnterior),
+                  after: this.textoParaHistorial(campo, valorNuevo)
+                });
+              }
+              return cambios;
+            },
+
+            // Guardamos nombres y etiquetas legibles para poder entender cada cambio más adelante.
+            textoParaHistorial(campo, valor) {
+              if (valor === undefined) {
+                return '';
+              }
+              if (campo === 'authorId') {
+                return this.nombreMiembro(valor);
+              }
+              if (campo === 'contributions') {
+                return valor.map(aportacion => `${this.nombreMiembro(aportacion.memberId)}: ${aportacion.description}`).join('\n');
+              }
+              if (campo === 'evidence') {
+                return valor.map(evidencia => `${evidencia.title || 'Evidencia'}: ${evidencia.url}`).join('\n');
+              }
+              if (campo === 'assigneeIds') {
+                const nombres = valor.map(id => this.nombreMiembro(id));
+                return nombres.join(', ');
+              }
+              if (campo === 'active') {
+                return valor ? 'Sí' : 'No';
+              }
+              if (campo === 'type') {
+                return TIPOS_ACTIVIDAD[valor];
+              }
+              if (campo === 'status') {
+                return ESTADOS_TAREA[valor];
+              }
+              if (campo === 'at') {
+                return mostrarFechaHora(valor);
+              }
+              if (campo === 'due') {
+                return mostrarFecha(valor);
+              }
+              return String(valor);
+            }
+          },
+
+          // 6. Al abrir la página se recupera el cuaderno del navegador.
+          async mounted() {
+            try {
+              const copia = JSON.parse(localStorage.getItem(CLAVE_RECUPERACION));
+              if (copia && typeof copia.nombre === 'string' && typeof copia.contenido === 'string') {
+                this.copiaRecuperacion = copia;
+              }
+            } catch (error) {
+              // Un problema en la recuperación no impide abrir el cuaderno actual.
+            }
+            try {
+              this.temaOscuro = localStorage.getItem('cuaderno-digital.tema') === 'dark';
+            } catch (error) {
+              // Un fallo en la preferencia visual no debe impedir abrir el cuaderno.
+            }
+            try {
+              this.versionGuardada = localStorage.getItem(CLAVE_ALMACENAMIENTO);
+              if (this.versionGuardada !== null) {
+                const datos = JSON.parse(this.versionGuardada);
+                validarCuaderno(datos);
+                this.cuaderno = datos;
+              }
+            } catch (error) {
+              // No sustituimos una copia ilegible por un cuaderno vacío: podría contener trabajo útil.
+              this.guardadoBloqueado = true;
+              this.avisoAlmacenamiento = 'No se pudo leer el guardado local. No se sobrescribirán los datos. Exporta la copia original antes de revisar los permisos o borrar datos del navegador.';
+            }
+
+            this.formularioProyecto = copiarDatos(this.cuaderno.project);
+            // El navegador puede avisar al cerrar si quedan cambios escritos pero aún sin guardar.
+            window.addEventListener('beforeunload', evento => {
+              if (this.hayCambiosPendientes || this.archivoEnCurso) {
+                evento.preventDefault();
+                evento.returnValue = '';
+              }
+            });
+
+            // Recuperamos la carpeta sin mostrar selectores ni pedir permisos al abrir la página.
+            try {
+              if (this.soportaCarpetas) {
+                this.carpetaCuaderno = await leerCarpetaRecordada();
+                if (this.carpetaCuaderno) {
+                  await this.abrirCuadernoDeCarpeta(this.carpetaCuaderno, true);
+                }
+              }
+            } catch (error) {
+              this.avisoCarpeta = `No se pudo abrir la carpeta: ${error.message}. La copia local sigue disponible en Copias.`;
+            } finally {
+              this.carpetaPreparada = true;
+              // Se comprueba tras abrir la carpeta: la persona debe seguir activa en este cuaderno.
+              try {
+                const usuarioRecordado = localStorage.getItem('cuaderno-digital.usuario');
+                if (this.miembrosActivos.some(miembro => miembro.id === usuarioRecordado)) {
+                  this.miembroActualId = usuarioRecordado;
+                  this.responsableImportacionId = usuarioRecordado;
+                  this.usuarioConfirmado = true;
+                }
+              } catch (error) {
+                // Si no se puede leer la preferencia, se elige el usuario normalmente.
+              }
+              this.revisarMotivosPendientes();
+              if (!this.usuarioConfirmado) this.enfocarControl('actor');
+            }
+          }
+        });
+
+        // mount conecta data, computed y methods con las expresiones del HTML situado dentro de #app.
+        aplicacion.use(vuetify).mount('#app');
+        document.getElementById('app').hidden = false;
+        document.getElementById('loading').hidden = true;
+      }
+
+      // 7. Carpeta del cuaderno: IndexedDB recuerda el destino; el navegador controla sus permisos.
+      async function permitirEscritura(carpeta, solicitar = true) {
+        let permiso = await carpeta.queryPermission({ mode: 'readwrite' });
+        // Al arrancar solo consultamos; las solicitudes de permiso se hacen desde un botón.
+        if (permiso !== 'granted' && solicitar) {
+          permiso = await carpeta.requestPermission({ mode: 'readwrite' });
+        }
+        return permiso === 'granted';
+      }
+
+      function abrirPreferencias() {
+        return new Promise((resolve, reject) => {
+          const solicitud = indexedDB.open('cuaderno-digital.preferencias', 1);
+          solicitud.onupgradeneeded = () => {
+            solicitud.result.createObjectStore('preferencias');
+          };
+          solicitud.onsuccess = () => resolve(solicitud.result);
+          solicitud.onerror = () => reject(solicitud.error);
+        });
+      }
+
+      async function leerCarpetaRecordada() {
+        const base = await abrirPreferencias();
+        try {
+          return await new Promise((resolve, reject) => {
+            const solicitud = base.transaction('preferencias')
+              .objectStore('preferencias').get('carpetaExportacion');
+            solicitud.onsuccess = () => resolve(solicitud.result || null);
+            solicitud.onerror = () => reject(solicitud.error);
+          });
+        } finally {
+          base.close();
+        }
+      }
+
+      async function recordarCarpeta(carpeta) {
+        const base = await abrirPreferencias();
+        try {
+          await new Promise((resolve, reject) => {
+            const transaccion = base.transaction('preferencias', 'readwrite');
+            transaccion.objectStore('preferencias').put(carpeta, 'carpetaExportacion');
+            // Esperamos la confirmación de la escritura completa, no solo la petición de guardado.
+            transaccion.oncomplete = () => resolve();
+            transaccion.onabort = () => reject(transaccion.error || new Error('No se guardó la preferencia.'));
+          });
+        } finally {
+          base.close();
+        }
+      }
+
+      // Tanto el guardado automático como las copias esperan a que el navegador cierre la escritura.
+      async function escribirArchivo(archivo, contenido) {
+        const escritura = await archivo.createWritable();
+        try {
+          await escritura.write(contenido);
+          await escritura.close();
+        } catch (error) {
+          // Intentamos cancelar la escritura conservando el error original para mostrarlo en pantalla.
+          await escritura.abort().catch(() => {});
+          throw error;
+        }
+      }
+
+      // Funciones auxiliares para páginas, copias, fechas y búsqueda.
+      // slice devuelve solo los elementos visibles; la lista completa sigue disponible para exportar.
+      function paginarLista(lista, paginaSolicitada) {
+        const porPagina = 10;
+        const paginas = Math.max(1, Math.ceil(lista.length / porPagina));
+        // Ajustamos los límites para evitar páginas vacías después de borrar o importar datos.
+        const pagina = Math.min(Math.max(1, paginaSolicitada), paginas);
+        const inicio = (pagina - 1) * porPagina;
+
+        return {
+          elementos: lista.slice(inicio, inicio + porPagina),
+          pagina,
+          paginas,
+          total: lista.length,
+          desde: Math.min(inicio + 1, lista.length),
+          hasta: Math.min(inicio + porPagina, lista.length)
+        };
+      }
+
+      // Este es el formato del archivo exportado; conserva sus claves para aceptar copias anteriores.
+      function crearCuadernoVacio() {
+        return {
+          format: 'cuaderno-digital',
+          version: 1,
+          project: {
+            name: '',
+            course: 'Ingeniería biomédica y tecnología digital',
+            teacher: '',
+            description: ''
+          },
+          members: [],
+          entries: [],
+          tasks: [],
+          history: []
+        };
+      }
+
+      // Los datos solo contienen valores JSON; esta copia evita editar el original por referencia.
+      function copiarDatos(datos) {
+        return JSON.parse(JSON.stringify(datos));
+      }
+
+      // Una copia antigua solo identifica a su autor; no inventamos otros participantes.
+      function participantesConocidos(entrada) {
+        return entrada.contributions ? entrada.contributions.map(aportacion => aportacion.memberId) : [entrada.authorId];
+      }
+
+      // Los enlaces externos solo admiten navegación web, nunca javascript:, data: ni archivos locales.
+      function esEnlaceWeb(valor) {
+        try {
+          const enlace = new URL(valor);
+          return enlace.protocol === 'https:' || enlace.protocol === 'http:';
+        } catch (error) {
+          return false;
+        }
+      }
+
+      // Quitamos las diferencias de escritura solo al buscar, sin modificar el texto del cuaderno.
+      function prepararBusqueda(texto) {
+        const minusculas = texto.toLocaleLowerCase('es');
+        const letrasSeparadas = minusculas.normalize('NFD');
+        return letrasSeparadas.replace(/[\u0300-\u036f]/g, '');
+      }
+
+      // Las fechas UTC del JSON se muestran en castellano y en la zona horaria del navegador.
+      function mostrarFechaHora(valor) {
+        const fecha = new Date(valor);
+        return fecha.toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' });
+      }
+
+      // Una fecha límite es un día, no un instante; la construimos en hora local para conservar ese día.
+      function mostrarFecha(valor) {
+        const fecha = new Date(`${valor}T12:00:00`);
+        return fecha.toLocaleDateString('es-ES', { dateStyle: 'medium' });
+      }
+
+      // El campo datetime-local necesita YYYY-MM-DDTHH:mm; no admite el formato visible en castellano.
+      function fechaHoraParaFormulario(fecha) {
+        const anio = String(fecha.getFullYear()).padStart(4, '0');
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        const hora = String(fecha.getHours()).padStart(2, '0');
+        const minutos = String(fecha.getMinutes()).padStart(2, '0');
+        return `${anio}-${mes}-${dia}T${hora}:${minutos}`;
+      }
+
+      function fechaDeHoy() {
+        return fechaHoraParaFormulario(new Date()).slice(0, 10);
+      }
+
+      // Todas las copias usan día-mes-año y la fecha local del ordenador, sin hora.
+      function fechaParaArchivo(fecha) {
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const anio = String(fecha.getFullYear()).padStart(4, '0');
+        return `${dia}-${mes}-${anio}`;
+      }
+
+      function formularioModificado(formulario, versionInicial) {
+        if (formulario === null) {
+          return false;
+        }
+        return JSON.stringify(formulario) !== versionInicial;
+      }
+
+      // Antes de reutilizar un formulario, protegemos cualquier borrador que ya estuviera modificado.
+      function confirmarNuevaEdicion(formulario, versionInicial) {
+        if (!formularioModificado(formulario, versionInicial)) {
+          return true;
+        }
+        return window.confirm('¿Descartar los cambios pendientes de este formulario?');
+      }
+
+      function resumirCuaderno(cuaderno) {
+        const nombre = cuaderno.project.name || 'Sin nombre';
+        return `${nombre}: ${cuaderno.entries.length} entradas, ${cuaderno.tasks.length} tareas, ${cuaderno.history.length} cambios`;
+      }
+
+      // 8. Validación de archivos y datos. Conserva el formato de los JSON anteriores.
+      // Se llama al abrir, importar y guardar: cualquier error interrumpe la operación sin sustituir datos.
+      function validarCuaderno(cuaderno) {
+        // Una misma comprobación produce mensajes uniformes para todas las reglas siguientes.
+        function comprobar(condicion, mensaje) {
+          if (!condicion) {
+            throw new Error(`Datos no válidos: ${mensaje}.`);
+          }
+        }
+
+        function esObjeto(valor) {
+          return valor !== null && typeof valor === 'object' && !Array.isArray(valor);
+        }
+
+        function validarTexto(valor, campo, obligatorio = false, longitudMaxima = 20000) {
+          comprobar(typeof valor === 'string', campo);
+          comprobar(valor.length <= longitudMaxima, campo);
+          if (obligatorio) {
+            comprobar(valor.trim().length > 0, campo);
+          }
+        }
+
+        function validarIdentificador(valor) {
+          comprobar(typeof valor === 'string', 'identificador');
+          comprobar(/^[a-zA-Z0-9_-]{1,100}$/.test(valor), 'identificador');
+        }
+
+        // Exigimos fechas reales y un formato UTC único para poder ordenarlas de forma consistente.
+        function validarFechaHora(valor) {
+          comprobar(typeof valor === 'string', 'fecha y hora');
+          comprobar(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(valor), 'fecha y hora');
+          comprobar(Number.isFinite(Date.parse(valor)), 'fecha y hora');
+          comprobar(new Date(valor).toISOString() === valor, 'fecha y hora');
+        }
+
+        function validarFecha(valor) {
+          comprobar(typeof valor === 'string', 'fecha límite');
+          comprobar(/^\d{4}-\d{2}-\d{2}$/.test(valor), 'fecha límite');
+          const fecha = new Date(`${valor}T12:00:00Z`);
+          comprobar(Number.isFinite(fecha.getTime()), 'fecha límite');
+          comprobar(fecha.toISOString().slice(0, 10) === valor, 'fecha límite');
+        }
+
+        // Primero comprobamos la estructura y versión antes de acceder a sus registros.
+        comprobar(esObjeto(cuaderno), 'formato del cuaderno');
+        comprobar(cuaderno.format === 'cuaderno-digital' && cuaderno.version === 1, 'formato o versión incompatible');
+        comprobar(esObjeto(cuaderno.project), 'información del proyecto');
+        validarTexto(cuaderno.project.name, 'nombre del proyecto', false, 200);
+        validarTexto(cuaderno.project.course, 'asignatura', false, 200);
+        validarTexto(cuaderno.project.teacher, 'profesor/a', false, 200);
+        validarTexto(cuaderno.project.description, 'objetivo');
+
+        // Un ID repetido haría ambiguo editar, borrar o referenciar un registro.
+        for (const lista of ['members', 'entries', 'tasks', 'history']) {
+          comprobar(Array.isArray(cuaderno[lista]), `lista ${lista}`);
+          const identificadores = new Set();
+          for (const registro of cuaderno[lista]) {
+            comprobar(esObjeto(registro), `elemento de ${lista}`);
+            validarIdentificador(registro.id);
+            comprobar(!identificadores.has(registro.id), `identificador duplicado en ${lista}`);
+            identificadores.add(registro.id);
+          }
+        }
+
+        // El correo identifica a cada miembro; no permitimos duplicados aunque cambien las mayúsculas.
+        const correos = new Set();
+        for (const miembro of cuaderno.members) {
+          validarTexto(miembro.name, 'nombre del miembro', true, 200);
+          validarTexto(miembro.role, 'rol del miembro', true, 200);
+          validarTexto(miembro.email, 'correo del miembro', true, 200);
+          comprobar(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(miembro.email), 'correo del miembro');
+          comprobar(!correos.has(miembro.email.toLowerCase()), 'correo de miembro duplicado');
+          correos.add(miembro.email.toLowerCase());
+          comprobar(typeof miembro.active === 'boolean', 'estado del miembro');
+        }
+        if (cuaderno.members.length > 0) {
+          comprobar(cuaderno.members.some(miembro => miembro.active), 'debe quedar un miembro activo');
+        }
+
+        // Las entradas y tareas deben referirse a personas que realmente figuren en el equipo.
+        const miembros = new Set(cuaderno.members.map(miembro => miembro.id));
+        for (const entrada of cuaderno.entries) {
+          validarFechaHora(entrada.at);
+          comprobar(miembros.has(entrada.authorId), 'autoría de la entrada');
+          comprobar(Object.hasOwn(TIPOS_ACTIVIDAD, entrada.type), 'tipo de actividad');
+          validarTexto(entrada.title, 'título de la entrada', true, 200);
+          validarTexto(entrada.description, 'trabajo realizado', true);
+          validarTexto(entrada.decisions, 'decisiones', entrada.type === 'decision');
+          validarTexto(entrada.results, 'resultados');
+          // Campos añadidos: las copias anteriores siguen siendo válidas sin ellos.
+          if (entrada.contributions !== undefined) {
+            comprobar(Array.isArray(entrada.contributions) && entrada.contributions.length > 0, 'participantes de la entrada');
+            const participantes = new Set();
+            for (const aportacion of entrada.contributions) {
+              comprobar(esObjeto(aportacion) && miembros.has(aportacion.memberId), 'participante de la entrada');
+              comprobar(!participantes.has(aportacion.memberId), 'participante repetido');
+              participantes.add(aportacion.memberId);
+              validarTexto(aportacion.description, 'aportación del participante', true);
+            }
+          }
+          if (entrada.evidence !== undefined) {
+            comprobar(Array.isArray(entrada.evidence), 'evidencias de la entrada');
+            for (const evidencia of entrada.evidence) {
+              comprobar(esObjeto(evidencia), 'evidencia de la entrada');
+              validarTexto(evidencia.title, 'nombre de la evidencia', false, 200);
+              validarTexto(evidencia.url, 'enlace de la evidencia', true, 2000);
+              comprobar(esEnlaceWeb(evidencia.url), 'el enlace debe empezar por https:// o http://');
+            }
+          }
+        }
+
+        for (const tarea of cuaderno.tasks) {
+          validarTexto(tarea.title, 'título de la tarea', true, 200);
+          validarTexto(tarea.description, 'descripción de la tarea');
+          validarFecha(tarea.due);
+          comprobar(Object.hasOwn(ESTADOS_TAREA, tarea.status), 'estado de la tarea');
+          // Las copias anteriores no tenían este campo: se abren y se señalan para completarlo en la interfaz.
+          // Toda tarea nueva o editada lo incluye y debe justificar un bloqueo.
+          if (tarea.blockReason !== undefined) {
+            validarTexto(tarea.blockReason, 'indica el motivo del bloqueo', tarea.status === 'bloqueada');
+          }
+          comprobar(Array.isArray(tarea.assigneeIds), 'responsables de la tarea');
+          comprobar(tarea.assigneeIds.length > 0, 'selecciona al menos un responsable');
+          comprobar(tarea.assigneeIds.every(id => miembros.has(id)), 'responsables de la tarea');
+          comprobar(new Set(tarea.assigneeIds).size === tarea.assigneeIds.length, 'responsables duplicados');
+        }
+
+        // El historial conserva su propia autoría, incluso si procede de un cuaderno importado.
+        for (const cambio of cuaderno.history) {
+          validarFechaHora(cambio.at);
+          validarIdentificador(cambio.actorId);
+          validarTexto(cambio.actorName, 'persona del historial', true, 200);
+          validarTexto(cambio.action, 'acción del historial', true, 200);
+          validarTexto(cambio.entity, 'entidad del historial', true, 200);
+          validarIdentificador(cambio.entityId);
+          if (cambio.label !== undefined) {
+            validarTexto(cambio.label, 'registro modificado', false, 200);
+          }
+          comprobar(Array.isArray(cambio.changes), 'cambios del historial');
+          for (const detalle of cambio.changes) {
+            comprobar(esObjeto(detalle), 'detalle de cambio');
+            validarTexto(detalle.field, 'campo modificado', true, 200);
+            validarTexto(detalle.before, 'valor anterior', false, 200000);
+            validarTexto(detalle.after, 'valor nuevo', false, 200000);
+          }
+        }
+        return cuaderno;
+      }
+    </script>
+  </body>
+</html>
