@@ -1,0 +1,55 @@
+{
+  "format": "cuaderno-digital",
+  "version": 1,
+  "project": {
+    "name": "",
+    "course": "Ingeniería biomédica y tecnología digital",
+    "teacher": "",
+    "description": ""
+  },
+  "members": [
+    {
+      "id": "71e0f37c-3bad-4681-bf32-a56b089e6f11",
+      "name": "Joan",
+      "role": "Documentación",
+      "email": "jmorenorey0@uoc.edu",
+      "active": true
+    }
+  ],
+  "entries": [],
+  "tasks": [],
+  "history": [
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "71e0f37c-3bad-4681-bf32-a56b089e6f11",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Joan"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "Documentación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "jmorenorey0@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "c571e61c-4c98-481b-9bac-158357fe7956",
+      "at": "2026-10-24T07:35:04.255Z",
+      "actorId": "71e0f37c-3bad-4681-bf32-a56b089e6f11",
+      "actorName": "Joan"
+    }
+  ]
+}

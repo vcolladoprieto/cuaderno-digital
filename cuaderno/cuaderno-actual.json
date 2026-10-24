@@ -14,6 +14,13 @@
       "role": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones.",
       "email": "kcortesh@uoc.edu",
       "active": true
+    },
+    {
+      "id": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "name": "Joan",
+      "role": "Documentación",
+      "email": "jmorenorey0@uoc.edu",
+      "active": true
     }
   ],
   "entries": [],
@@ -67,6 +74,38 @@
       "at": "2026-10-24T07:31:49.302Z",
       "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
       "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Joan"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "Documentación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "jmorenorey0@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "68ace43f-e005-498c-b04d-d39e0c0d5e5a",
+      "at": "2026-10-24T07:43:10.805Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan"
     }
   ]
 }
