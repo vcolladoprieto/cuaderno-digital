@@ -7,8 +7,8 @@ const destino = new URL('../dist/', import.meta.url);
 const contraseña = process.env.STATICRYPT_PASSWORD;
 
 // El despliegue se detiene si falta el secreto; nunca genera una página sin cifrar.
-if (!contraseña || contraseña.length < 16) {
-  throw new Error('Configura PAGES_PASSWORD en GitHub con una contraseña de al menos 16 caracteres. Para compilar localmente usa STATICRYPT_PASSWORD.');
+if (!contraseña?.trim()) {
+  throw new Error('Configura el secreto PAGES_PASSWORD en GitHub. Para compilar localmente usa STATICRYPT_PASSWORD.');
 }
 
 // Eliminamos restos de compilaciones anteriores para publicar únicamente el archivo nuevo.
@@ -19,6 +19,8 @@ execFileSync(process.execPath, [
   '--template', 'scripts/password-template.html',
   '--directory', 'dist',
   '--config', 'false',
+  // La contraseña la decide el propietario; evitamos la pregunta interactiva de la CLI en Actions.
+  '--short',
   '--remember', '1'
 ], { cwd: raiz, stdio: 'inherit' });
 
