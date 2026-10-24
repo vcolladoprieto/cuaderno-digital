@@ -1,0 +1,72 @@
+{
+  "format": "cuaderno-digital",
+  "version": 1,
+  "project": {
+    "name": "",
+    "course": "Ingeniería biomédica y tecnología digital",
+    "teacher": "",
+    "description": ""
+  },
+  "members": [
+    {
+      "id": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "name": "Kevin Alejandro Cortes Henao",
+      "role": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+      "email": "kcortesh@uoc.edu",
+      "active": true
+    }
+  ],
+  "entries": [],
+  "tasks": [],
+  "history": [
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "omunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "kcortesh@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "3c168c5f-4796-4047-80ca-855e0a3ebbbe",
+      "at": "2026-10-24T07:30:37.542Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "omunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+          "after": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        }
+      ],
+      "id": "6594102f-ca13-428b-a785-47cc3f315f60",
+      "at": "2026-10-24T07:31:49.302Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    }
+  ]
+}
