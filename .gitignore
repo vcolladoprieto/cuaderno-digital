@@ -1,0 +1,8 @@
+# Copias de trabajo: GitHub Pages recibe únicamente el HTML cifrado.
+/cuaderno-*.json
+/node_modules/
+/dist/
+/.playwright-mcp/
+/.staticrypt.json
+.env
+.env.*

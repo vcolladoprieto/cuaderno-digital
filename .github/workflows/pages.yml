@@ -1,0 +1,63 @@
+name: Publicar cuaderno protegido
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - package.json
+      - package-lock.json
+      - scripts/build-pages.mjs
+      - scripts/password-template.html
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Instalar la herramienta de cifrado
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Cifrar el cuaderno
+        env:
+          STATICRYPT_PASSWORD: ${{ secrets.PAGES_PASSWORD }}
+        run: npm run build:pages
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Nunca se publica la raíz del repositorio ni las copias JSON locales.
+      - name: Subir únicamente la página cifrada
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

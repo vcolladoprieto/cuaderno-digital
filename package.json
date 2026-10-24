@@ -1,0 +1,10 @@
+{
+  "name": "cuaderno-digital",
+  "private": true,
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs"
+  },
+  "devDependencies": {
+    "staticrypt": "3.5.4"
+  }
+}
