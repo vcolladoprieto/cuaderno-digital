@@ -21,6 +21,13 @@
       "role": "Documentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv",
       "email": "jmorenorey0@uoc.edu",
       "active": true
+    },
+    {
+      "id": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "name": "Víctor Collado Prieto",
+      "role": "-",
+      "email": "vcolladoprieto@uoc.edu",
+      "active": true
     }
   ],
   "entries": [
@@ -277,6 +284,38 @@
       "at": "2026-10-24T10:07:37.682Z",
       "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
       "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "-"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "vcolladoprieto@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "18b8ea0f-a202-4712-988e-b4144e02038e",
+      "at": "2026-10-26T18:34:13.225Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
     }
   ]
 }
