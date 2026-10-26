@@ -28,6 +28,13 @@
       "role": "-",
       "email": "vcolladoprieto@uoc.edu",
       "active": true
+    },
+    {
+      "id": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "name": "Regina Chukwuma",
+      "role": "coordinación",
+      "email": "rchucuma@uoc.edu",
+      "active": true
     }
   ],
   "entries": [
@@ -44,6 +51,35 @@
         {
           "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
           "description": "Pruebas y coordinación del Reto 2."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "at": "2026-10-26T18:58:00.000Z",
+      "authorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "type": "investigacion",
+      "title": "Elección del problema digital a desarrollar en el R2,",
+      "description": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido.",
+      "decisions": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico.",
+      "results": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor.",
+      "contributions": [
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Coordinación de la reunión y aportación de ideas."
+        },
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Creación de la sala de google meets y aportación de ideas."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Aportación de ideas"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Aportación de ideas."
         }
       ],
       "evidence": []
@@ -316,6 +352,107 @@
       "at": "2026-10-26T18:34:13.225Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Regina"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "coordinación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "rchucuma@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "d5cf0297-5798-4a16-8377-14607b19a765",
+      "at": "2026-10-26T18:37:24.578Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina Chukwuma",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "Regina",
+          "after": "Regina Chukwuma"
+        }
+      ],
+      "id": "99090347-aef8-4d3b-a9d3-8e0cf89aad8e",
+      "at": "2026-10-26T18:58:23.128Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "label": "Elección del problema digital a desarrollar en el R2,",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "26 oct 2026, 19:58"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Investigación"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Elección del problema digital a desarrollar en el R2,"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Regina Chukwuma: Coordinación de la reunión y aportación de ideas.\nVíctor Collado Prieto: Creación de la sala de google meets y aportación de ideas.\nJoan Moreno Rey: Aportación de ideas\nKevin Alejandro Cortes Henao: Aportación de ideas."
+        }
+      ],
+      "id": "b3acfd98-329b-4fda-881f-ca996229f27e",
+      "at": "2026-10-26T19:18:15.821Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina Chukwuma"
     }
   ]
 }
