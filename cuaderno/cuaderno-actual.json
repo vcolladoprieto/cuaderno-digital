@@ -83,6 +83,40 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "id": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "at": "2026-10-31T08:36:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "decision",
+      "title": "Selección del tema para la actividad 1",
+      "description": "A raíz de las propuestas realizadas por el equipo surge la duda sobre si una solución ya existente sería valida como propuesta seleccionada. El tutor nos da la respuesta conforme, siempre y cuando se mejore y se analice correctamente las soluciones existentes.",
+      "decisions": "Se selecciona la propuesta de Kevin al ser esta más cercana a los conocimientos que puede aportar el equipo, tanto en la parte de procedimiento (Kevin, Joan, Regina) como en la parte técnica (Víctor)",
+      "results": "Selección de la propuesta a desarrollar",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Revisión de rúbricas y mediador durante el debate de las propuestas."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Realización del prompt socrático seleccionado y participación del debate"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Aportación de ideas y debate sobre los prompts y la duda lanzada al tutor"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Contacto con el tutor y participación del debate"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "Propuesta con gemini de Kevin",
+          "url": "https://share.gemini.google/addkpvOFqw2f"
+        }
+      ]
     }
   ],
   "tasks": [
@@ -487,6 +521,63 @@
       "at": "2026-10-31T08:25:21.901Z",
       "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
       "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "label": "Selección del tema para la actividad 1",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz de las propuestas realizadas por el equipo surge la duda sobre si una solución ya existente sería valida como propuesta seleccionada. El tutor nos da la respuesta conforme, siempre y cuando se mejore y se analice correctamente las soluciones existentes."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "31 oct 2026, 9:36"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Decisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Selección del tema para la actividad 1"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se selecciona la propuesta de Kevin al ser esta más cercana a los conocimientos que puede aportar el equipo, tanto en la parte de procedimiento (Kevin, Joan, Regina) como en la parte técnica (Víctor)"
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Selección de la propuesta a desarrollar"
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Revisión de rúbricas y mediador durante el debate de las propuestas.\nKevin Alejandro Cortes Henao: Realización del prompt socrático seleccionado y participación del debate\nJoan Moreno Rey: Aportación de ideas y debate sobre los prompts y la duda lanzada al tutor\nRegina Chukwuma: Contacto con el tutor y participación del debate"
+        },
+        {
+          "field": "Evidencias",
+          "before": "",
+          "after": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f"
+        }
+      ],
+      "id": "d5facb07-5b8b-4299-b88b-d5655b52655e",
+      "at": "2026-10-31T08:38:05.468Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
     }
   ]
 }
