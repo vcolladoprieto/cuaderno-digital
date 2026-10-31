@@ -32,7 +32,7 @@
     {
       "id": "934fca1e-5a89-4800-8436-b7a894c2950e",
       "name": "Regina Chukwuma",
-      "role": "coordinación",
+      "role": "Coordinación: Organiza el calendario, convoca reuniones y hace seguimiento de los plazos",
       "email": "rchucuma@uoc.edu",
       "active": true
     }
@@ -470,6 +470,23 @@
       "at": "2026-10-31T07:39:40.955Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina Chukwuma",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "coordinación",
+          "after": "Coordinación: Organiza el calendario, convoca reuniones y hace seguimiento de los plazos"
+        }
+      ],
+      "id": "14da84c4-12ec-4513-92a5-ebe705c72c34",
+      "at": "2026-10-31T08:25:21.901Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
     }
   ]
 }
