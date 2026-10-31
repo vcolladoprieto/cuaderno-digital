@@ -25,7 +25,7 @@
     {
       "id": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "name": "Víctor Collado Prieto",
-      "role": "-",
+      "role": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR.",
       "email": "vcolladoprieto@uoc.edu",
       "active": true
     },
@@ -453,6 +453,23 @@
       "at": "2026-10-26T19:18:15.821Z",
       "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
       "actorName": "Regina Chukwuma"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "-",
+          "after": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR."
+        }
+      ],
+      "id": "1605f9c5-08d6-4619-b3fb-4f14c2b41808",
+      "at": "2026-10-31T07:39:40.955Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
     }
   ]
 }

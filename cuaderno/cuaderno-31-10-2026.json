@@ -1,0 +1,475 @@
+{
+  "format": "cuaderno-digital",
+  "version": 1,
+  "project": {
+    "name": "",
+    "course": "Ingeniería biomédica y tecnología digital",
+    "teacher": "",
+    "description": ""
+  },
+  "members": [
+    {
+      "id": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "name": "Kevin Alejandro Cortes Henao",
+      "role": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+      "email": "kcortesh@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "name": "Joan Moreno Rey",
+      "role": "Documentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv",
+      "email": "jmorenorey0@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "name": "Víctor Collado Prieto",
+      "role": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR.",
+      "email": "vcolladoprieto@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "name": "Regina Chukwuma",
+      "role": "coordinación",
+      "email": "rchucuma@uoc.edu",
+      "active": true
+    }
+  ],
+  "entries": [
+    {
+      "id": "fe3d8674-b7d8-436e-bb3a-f37605e33e4f",
+      "at": "2026-10-24T09:58:00.000Z",
+      "authorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "type": "reunion",
+      "title": "Primer dia. Elaboración de cuaderno digital",
+      "description": "-El equipo debate como construir el cuaderno digital.\n-Con Gemini UOC, se construye una base operativa.\n-Primeras pruebas del Reto 2.",
+      "decisions": "Se añade el sistema GitHub para la sincronización de archivos del cuaderno digital.\nSe respetaran los sistemas de entrega de las actividades y el seguimiento pero se opta por el sistema GitHub para mejorar la operativa del equipo.",
+      "results": "- Cuaderno digital.",
+      "contributions": [
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Pruebas y coordinación del Reto 2."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "at": "2026-10-26T18:58:00.000Z",
+      "authorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "type": "investigacion",
+      "title": "Elección del problema digital a desarrollar en el R2,",
+      "description": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido.",
+      "decisions": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico.",
+      "results": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor.",
+      "contributions": [
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Coordinación de la reunión y aportación de ideas."
+        },
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Creación de la sala de google meets y aportación de ideas."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Aportación de ideas"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Aportación de ideas."
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "title": "Busqueda de tema de investigación e innovación",
+      "description": "",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8"
+      ],
+      "due": "2026-10-26",
+      "status": "en_proceso",
+      "blockReason": ""
+    }
+  ],
+  "history": [
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "omunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "kcortesh@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "3c168c5f-4796-4047-80ca-855e0a3ebbbe",
+      "at": "2026-10-24T07:30:37.542Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "omunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+          "after": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        }
+      ],
+      "id": "6594102f-ca13-428b-a785-47cc3f315f60",
+      "at": "2026-10-24T07:31:49.302Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Joan"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "Documentación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "jmorenorey0@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "68ace43f-e005-498c-b04d-d39e0c0d5e5a",
+      "at": "2026-10-24T07:43:10.805Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "Documentación",
+          "after": "ocumentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv"
+        }
+      ],
+      "id": "4ca8d530-3f8c-4868-878d-cff3fafc91ad",
+      "at": "2026-10-24T07:47:22.952Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "ocumentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv",
+          "after": "Documentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv"
+        }
+      ],
+      "id": "73fdeb84-91a9-4a82-9920-e3a094915322",
+      "at": "2026-10-24T07:47:29.965Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan Moreno Rey",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "Joan",
+          "after": "Joan Moreno Rey"
+        }
+      ],
+      "id": "4580833d-e9a4-4bd3-8ee4-ac4f1237ae95",
+      "at": "2026-10-24T07:47:53.453Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "fe3d8674-b7d8-436e-bb3a-f37605e33e4f",
+      "label": "Primer dia. Elaboración de cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "-El equipo debate como construir el cuaderno digital.\n-Con Gemini UOC, se construye una base operativa.\n-Primeras pruebas del Reto 2."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "24 oct 2026, 11:58"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Primer dia. Elaboración de cuaderno digital"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se añade el sistema GitHub para la sincronización de archivos del cuaderno digital.\nSe respetaran los sistemas de entrega de las actividades y el seguimiento pero se opta por el sistema GitHub para mejorar la operativa del equipo."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "- Cuaderno digital."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao: Pruebas y coordinación del Reto 2."
+        }
+      ],
+      "id": "ecf1c62c-f098-4c23-89ef-9511260de08f",
+      "at": "2026-10-24T10:04:48.476Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "label": "Busqueda de tema de investigación e innovación",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Busqueda de tema de investigación e innovación"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "26 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "35c8e1e2-84f5-4c27-8c8b-9a9d54bf4ad2",
+      "at": "2026-10-24T10:07:37.682Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "-"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "vcolladoprieto@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "18b8ea0f-a202-4712-988e-b4144e02038e",
+      "at": "2026-10-26T18:34:13.225Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Regina"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "coordinación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "rchucuma@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "d5cf0297-5798-4a16-8377-14607b19a765",
+      "at": "2026-10-26T18:37:24.578Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina Chukwuma",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "Regina",
+          "after": "Regina Chukwuma"
+        }
+      ],
+      "id": "99090347-aef8-4d3b-a9d3-8e0cf89aad8e",
+      "at": "2026-10-26T18:58:23.128Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "label": "Elección del problema digital a desarrollar en el R2,",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "26 oct 2026, 19:58"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Investigación"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Elección del problema digital a desarrollar en el R2,"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Regina Chukwuma: Coordinación de la reunión y aportación de ideas.\nVíctor Collado Prieto: Creación de la sala de google meets y aportación de ideas.\nJoan Moreno Rey: Aportación de ideas\nKevin Alejandro Cortes Henao: Aportación de ideas."
+        }
+      ],
+      "id": "b3acfd98-329b-4fda-881f-ca996229f27e",
+      "at": "2026-10-26T19:18:15.821Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina Chukwuma"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "-",
+          "after": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR."
+        }
+      ],
+      "id": "1605f9c5-08d6-4619-b3fb-4f14c2b41808",
+      "at": "2026-10-31T07:39:40.955Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    }
+  ]
+}
