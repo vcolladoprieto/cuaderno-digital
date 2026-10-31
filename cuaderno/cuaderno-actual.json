@@ -117,6 +117,69 @@
           "url": "https://share.gemini.google/addkpvOFqw2f"
         }
       ]
+    },
+    {
+      "id": "6b18f5e4-b8d8-40dd-b835-c27a0abc45e5",
+      "at": "2026-10-31T08:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "reunion",
+      "title": "Reunión de seguimiento",
+      "description": "Revisión de rúbricas, asignaciones de tareas, actualización del cuaderno, debate sobre las rúbricas y su alcance.",
+      "decisions": "Se toma nota de la importancia de las rúbricas y del seguimiento de las tareas en el cuaderno.",
+      "results": "",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Cumplimentación del cuaderno a partir del debato realizado con el equipo."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Revisión de las rúbricas y mediador del debate sobre las mismas"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Revisión y presentación de la versión inicial del documento de la actividad 1"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Asignación de las tareas a realizar para finalizar la actividad 1"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "1d98a572-7346-417e-9860-9aa2283bf4e5",
+      "at": "2026-10-26T08:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "decision",
+      "title": "Utilización de la herramienta \"Git\" mediante \"GitHub\"",
+      "description": "Se valoran los posibles problemas que podrían surgir a raíz de trabajar con el JSON del cuaderno en Google Drive, y para evitar problemas de sincronización se valora el uso de la herramienta de versionado Git.",
+      "decisions": "Se utiliza la herramienta git con el programa de escritorio GitHub for windows al valorarse su facilidad de uso y su reducción en los problemas de sincronía.",
+      "results": "Se evidencia el trabajo colaborativo con el historial de commits y el control de cambios, siendo efectivo desde el primer momento de su implantación.",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Participación del debate que lleva a la decisión"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "Repositorio de git con todos los cambios versionados del cuaderno",
+          "url": "https://github.com/vcolladoprieto/cuaderno-digital"
+        }
+      ]
     }
   ],
   "tasks": [
@@ -180,7 +243,41 @@
         "a297f20b-b158-4002-aa6f-cba7b1146537"
       ],
       "due": "2026-11-02",
-      "status": "pendiente"
+      "status": "en_proceso"
+    },
+    {
+      "blockReason": "",
+      "id": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "title": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso"
+    },
+    {
+      "id": "c5432621-bc4c-4d8e-88fd-ba74a94ebeb6",
+      "title": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "2de5fce2-c7f4-413d-a136-3d636851fed8"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso",
+      "blockReason": ""
+    },
+    {
+      "blockReason": "",
+      "id": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "title": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "934fca1e-5a89-4800-8436-b7a894c2950e",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso"
     }
   ],
   "history": [
@@ -813,6 +910,277 @@
       ],
       "id": "3a6aa0f4-ce79-4fd2-a69e-649230c0d2a7",
       "at": "2026-10-31T08:57:24.882Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "label": "Desarrollar el punto \"2. Actores implicados\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"2. Actores implicados\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "d9509680-1fc1-42ac-b125-3ae023903457",
+      "at": "2026-10-31T09:01:56.252Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "c5432621-bc4c-4d8e-88fd-ba74a94ebeb6",
+      "label": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "28668165-1f5d-47bc-9b8d-79b3e03961dc",
+      "at": "2026-10-31T09:03:37.802Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "Pendiente",
+          "after": "En proceso"
+        }
+      ],
+      "id": "7cd552a4-6b9b-451d-858d-620db9ba8ce2",
+      "at": "2026-10-31T09:03:46.976Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "label": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "7d07fa25-897a-4d1d-a09a-71163a0fcc6b",
+      "at": "2026-10-31T09:04:58.754Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "label": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\"",
+      "changes": [
+        {
+          "field": "Título",
+          "before": "Desarrollar el punto \"2. Actores implicados\"",
+          "after": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\""
+        }
+      ],
+      "id": "35e00d77-6bd6-4805-90c2-f3af578ee405",
+      "at": "2026-10-31T09:05:06.737Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "label": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "changes": [
+        {
+          "field": "Responsables",
+          "before": "Regina Chukwuma",
+          "after": "Regina Chukwuma, Kevin Alejandro Cortes Henao"
+        }
+      ],
+      "id": "5afd0cb9-4deb-4e45-b973-19ebb2569d3f",
+      "at": "2026-10-31T09:05:46.688Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "6b18f5e4-b8d8-40dd-b835-c27a0abc45e5",
+      "label": "Reunión de seguimiento",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Revisión de rúbricas, asignaciones de tareas, actualización del cuaderno, debate sobre las rúbricas y su alcance."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "31 oct 2026, 9:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Reunión de seguimiento"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se toma nota de la importancia de las rúbricas y del seguimiento de las tareas en el cuaderno."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Cumplimentación del cuaderno a partir del debato realizado con el equipo.\nKevin Alejandro Cortes Henao: Revisión de las rúbricas y mediador del debate sobre las mismas\nJoan Moreno Rey: Revisión y presentación de la versión inicial del documento de la actividad 1\nRegina Chukwuma: Asignación de las tareas a realizar para finalizar la actividad 1"
+        }
+      ],
+      "id": "c0ec5d1b-8948-4d35-8b7c-74bf555a7f3a",
+      "at": "2026-10-31T09:09:09.196Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "1d98a572-7346-417e-9860-9aa2283bf4e5",
+      "label": "Utilización de la herramienta \"Git\" mediante \"GitHub\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se valoran los posibles problemas que podrían surgir a raíz de trabajar con el JSON del cuaderno en Google Drive, y para evitar problemas de sincronización se valora el uso de la herramienta de versionado Git."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "26 oct 2026, 9:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Decisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Utilización de la herramienta \"Git\" mediante \"GitHub\""
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se utiliza la herramienta git con el programa de escritorio GitHub for windows al valorarse su facilidad de uso y su reducción en los problemas de sincronía."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Se evidencia el trabajo colaborativo con el historial de commits y el control de cambios, siendo efectivo desde el primer momento de su implantación."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Participación del debate que lleva a la decisión\nKevin Alejandro Cortes Henao: Participación del debate que lleva a la decisión\nJoan Moreno Rey: Participación del debate que lleva a la decisión\nRegina Chukwuma: Participación del debate que lleva a la decisión"
+        },
+        {
+          "field": "Evidencias",
+          "before": "",
+          "after": "Repositorio de git con todos los cambios versionados del cuaderno: https://github.com/vcolladoprieto/cuaderno-digital"
+        }
+      ],
+      "id": "c82749ab-61da-4576-9f65-e5473a5bf64e",
+      "at": "2026-10-31T09:17:07.488Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
