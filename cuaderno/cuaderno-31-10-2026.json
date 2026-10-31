@@ -129,8 +129,58 @@
         "2de5fce2-c7f4-413d-a136-3d636851fed8"
       ],
       "due": "2026-10-26",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "id": "240a9b74-bfed-421d-92bc-7bc51de474d4",
+      "title": "Revisión de rúbricas",
+      "description": "Con el objetivo de mejorar el desarrollo de la actividad 1, se revisa el trabajo realizado y su alineación con las rúbricas de la actividad",
+      "assigneeIds": [
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-10-31",
       "status": "en_proceso",
       "blockReason": ""
+    },
+    {
+      "id": "ad1bdcb2-fcbd-48b5-a0f8-3351445ee9bc",
+      "title": "Desarrollo del prompt socrático con Gemini",
+      "description": "A raíz de la reunión del 26 de octubre y de la selección del tema a desarrollar, se desarrolla el mismo sobre Gemini",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c"
+      ],
+      "due": "2026-10-31",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "id": "2b5b917e-9cb4-40c7-b095-b452067359d9",
+      "title": "Desarrollo del cuaderno digital",
+      "description": "El equipo desarrolla con Gemini el cuaderno digital en un proceso iterativo basado en la observación y el debate con el objetivo de cumplir todos los puntos requeridos.",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-10-26",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "blockReason": "",
+      "id": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "title": "Registro del debate de la creación del cuaderno digital",
+      "description": "A raíz del debate realizado para la creación del cuaderno digital y de las notas tomadas durante la reunión, realizar un documento de la consolidación del proceso y debate de desarrollo del cuaderno.",
+      "assigneeIds": [
+        "a297f20b-b158-4002-aa6f-cba7b1146537"
+      ],
+      "due": "2026-11-02",
+      "status": "pendiente"
     }
   ],
   "history": [
@@ -576,6 +626,193 @@
       ],
       "id": "d5facb07-5b8b-4299-b88b-d5655b52655e",
       "at": "2026-10-31T08:38:05.468Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "label": "Busqueda de tema de investigación e innovación",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "1d83a80d-6eb4-453b-8405-c72b0a11ceb4",
+      "at": "2026-10-31T08:38:44.240Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "240a9b74-bfed-421d-92bc-7bc51de474d4",
+      "label": "Revisión de rúbricas",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Con el objetivo de mejorar el desarrollo de la actividad 1, se revisa el trabajo realizado y su alineación con las rúbricas de la actividad"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Revisión de rúbricas"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Víctor Collado Prieto, Joan Moreno Rey, Kevin Alejandro Cortes Henao, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "4f4e4e0b-105b-43b9-9896-19d90bf26fe7",
+      "at": "2026-10-31T08:39:47.664Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "ad1bdcb2-fcbd-48b5-a0f8-3351445ee9bc",
+      "label": "Desarrollo del prompt socrático con Gemini",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz de la reunión del 26 de octubre y de la selección del tema a desarrollar, se desarrolla el mismo sobre Gemini"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollo del prompt socrático con Gemini"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Completada"
+        }
+      ],
+      "id": "1fade9d0-1446-4877-9b0b-6dc423d87350",
+      "at": "2026-10-31T08:41:53.736Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "2b5b917e-9cb4-40c7-b095-b452067359d9",
+      "label": "Desarrollo del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "El equipo desarrolla con Gemini el cuaderno digital en un proceso iterativo basado en la observación y el debate con el objetivo de cumplir todos los puntos requeridos."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollo del cuaderno digital"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "26 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Completada"
+        }
+      ],
+      "id": "06d4a256-c429-4c50-9546-b5c40183b6f6",
+      "at": "2026-10-31T08:44:04.416Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del debate realizado para la creación del cuaderno digital y de las notas tomadas durante la reunión, realizar un documento de la consolidación del proceso y debate de desarrollo del cuaderno."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Registro del debate de la creación del cuaderno digital"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma, Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Pendiente"
+        }
+      ],
+      "id": "5225d4c6-58c2-43bd-89b2-6d85573db8f5",
+      "at": "2026-10-31T08:47:53.791Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Responsables",
+          "before": "Regina Chukwuma, Joan Moreno Rey",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "31 oct 2026",
+          "after": "2 nov 2026"
+        }
+      ],
+      "id": "3a6aa0f4-ce79-4fd2-a69e-649230c0d2a7",
+      "at": "2026-10-31T08:57:24.882Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
