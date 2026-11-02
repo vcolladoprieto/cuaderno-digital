@@ -276,7 +276,7 @@
         "a297f20b-b158-4002-aa6f-cba7b1146537"
       ],
       "due": "2026-11-02",
-      "status": "en_proceso"
+      "status": "completada"
     },
     {
       "blockReason": "",
@@ -1283,6 +1283,23 @@
       ],
       "id": "a162280b-48e6-402c-b3d2-b4cdd77a4240",
       "at": "2026-11-02T15:56:27.563Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "8effa25f-72ed-41f1-9dac-fde6fdb76ee2",
+      "at": "2026-11-02T18:11:45.205Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
