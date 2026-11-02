@@ -184,6 +184,35 @@
           "url": "https://github.com/vcolladoprieto/cuaderno-digital"
         }
       ]
+    },
+    {
+      "id": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "at": "2026-10-24T10:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "revision",
+      "title": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "description": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos.",
+      "decisions": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña.",
+      "results": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo.",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Acceso, búsqueda de información, gestión de tareas y recuperación de copias."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "evidence": []
     }
   ],
   "tasks": [
@@ -1204,6 +1233,58 @@
       "at": "2026-10-31T09:38:01.868Z",
       "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
       "actorName": "Regina Chukwuma"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "label": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "24 oct 2026, 12:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Revisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Acuerdos para el diseño y funcionamiento del cuaderno digital"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación.\nKevin Alejandro Cortes Henao: Acceso, búsqueda de información, gestión de tareas y recuperación de copias.\nJoan Moreno Rey: Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo.\nRegina Chukwuma: Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "id": "a162280b-48e6-402c-b3d2-b4cdd77a4240",
+      "at": "2026-11-02T15:56:27.563Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
     }
   ]
 }

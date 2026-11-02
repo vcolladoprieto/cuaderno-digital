@@ -1,0 +1,1290 @@
+{
+  "format": "cuaderno-digital",
+  "version": 1,
+  "project": {
+    "name": "",
+    "course": "Ingeniería biomédica y tecnología digital",
+    "teacher": "",
+    "description": ""
+  },
+  "members": [
+    {
+      "id": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "name": "Kevin Alejandro Cortes Henao",
+      "role": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+      "email": "kcortesh@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "name": "Joan Moreno Rey",
+      "role": "Documentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv",
+      "email": "jmorenorey0@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "name": "Víctor Collado Prieto",
+      "role": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR.",
+      "email": "vcolladoprieto@uoc.edu",
+      "active": true
+    },
+    {
+      "id": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "name": "Regina Chukwuma",
+      "role": "Coordinación: Organiza el calendario, convoca reuniones y hace seguimiento de los plazos",
+      "email": "rchucuma@uoc.edu",
+      "active": true
+    }
+  ],
+  "entries": [
+    {
+      "id": "fe3d8674-b7d8-436e-bb3a-f37605e33e4f",
+      "at": "2026-10-24T09:58:00.000Z",
+      "authorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "type": "reunion",
+      "title": "Primer dia. Elaboración de cuaderno digital",
+      "description": "-El equipo debate como construir el cuaderno digital.\n-Con Gemini UOC, se construye una base operativa.\n-Primeras pruebas del Reto 2.",
+      "decisions": "Se añade el sistema GitHub para la sincronización de archivos del cuaderno digital.\nSe respetaran los sistemas de entrega de las actividades y el seguimiento pero se opta por el sistema GitHub para mejorar la operativa del equipo.",
+      "results": "- Cuaderno digital.",
+      "contributions": [
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Pruebas y coordinación del Reto 2."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "at": "2026-10-26T18:58:00.000Z",
+      "authorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "type": "investigacion",
+      "title": "Elección del problema digital a desarrollar en el R2,",
+      "description": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido.",
+      "decisions": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico.",
+      "results": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor.",
+      "contributions": [
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Coordinación de la reunión y aportación de ideas."
+        },
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Creación de la sala de google meets y aportación de ideas."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Aportación de ideas"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Aportación de ideas."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "at": "2026-10-31T08:36:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "decision",
+      "title": "Selección del tema para la actividad 1",
+      "description": "A raíz de las propuestas realizadas por el equipo surge la duda sobre si una solución ya existente sería valida como propuesta seleccionada. El tutor nos da la respuesta conforme, siempre y cuando se mejore y se analice correctamente las soluciones existentes.",
+      "decisions": "Se selecciona la propuesta de Kevin al ser esta más cercana a los conocimientos que puede aportar el equipo, tanto en la parte de procedimiento (Kevin, Joan, Regina) como en la parte técnica (Víctor)",
+      "results": "Selección de la propuesta a desarrollar",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Revisión de rúbricas y mediador durante el debate de las propuestas."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Realización del prompt socrático seleccionado y participación del debate"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Aportación de ideas y debate sobre los prompts y la duda lanzada al tutor"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Contacto con el tutor y participación del debate"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "Propuesta con gemini de Kevin",
+          "url": "https://share.gemini.google/addkpvOFqw2f"
+        },
+        {
+          "title": "Propuesta con Meta IA de Regina",
+          "url": "https://docs.google.com/document/d/1EnftNVu9DdbW4CVJuXkIW3FrQUy2XFzp9hjxqTt6csM/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "6b18f5e4-b8d8-40dd-b835-c27a0abc45e5",
+      "at": "2026-10-31T08:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "reunion",
+      "title": "Reunión de seguimiento",
+      "description": "Revisión de rúbricas, asignaciones de tareas, actualización del cuaderno, debate sobre las rúbricas y su alcance.",
+      "decisions": "Se toma nota de la importancia de las rúbricas y del seguimiento de las tareas en el cuaderno.",
+      "results": "",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Cumplimentación del cuaderno a partir del debato realizado con el equipo."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Revisión de las rúbricas y mediador del debate sobre las mismas"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Revisión y presentación de la versión inicial del documento de la actividad 1"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Asignación de las tareas a realizar para finalizar la actividad 1"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "1d98a572-7346-417e-9860-9aa2283bf4e5",
+      "at": "2026-10-26T08:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "decision",
+      "title": "Utilización de la herramienta \"Git\" mediante \"GitHub\"",
+      "description": "Se valoran los posibles problemas que podrían surgir a raíz de trabajar con el JSON del cuaderno en Google Drive, y para evitar problemas de sincronización se valora el uso de la herramienta de versionado Git.",
+      "decisions": "Se utiliza la herramienta git con el programa de escritorio GitHub for windows al valorarse su facilidad de uso y su reducción en los problemas de sincronía.",
+      "results": "Se evidencia el trabajo colaborativo con el historial de commits y el control de cambios, siendo efectivo desde el primer momento de su implantación.",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Participación del debate que lleva a la decisión"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Participación del debate que lleva a la decisión"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "Repositorio de git con todos los cambios versionados del cuaderno",
+          "url": "https://github.com/vcolladoprieto/cuaderno-digital"
+        }
+      ]
+    },
+    {
+      "id": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "at": "2026-10-24T10:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "revision",
+      "title": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "description": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos.",
+      "decisions": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña.",
+      "results": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo.",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Acceso, búsqueda de información, gestión de tareas y recuperación de copias."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "title": "Busqueda de tema de investigación e innovación",
+      "description": "",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8"
+      ],
+      "due": "2026-10-26",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "id": "240a9b74-bfed-421d-92bc-7bc51de474d4",
+      "title": "Revisión de rúbricas",
+      "description": "Con el objetivo de mejorar el desarrollo de la actividad 1, se revisa el trabajo realizado y su alineación con las rúbricas de la actividad",
+      "assigneeIds": [
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-10-31",
+      "status": "en_proceso",
+      "blockReason": ""
+    },
+    {
+      "id": "ad1bdcb2-fcbd-48b5-a0f8-3351445ee9bc",
+      "title": "Desarrollo del prompt socrático con Gemini",
+      "description": "A raíz de la reunión del 26 de octubre y de la selección del tema a desarrollar, se desarrolla el mismo sobre Gemini",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c"
+      ],
+      "due": "2026-10-31",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "id": "2b5b917e-9cb4-40c7-b095-b452067359d9",
+      "title": "Desarrollo del cuaderno digital",
+      "description": "El equipo desarrolla con Gemini el cuaderno digital en un proceso iterativo basado en la observación y el debate con el objetivo de cumplir todos los puntos requeridos.",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-10-26",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "blockReason": "",
+      "id": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "title": "Registro del debate de la creación del cuaderno digital",
+      "description": "A raíz del debate realizado para la creación del cuaderno digital y de las notas tomadas durante la reunión, realizar un documento de la consolidación del proceso y debate de desarrollo del cuaderno.",
+      "assigneeIds": [
+        "a297f20b-b158-4002-aa6f-cba7b1146537"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso"
+    },
+    {
+      "blockReason": "",
+      "id": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "title": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso"
+    },
+    {
+      "id": "c5432621-bc4c-4d8e-88fd-ba74a94ebeb6",
+      "title": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "2de5fce2-c7f4-413d-a136-3d636851fed8"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso",
+      "blockReason": ""
+    },
+    {
+      "blockReason": "",
+      "id": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "title": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "description": "A raíz del prompt del método socrático se determina desarrollar el punto citado.",
+      "assigneeIds": [
+        "934fca1e-5a89-4800-8436-b7a894c2950e",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c"
+      ],
+      "due": "2026-11-02",
+      "status": "en_proceso"
+    }
+  ],
+  "history": [
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "omunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "kcortesh@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "3c168c5f-4796-4047-80ca-855e0a3ebbbe",
+      "at": "2026-10-24T07:30:37.542Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "label": "Kevin Alejandro Cortes Henao",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "omunicación: Gestiona el grupo y prepara el material de las presentaciones.",
+          "after": "Comunicación: Gestiona el grupo y prepara el material de las presentaciones."
+        }
+      ],
+      "id": "6594102f-ca13-428b-a785-47cc3f315f60",
+      "at": "2026-10-24T07:31:49.302Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Joan"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "Documentación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "jmorenorey0@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "68ace43f-e005-498c-b04d-d39e0c0d5e5a",
+      "at": "2026-10-24T07:43:10.805Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "Documentación",
+          "after": "ocumentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv"
+        }
+      ],
+      "id": "4ca8d530-3f8c-4868-878d-cff3fafc91ad",
+      "at": "2026-10-24T07:47:22.952Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "ocumentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv",
+          "after": "Documentación: Unifica las aportaciones en un único documento, controla versiones y formato IEEE/Vancouv"
+        }
+      ],
+      "id": "73fdeb84-91a9-4a82-9920-e3a094915322",
+      "at": "2026-10-24T07:47:29.965Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "label": "Joan Moreno Rey",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "Joan",
+          "after": "Joan Moreno Rey"
+        }
+      ],
+      "id": "4580833d-e9a4-4bd3-8ee4-ac4f1237ae95",
+      "at": "2026-10-24T07:47:53.453Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "fe3d8674-b7d8-436e-bb3a-f37605e33e4f",
+      "label": "Primer dia. Elaboración de cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "-El equipo debate como construir el cuaderno digital.\n-Con Gemini UOC, se construye una base operativa.\n-Primeras pruebas del Reto 2."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "24 oct 2026, 11:58"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Primer dia. Elaboración de cuaderno digital"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se añade el sistema GitHub para la sincronización de archivos del cuaderno digital.\nSe respetaran los sistemas de entrega de las actividades y el seguimiento pero se opta por el sistema GitHub para mejorar la operativa del equipo."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "- Cuaderno digital."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao: Pruebas y coordinación del Reto 2."
+        }
+      ],
+      "id": "ecf1c62c-f098-4c23-89ef-9511260de08f",
+      "at": "2026-10-24T10:04:48.476Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "label": "Busqueda de tema de investigación e innovación",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Busqueda de tema de investigación e innovación"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "26 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "35c8e1e2-84f5-4c27-8c8b-9a9d54bf4ad2",
+      "at": "2026-10-24T10:07:37.682Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "-"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "vcolladoprieto@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "18b8ea0f-a202-4712-988e-b4144e02038e",
+      "at": "2026-10-26T18:34:13.225Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "",
+          "after": "Regina"
+        },
+        {
+          "field": "Rol",
+          "before": "",
+          "after": "coordinación"
+        },
+        {
+          "field": "Correo institucional",
+          "before": "",
+          "after": "rchucuma@uoc.edu"
+        },
+        {
+          "field": "Miembro activo",
+          "before": "",
+          "after": "Sí"
+        }
+      ],
+      "id": "d5cf0297-5798-4a16-8377-14607b19a765",
+      "at": "2026-10-26T18:37:24.578Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina Chukwuma",
+      "changes": [
+        {
+          "field": "Nombre",
+          "before": "Regina",
+          "after": "Regina Chukwuma"
+        }
+      ],
+      "id": "99090347-aef8-4d3b-a9d3-8e0cf89aad8e",
+      "at": "2026-10-26T18:58:23.128Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "d8a35119-6726-44df-98a8-30cd9d2601ee",
+      "label": "Elección del problema digital a desarrollar en el R2,",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se ha organizado una reunión entre todos los miembros para decidir el problema que va ser elegido."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "26 oct 2026, 19:58"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Investigación"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Elección del problema digital a desarrollar en el R2,"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Entre las propuestas estaban:\n-Un sistema de ayuda para el seguimiento de la toma de medicación a los pacientes.\n\n-Un sistema que registre automáticamente la administracion de medicamentos a través de la identificación del paciente y del medicamento.\n\n-Un programa para controlar los mantenimientos preventivos de los dispositivos medicos.\n\n-Un programa que facilite el registro de resultados clínicos de los pacientes al realizar una prueba con un equipo médico."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Durante la elección han surgido dudas, por lo que antes de tomar una decisión final se consultan estas dudas con el profesor."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Regina Chukwuma: Coordinación de la reunión y aportación de ideas.\nVíctor Collado Prieto: Creación de la sala de google meets y aportación de ideas.\nJoan Moreno Rey: Aportación de ideas\nKevin Alejandro Cortes Henao: Aportación de ideas."
+        }
+      ],
+      "id": "b3acfd98-329b-4fda-881f-ca996229f27e",
+      "at": "2026-10-26T19:18:15.821Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina Chukwuma"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "label": "Víctor Collado Prieto",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "-",
+          "after": "Investigación técnica: Busca bibliografía, verifica datos técnicos y normativa MDR."
+        }
+      ],
+      "id": "1605f9c5-08d6-4619-b3fb-4f14c2b41808",
+      "at": "2026-10-31T07:39:40.955Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de miembro",
+      "entity": "member",
+      "entityId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "label": "Regina Chukwuma",
+      "changes": [
+        {
+          "field": "Rol",
+          "before": "coordinación",
+          "after": "Coordinación: Organiza el calendario, convoca reuniones y hace seguimiento de los plazos"
+        }
+      ],
+      "id": "14da84c4-12ec-4513-92a5-ebe705c72c34",
+      "at": "2026-10-31T08:25:21.901Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "label": "Selección del tema para la actividad 1",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz de las propuestas realizadas por el equipo surge la duda sobre si una solución ya existente sería valida como propuesta seleccionada. El tutor nos da la respuesta conforme, siempre y cuando se mejore y se analice correctamente las soluciones existentes."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "31 oct 2026, 9:36"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Decisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Selección del tema para la actividad 1"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se selecciona la propuesta de Kevin al ser esta más cercana a los conocimientos que puede aportar el equipo, tanto en la parte de procedimiento (Kevin, Joan, Regina) como en la parte técnica (Víctor)"
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Selección de la propuesta a desarrollar"
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Revisión de rúbricas y mediador durante el debate de las propuestas.\nKevin Alejandro Cortes Henao: Realización del prompt socrático seleccionado y participación del debate\nJoan Moreno Rey: Aportación de ideas y debate sobre los prompts y la duda lanzada al tutor\nRegina Chukwuma: Contacto con el tutor y participación del debate"
+        },
+        {
+          "field": "Evidencias",
+          "before": "",
+          "after": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f"
+        }
+      ],
+      "id": "d5facb07-5b8b-4299-b88b-d5655b52655e",
+      "at": "2026-10-31T08:38:05.468Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "972e30d1-ee0c-4180-bd18-e71151e58c4d",
+      "label": "Busqueda de tema de investigación e innovación",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "1d83a80d-6eb4-453b-8405-c72b0a11ceb4",
+      "at": "2026-10-31T08:38:44.240Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "240a9b74-bfed-421d-92bc-7bc51de474d4",
+      "label": "Revisión de rúbricas",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Con el objetivo de mejorar el desarrollo de la actividad 1, se revisa el trabajo realizado y su alineación con las rúbricas de la actividad"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Revisión de rúbricas"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Víctor Collado Prieto, Joan Moreno Rey, Kevin Alejandro Cortes Henao, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "4f4e4e0b-105b-43b9-9896-19d90bf26fe7",
+      "at": "2026-10-31T08:39:47.664Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "ad1bdcb2-fcbd-48b5-a0f8-3351445ee9bc",
+      "label": "Desarrollo del prompt socrático con Gemini",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz de la reunión del 26 de octubre y de la selección del tema a desarrollar, se desarrolla el mismo sobre Gemini"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollo del prompt socrático con Gemini"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Completada"
+        }
+      ],
+      "id": "1fade9d0-1446-4877-9b0b-6dc423d87350",
+      "at": "2026-10-31T08:41:53.736Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "2b5b917e-9cb4-40c7-b095-b452067359d9",
+      "label": "Desarrollo del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "El equipo desarrolla con Gemini el cuaderno digital en un proceso iterativo basado en la observación y el debate con el objetivo de cumplir todos los puntos requeridos."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollo del cuaderno digital"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "26 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Completada"
+        }
+      ],
+      "id": "06d4a256-c429-4c50-9546-b5c40183b6f6",
+      "at": "2026-10-31T08:44:04.416Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del debate realizado para la creación del cuaderno digital y de las notas tomadas durante la reunión, realizar un documento de la consolidación del proceso y debate de desarrollo del cuaderno."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Registro del debate de la creación del cuaderno digital"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma, Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "31 oct 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Pendiente"
+        }
+      ],
+      "id": "5225d4c6-58c2-43bd-89b2-6d85573db8f5",
+      "at": "2026-10-31T08:47:53.791Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Responsables",
+          "before": "Regina Chukwuma, Joan Moreno Rey",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "31 oct 2026",
+          "after": "2 nov 2026"
+        }
+      ],
+      "id": "3a6aa0f4-ce79-4fd2-a69e-649230c0d2a7",
+      "at": "2026-10-31T08:57:24.882Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "label": "Desarrollar el punto \"2. Actores implicados\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"2. Actores implicados\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "d9509680-1fc1-42ac-b125-3ae023903457",
+      "at": "2026-10-31T09:01:56.252Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "c5432621-bc4c-4d8e-88fd-ba74a94ebeb6",
+      "label": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "28668165-1f5d-47bc-9b8d-79b3e03961dc",
+      "at": "2026-10-31T09:03:37.802Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "Pendiente",
+          "after": "En proceso"
+        }
+      ],
+      "id": "7cd552a4-6b9b-451d-858d-620db9ba8ce2",
+      "at": "2026-10-31T09:03:46.976Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "label": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "A raíz del prompt del método socrático se determina desarrollar el punto citado."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "2 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "7d07fa25-897a-4d1d-a09a-71163a0fcc6b",
+      "at": "2026-10-31T09:04:58.754Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "c81af3e9-e4e2-4255-9a14-4832d7a28af8",
+      "label": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\"",
+      "changes": [
+        {
+          "field": "Título",
+          "before": "Desarrollar el punto \"2. Actores implicados\"",
+          "after": "Desarrollar el punto \"Actividad 1, 2. Actores implicados\""
+        }
+      ],
+      "id": "35e00d77-6bd6-4805-90c2-f3af578ee405",
+      "at": "2026-10-31T09:05:06.737Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
+      "label": "Desarrollar el punto \"Actividad 1, 1. Contexto clínico y organizativo\"",
+      "changes": [
+        {
+          "field": "Responsables",
+          "before": "Regina Chukwuma",
+          "after": "Regina Chukwuma, Kevin Alejandro Cortes Henao"
+        }
+      ],
+      "id": "5afd0cb9-4deb-4e45-b973-19ebb2569d3f",
+      "at": "2026-10-31T09:05:46.688Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "6b18f5e4-b8d8-40dd-b835-c27a0abc45e5",
+      "label": "Reunión de seguimiento",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Revisión de rúbricas, asignaciones de tareas, actualización del cuaderno, debate sobre las rúbricas y su alcance."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "31 oct 2026, 9:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Reunión de seguimiento"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se toma nota de la importancia de las rúbricas y del seguimiento de las tareas en el cuaderno."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Cumplimentación del cuaderno a partir del debato realizado con el equipo.\nKevin Alejandro Cortes Henao: Revisión de las rúbricas y mediador del debate sobre las mismas\nJoan Moreno Rey: Revisión y presentación de la versión inicial del documento de la actividad 1\nRegina Chukwuma: Asignación de las tareas a realizar para finalizar la actividad 1"
+        }
+      ],
+      "id": "c0ec5d1b-8948-4d35-8b7c-74bf555a7f3a",
+      "at": "2026-10-31T09:09:09.196Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "1d98a572-7346-417e-9860-9aa2283bf4e5",
+      "label": "Utilización de la herramienta \"Git\" mediante \"GitHub\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se valoran los posibles problemas que podrían surgir a raíz de trabajar con el JSON del cuaderno en Google Drive, y para evitar problemas de sincronización se valora el uso de la herramienta de versionado Git."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "26 oct 2026, 9:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Decisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Utilización de la herramienta \"Git\" mediante \"GitHub\""
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Se utiliza la herramienta git con el programa de escritorio GitHub for windows al valorarse su facilidad de uso y su reducción en los problemas de sincronía."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Se evidencia el trabajo colaborativo con el historial de commits y el control de cambios, siendo efectivo desde el primer momento de su implantación."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Participación del debate que lleva a la decisión\nKevin Alejandro Cortes Henao: Participación del debate que lleva a la decisión\nJoan Moreno Rey: Participación del debate que lleva a la decisión\nRegina Chukwuma: Participación del debate que lleva a la decisión"
+        },
+        {
+          "field": "Evidencias",
+          "before": "",
+          "after": "Repositorio de git con todos los cambios versionados del cuaderno: https://github.com/vcolladoprieto/cuaderno-digital"
+        }
+      ],
+      "id": "c82749ab-61da-4576-9f65-e5473a5bf64e",
+      "at": "2026-10-31T09:17:07.488Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de entrada",
+      "entity": "entry",
+      "entityId": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "label": "Selección del tema para la actividad 1",
+      "changes": [
+        {
+          "field": "Evidencias",
+          "before": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f",
+          "after": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f\nPropuesta con Meta IA de Regina: https://docs.google.com/document/d/1EnftNVu9DdbW4CVJuXkIW3FrQUy2XFzp9hjxqTt6csM/edit?usp=sharing"
+        }
+      ],
+      "id": "7d8d012f-9fc3-432c-b465-3c3368e903c7",
+      "at": "2026-10-31T09:38:01.868Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina Chukwuma"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "label": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "24 oct 2026, 12:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Revisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Acuerdos para el diseño y funcionamiento del cuaderno digital"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación.\nKevin Alejandro Cortes Henao: Acceso, búsqueda de información, gestión de tareas y recuperación de copias.\nJoan Moreno Rey: Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo.\nRegina Chukwuma: Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "id": "a162280b-48e6-402c-b3d2-b4cdd77a4240",
+      "at": "2026-11-02T15:56:27.563Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    }
+  ]
+}
