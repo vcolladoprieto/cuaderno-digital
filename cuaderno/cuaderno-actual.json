@@ -115,6 +115,10 @@
         {
           "title": "Propuesta con gemini de Kevin",
           "url": "https://share.gemini.google/addkpvOFqw2f"
+        },
+        {
+          "title": "Propuesta con Meta IA de Regina",
+          "url": "https://docs.google.com/document/d/1EnftNVu9DdbW4CVJuXkIW3FrQUy2XFzp9hjxqTt6csM/edit?usp=sharing"
         }
       ]
     },
@@ -1183,6 +1187,23 @@
       "at": "2026-10-31T09:17:07.488Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de entrada",
+      "entity": "entry",
+      "entityId": "8a95c41b-84ec-45ca-a3ea-e61a8a81fe85",
+      "label": "Selección del tema para la actividad 1",
+      "changes": [
+        {
+          "field": "Evidencias",
+          "before": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f",
+          "after": "Propuesta con gemini de Kevin: https://share.gemini.google/addkpvOFqw2f\nPropuesta con Meta IA de Regina: https://docs.google.com/document/d/1EnftNVu9DdbW4CVJuXkIW3FrQUy2XFzp9hjxqTt6csM/edit?usp=sharing"
+        }
+      ],
+      "id": "7d8d012f-9fc3-432c-b465-3c3368e903c7",
+      "at": "2026-10-31T09:38:01.868Z",
+      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+      "actorName": "Regina Chukwuma"
     }
   ]
 }
