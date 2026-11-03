@@ -242,6 +242,35 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "id": "c4b9b38c-d118-41e8-afb2-1eb003f5e2af",
+      "at": "2026-11-03T20:51:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "reunion",
+      "title": "Revisión reto 2 actividad 1",
+      "description": "Se realiza una puesta en común del documento de la propuesta de la solución tecnológica entre todo el equipo para acabar de retocar detalles de forma y estilo.",
+      "decisions": "Revisión de gramática, formas verbales, uniformidad en la redacción y en los criterios desarrollados durante todo el documento.",
+      "results": "Se finaliza la realización del documento",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Revisión de la gramática y forma"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Revisión de la uniformidad"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Revisión de la estructura"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Maquetación y detalles finales"
+        }
+      ],
+      "evidence": []
     }
   ],
   "tasks": [
@@ -352,7 +381,7 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-11-03",
-      "status": "pendiente",
+      "status": "completada",
       "blockReason": ""
     }
   ],
@@ -1502,6 +1531,75 @@
       "at": "2026-11-02T20:48:34.975Z",
       "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
       "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "c4b9b38c-d118-41e8-afb2-1eb003f5e2af",
+      "label": "Revisión reto 2 actividad 1",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se realiza una puesta en común del documento de la propuesta de la solución tecnológica entre todo el equipo para acabar de retocar detalles de forma y estilo."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "3 nov 2026, 21:51"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Revisión reto 2 actividad 1"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Revisión de gramática, formas verbales, uniformidad en la redacción y en los criterios desarrollados durante todo el documento."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Se finaliza la realización del documento"
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Revisión de la gramática y forma\nKevin Alejandro Cortes Henao: Revisión de la uniformidad\nJoan Moreno Rey: Revisión de la estructura\nRegina Chukwuma: Maquetación y detalles finales"
+        }
+      ],
+      "id": "ce768ea0-cfcb-46fe-8dce-c417982b0422",
+      "at": "2026-11-03T20:53:13.256Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "f018b89f-bd9d-4809-8511-4cb80cb07d14",
+      "label": "Revisión de formato y estilo de la actividad 1",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "Pendiente",
+          "after": "Completada"
+        }
+      ],
+      "id": "4f32d5d4-cb34-4f32-bca7-d1c6440c07bc",
+      "at": "2026-11-03T20:53:18.412Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
     }
   ]
 }
