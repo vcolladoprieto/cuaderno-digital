@@ -271,6 +271,35 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "id": "a7448abc-3d7a-4929-8f0b-ac7bc4ce9640",
+      "at": "2026-11-07T08:47:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "reunion",
+      "title": "Seguimiento Reto 2 Actividad 2",
+      "description": "Se revisa las rúbricas y se asignan las tareas. En este punto cada miembro del equipo propondrá una solución tecnológica ya existente. Además se revisará la herramienta \"Zotero\" o similares para la gestión de citas y se trabajará una versión inicial del \"Google Site\"",
+      "decisions": "Distribución de trabajo según necesidades de las siguientes tareas.",
+      "results": "",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Cumplimentar cuaderno digital y participación activa de la reunión."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Participación activa de la reunión."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Participación activa de la reunión."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Participación activa de la reunión."
+        }
+      ],
+      "evidence": []
     }
   ],
   "tasks": [
@@ -382,6 +411,44 @@
       ],
       "due": "2026-11-03",
       "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "blockReason": "",
+      "id": "f0edc59d-4dfc-4583-8044-384523c492ee",
+      "title": "Investigación herramientas de gestión de citas (Ej: Zotero)",
+      "description": "",
+      "assigneeIds": [
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8"
+      ],
+      "due": "2026-11-13",
+      "status": "en_proceso"
+    },
+    {
+      "id": "da4ac9dc-b8c5-4296-8d60-b352d60416fd",
+      "title": "Búsqueda de soluciones digitales similares",
+      "description": "Para la realización de la actividad 2 del reto 2, se realiza una búsqueda inicial para su puesto en común en la próxima reunión de seguimiento",
+      "assigneeIds": [
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-07",
+      "status": "en_proceso",
+      "blockReason": ""
+    },
+    {
+      "id": "05e033c5-0cf8-4153-8e49-f4a322df2907",
+      "title": "Creación de la propuesta inicial del \"Google Site\"",
+      "description": "De cara a la actividad 2 del reto 2, y dado que se incluye en las rúbricas, se realiza la propuesta inicial de \"Google Site\"",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-13",
+      "status": "en_proceso",
       "blockReason": ""
     }
   ],
@@ -1598,6 +1665,186 @@
       ],
       "id": "4f32d5d4-cb34-4f32-bca7-d1c6440c07bc",
       "at": "2026-11-03T20:53:18.412Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "f0edc59d-4dfc-4583-8044-384523c492ee",
+      "label": "Investigación herramientas de gestión de citas (Ej: Zotero)",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Investigación herramientas de gestión de citas (Ej: Zotero)"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Víctor Collado Prieto, Joan Moreno Rey"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "9 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "592f52ea-2b19-4d4a-b063-1486d84ee01e",
+      "at": "2026-11-07T08:44:05.869Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "da4ac9dc-b8c5-4296-8d60-b352d60416fd",
+      "label": "Búsqueda de soluciones digitales similares",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Para la realización de la actividad 2 del reto 2, se realiza una búsqueda inicial para su puesto en común en la próxima reunión de seguimiento"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Búsqueda de soluciones digitales similares"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Joan Moreno Rey, Kevin Alejandro Cortes Henao, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "7 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "bd821096-fa7c-4f0e-998e-c2125e5aa9e3",
+      "at": "2026-11-07T08:47:01.371Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "a7448abc-3d7a-4929-8f0b-ac7bc4ce9640",
+      "label": "Seguimiento Reto 2 Actividad 2",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Se revisa las rúbricas y se asignan las tareas. En este punto cada miembro del equipo propondrá una solución tecnológica ya existente. Además se revisará la herramienta \"Zotero\" o similares para la gestión de citas y se trabajará una versión inicial del \"Google Site\""
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "7 nov 2026, 9:47"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Seguimiento Reto 2 Actividad 2"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Distribución de trabajo según necesidades de las siguientes tareas."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Cumplimentar cuaderno digital y participación activa de la reunión.\nKevin Alejandro Cortes Henao: Participación activa de la reunión.\nJoan Moreno Rey: Participación activa de la reunión.\nRegina Chukwuma: Participación activa de la reunión."
+        }
+      ],
+      "id": "cccff1b1-3da8-4f5e-9737-b4149708d2c4",
+      "at": "2026-11-07T08:51:21.692Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "05e033c5-0cf8-4153-8e49-f4a322df2907",
+      "label": "Creación de la propuesta inicial del \"Google Site\"",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "De cara a la actividad 2 del reto 2, y dado que se incluye en las rúbricas, se realiza la propuesta inicial de \"Google Site\""
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Creación de la propuesta inicial del \"Google Site\""
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "13 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "25e25216-ea16-403d-ad78-b5beb2245ece",
+      "at": "2026-11-07T08:52:29.115Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "f0edc59d-4dfc-4583-8044-384523c492ee",
+      "label": "Investigación herramientas de gestión de citas (Ej: Zotero)",
+      "changes": [
+        {
+          "field": "Fecha límite",
+          "before": "9 nov 2026",
+          "after": "13 nov 2026"
+        }
+      ],
+      "id": "a1a5524d-3d0b-46e2-8ee7-8fe25e473cea",
+      "at": "2026-11-07T08:52:36.322Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
