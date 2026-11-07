@@ -184,6 +184,67 @@
           "url": "https://github.com/vcolladoprieto/cuaderno-digital"
         }
       ]
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "at": "2026-10-24T10:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "revision",
+      "title": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "description": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos.",
+      "decisions": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña.",
+      "results": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo.",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Acceso, búsqueda de información, gestión de tareas y recuperación de copias."
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "8c9d3bde-0447-4cf6-8d7b-88ec57ab3e59",
+      "at": "2026-11-02T20:39:00.000Z",
+      "authorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "type": "reunion",
+      "title": "Revisión actividad 1",
+      "description": "Cada miembro del equipo ha desarrollado su punto asignado para la tarea y luego se ha hecho una puesta en común para discutir el contenido en conjunto. Se realizan las adaptaciones y se unifican criterios, cumpliendo con las rubricas especificadas.",
+      "decisions": "Unificación de criterios.",
+      "results": "Versión previa a la entrega, pendiente de revisión de formato y estilo.",
+      "contributions": [
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Participación en el debate."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Participación en el debate."
+        },
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Participación en el debate."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Participación en el debate."
+        }
+      ],
+      "evidence": []
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     }
   ],
   "tasks": [
@@ -210,7 +271,11 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-10-31",
+<<<<<<< HEAD
       "status": "en_proceso",
+=======
+      "status": "completada",
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
       "blockReason": ""
     },
     {
@@ -247,7 +312,11 @@
         "a297f20b-b158-4002-aa6f-cba7b1146537"
       ],
       "due": "2026-11-02",
+<<<<<<< HEAD
       "status": "en_proceso"
+=======
+      "status": "completada"
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     },
     {
       "blockReason": "",
@@ -268,7 +337,11 @@
         "2de5fce2-c7f4-413d-a136-3d636851fed8"
       ],
       "due": "2026-11-02",
+<<<<<<< HEAD
       "status": "en_proceso",
+=======
+      "status": "completada",
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
       "blockReason": ""
     },
     {
@@ -282,6 +355,23 @@
       ],
       "due": "2026-11-02",
       "status": "completada"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "f018b89f-bd9d-4809-8511-4cb80cb07d14",
+      "title": "Revisión de formato y estilo de la actividad 1",
+      "description": "",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-03",
+      "status": "pendiente",
+      "blockReason": ""
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     }
   ],
   "history": [
@@ -1206,6 +1296,78 @@
       "actorName": "Regina Chukwuma"
     },
     {
+<<<<<<< HEAD
+=======
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
+      "label": "Acuerdos para el diseño y funcionamiento del cuaderno digital",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Hemos puesto en común las necesidades del equipo y acordado cómo organizar el cuaderno digital para registrar el trabajo, coordinar tareas y consultar el progreso. Revisamos la presentación, la participación individual, el seguimiento de cambios y la conservación de los datos."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "24 oct 2026, 12:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Revisión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Acuerdos para el diseño y funcionamiento del cuaderno digital"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Organizar el cuaderno en Equipo, Proyecto, Diario, Tareas e Historial, con una presentación uniforme, adaptable al móvil y con opciones de tema claro y oscuro.\nMantener una aplicación en español, en un único archivo HTML y sin servidor, utilizando Vue y Vuetify para la interfaz.\nEstructurar las entradas del diario en trabajo realizado, decisiones justificadas y resultados. Diferenciar la autoría de la entrada de sus participantes, detallando la aportación de cada persona y permitiendo enlazar evidencias.\nPermitir tareas con varios responsables, fecha límite y estados pendiente, en proceso, bloqueada y completada. Exigir un motivo para los bloqueos y facilitar la consulta mediante filtros y accesos desde el equipo.\nIncorporar gráficos de actividad y progreso. Contar cada tarea compartida una sola vez en el total del proyecto y evitar presentar los recuentos como una medida de calidad.\nConservar un historial comprensible de altas, modificaciones y eliminaciones, indicando quién realizó cada cambio y cuándo.\nFacilitar el guardado local, las copias diarias y la importación y exportación del cuaderno completo. Validar las copias y preservar el estado anterior antes de restaurarlas.\nPreparar una demostración con datos ficticios y cambios temporales, separada del trabajo real, y una versión publicable con acceso mediante contraseña."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Quedan definidos el funcionamiento del cuaderno y los criterios para revisar su desarrollo: facilidad de uso, atribución clara de las aportaciones, coherencia del seguimiento y recuperación del trabajo."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Concreción técnica de la interfaz, los datos, el guardado, el historial y la publicación.\nKevin Alejandro Cortes Henao: Acceso, búsqueda de información, gestión de tareas y recuperación de copias.\nJoan Moreno Rey: Organización del cuaderno, contenido del diario y seguimiento del trabajo del equipo.\nRegina Chukwuma: Presentación, claridad de los controles, uso en móvil y lectura de los gráficos."
+        }
+      ],
+      "id": "a162280b-48e6-402c-b3d2-b4cdd77a4240",
+      "at": "2026-11-02T15:56:27.563Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "27d64e43-e055-4432-b7fd-5d291541d070",
+      "label": "Registro del debate de la creación del cuaderno digital",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "8effa25f-72ed-41f1-9dac-fde6fdb76ee2",
+      "at": "2026-11-02T18:11:45.205Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
       "action": "Cambio de estado de tarea",
       "entity": "task",
       "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
@@ -1217,10 +1379,34 @@
           "after": "Completada"
         }
       ],
+<<<<<<< HEAD
       "id": "a526f0ab-b376-432a-a434-7eabf1681c22",
       "at": "2026-11-02T10:33:54.987Z",
       "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
       "actorName": "Regina Chukwuma"
+=======
+      "id": "9759939b-cd16-483e-8cdd-ba25d64036f6",
+      "at": "2026-11-02T20:39:20.941Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "c5432621-bc4c-4d8e-88fd-ba74a94ebeb6",
+      "label": "Desarrollar el punto \"Actividad 1, 3. Problema y objetivos\"",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "4a76ad8d-f184-4f44-bcb9-7a494aa5e74d",
+      "at": "2026-11-02T20:39:22.651Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     },
     {
       "action": "Cambio de estado de tarea",
@@ -1234,10 +1420,123 @@
           "after": "Completada"
         }
       ],
+<<<<<<< HEAD
       "id": "33731c16-a799-4d61-9ad5-e39867a42d6a",
       "at": "2026-11-02T10:34:27.760Z",
       "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
       "actorName": "Regina Chukwuma"
+=======
+      "id": "611f5cd8-bb33-4278-9ead-606f829e3b8d",
+      "at": "2026-11-02T20:39:24.360Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "240a9b74-bfed-421d-92bc-7bc51de474d4",
+      "label": "Revisión de rúbricas",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "1f2ce2a5-9641-4131-92f3-408d86b7dad2",
+      "at": "2026-11-02T20:39:26.151Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "8c9d3bde-0447-4cf6-8d7b-88ec57ab3e59",
+      "label": "Revisión actividad 1",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Cada miembro del equipo ha desarrollado su punto asignado para la tarea y luego se ha hecho una puesta en común para discutir el contenido en conjunto. Se realizan las adaptaciones y se unifican criterios, cumpliendo con las rubricas especificadas."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "2 nov 2026, 21:39"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Joan Moreno Rey"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Revisión actividad 1"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Unificación de criterios."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Versión previa a la entrega, pendiente de revisión de formato y estilo."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Joan Moreno Rey: Participación en el debate.\nKevin Alejandro Cortes Henao: Participación en el debate.\nVíctor Collado Prieto: Participación en el debate.\nRegina Chukwuma: Participación en el debate."
+        }
+      ],
+      "id": "d58abe08-c60e-4501-b9a0-06c0bc0ef0c1",
+      "at": "2026-11-02T20:43:47.828Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "f018b89f-bd9d-4809-8511-4cb80cb07d14",
+      "label": "Revisión de formato y estilo de la actividad 1",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Revisión de formato y estilo de la actividad 1"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Víctor Collado Prieto, Joan Moreno Rey, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "3 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Pendiente"
+        }
+      ],
+      "id": "7d4f7dbe-f586-47fc-88ae-6d004f2177ce",
+      "at": "2026-11-02T20:48:34.975Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+>>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     }
   ]
 }
