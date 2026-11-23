@@ -423,9 +423,10 @@
         "2de5fce2-c7f4-413d-a136-3d636851fed8"
       ],
       "due": "2026-11-13",
-      "status": "en_proceso"
+      "status": "completada"
     },
     {
+      "blockReason": "",
       "id": "da4ac9dc-b8c5-4296-8d60-b352d60416fd",
       "title": "Búsqueda de soluciones digitales similares",
       "description": "Para la realización de la actividad 2 del reto 2, se realiza una búsqueda inicial para su puesto en común en la próxima reunión de seguimiento",
@@ -435,11 +436,11 @@
         "a297f20b-b158-4002-aa6f-cba7b1146537",
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
-      "due": "2026-11-07",
-      "status": "en_proceso",
-      "blockReason": ""
+      "due": "2026-11-25",
+      "status": "en_proceso"
     },
     {
+      "blockReason": "",
       "id": "05e033c5-0cf8-4153-8e49-f4a322df2907",
       "title": "Creación de la propuesta inicial del \"Google Site\"",
       "description": "De cara a la actividad 2 del reto 2, y dado que se incluye en las rúbricas, se realiza la propuesta inicial de \"Google Site\"",
@@ -447,9 +448,8 @@
         "48288741-8af9-43ff-9184-326a9b6c4a6c",
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
-      "due": "2026-11-13",
-      "status": "en_proceso",
-      "blockReason": ""
+      "due": "2026-11-25",
+      "status": "en_proceso"
     }
   ],
   "history": [
@@ -1845,6 +1845,57 @@
       ],
       "id": "a1a5524d-3d0b-46e2-8ee7-8fe25e473cea",
       "at": "2026-11-07T08:52:36.322Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "f0edc59d-4dfc-4583-8044-384523c492ee",
+      "label": "Investigación herramientas de gestión de citas (Ej: Zotero)",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "fc0b8f66-7142-4956-bfdb-fdda5f11e7c5",
+      "at": "2026-11-23T18:38:20.327Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "da4ac9dc-b8c5-4296-8d60-b352d60416fd",
+      "label": "Búsqueda de soluciones digitales similares",
+      "changes": [
+        {
+          "field": "Fecha límite",
+          "before": "7 nov 2026",
+          "after": "25 nov 2026"
+        }
+      ],
+      "id": "a004ac74-e790-4f6a-a3cf-5612c210bb17",
+      "at": "2026-11-23T18:38:51.600Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Modificación de tarea",
+      "entity": "task",
+      "entityId": "05e033c5-0cf8-4153-8e49-f4a322df2907",
+      "label": "Creación de la propuesta inicial del \"Google Site\"",
+      "changes": [
+        {
+          "field": "Fecha límite",
+          "before": "13 nov 2026",
+          "after": "25 nov 2026"
+        }
+      ],
+      "id": "6683e7dc-08fd-455e-a764-662031d73a4e",
+      "at": "2026-11-23T18:39:02.656Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
