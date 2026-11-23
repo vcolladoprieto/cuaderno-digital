@@ -479,6 +479,34 @@
       ],
       "due": "2026-11-25",
       "status": "en_proceso"
+    },
+    {
+      "id": "0f10bc1e-b696-4efc-a993-e5ecb367c11f",
+      "title": "Finalizar el documento conjunto del GMAO.",
+      "description": "- Terminar la sincronización con el programa Zotero.\n- Finalizar la redacción del documento acerca de los GMAOs elegidos.",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-25",
+      "status": "en_proceso",
+      "blockReason": ""
+    },
+    {
+      "id": "c1b4667d-b204-48ee-a96c-3253d493de2b",
+      "title": "Presentar la duda acerca de la rúbrica.",
+      "description": "Presentamos una duda al tutor acerca de un punto de analizar y comparar los elementos asignados para los GMAOs.",
+      "assigneeIds": [
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-24",
+      "status": "en_proceso",
+      "blockReason": ""
     }
   ],
   "history": [
@@ -1996,6 +2024,80 @@
       "at": "2026-11-23T18:58:07.421Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "0f10bc1e-b696-4efc-a993-e5ecb367c11f",
+      "label": "Finalizar el documento conjunto del GMAO.",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "- Terminar la sincronización con el programa Zotero.\n- Finalizar la redacción del documento acerca de los GMAOs elegidos."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Finalizar el documento conjunto del GMAO."
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "25 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "d8fdb4b2-c2d9-49d4-9f77-f9e7f8ecc197",
+      "at": "2026-11-23T19:08:03.566Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "c1b4667d-b204-48ee-a96c-3253d493de2b",
+      "label": "Presentar la duda acerca de la rúbrica.",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Presentamos una duda al tutor acerca de un punto de analizar y comparar los elementos asignados para los GMAOs."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Presentar la duda acerca de la rúbrica."
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Joan Moreno Rey, Kevin Alejandro Cortes Henao, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "24 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "En proceso"
+        }
+      ],
+      "id": "245de474-4a24-4370-97b6-ffbbbe9a773b",
+      "at": "2026-11-23T19:18:45.873Z",
+      "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+      "actorName": "Kevin Alejandro Cortes Henao"
     }
   ]
 }
