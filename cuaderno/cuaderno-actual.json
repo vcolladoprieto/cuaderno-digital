@@ -300,6 +300,35 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "id": "a4ae4cf6-5bfd-4907-bc82-0083ce80e839",
+      "at": "2026-11-18T18:00:00.000Z",
+      "authorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "type": "reunion",
+      "title": "Seguimiento",
+      "description": "Asignar la investigación de los GMAO seleccionados",
+      "decisions": "",
+      "results": "",
+      "contributions": [
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Búsqueda sobre el GMAO openMAINT"
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Búsqueda sobre el GMAO Hospitalario"
+        },
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Búsqueda sobre el GMAO CARL Source Healthcare"
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Búsqueda sobre el GMAO eWorkorders"
+        }
+      ],
+      "evidence": []
     }
   ],
   "tasks": [
@@ -437,7 +466,7 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-11-25",
-      "status": "en_proceso"
+      "status": "completada"
     },
     {
       "blockReason": "",
@@ -1896,6 +1925,75 @@
       ],
       "id": "6683e7dc-08fd-455e-a764-662031d73a4e",
       "at": "2026-11-23T18:39:02.656Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "da4ac9dc-b8c5-4296-8d60-b352d60416fd",
+      "label": "Búsqueda de soluciones digitales similares",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "a743afe4-962a-472f-ae80-9d46e83a86a7",
+      "at": "2026-11-23T18:48:47.038Z",
+      "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+      "actorName": "Víctor Collado Prieto"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "a4ae4cf6-5bfd-4907-bc82-0083ce80e839",
+      "label": "Seguimiento",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Asignar la investigación de los GMAO seleccionados"
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "18 nov 2026, 19:00"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Víctor Collado Prieto"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Reunión"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Seguimiento"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": ""
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Víctor Collado Prieto: Búsqueda sobre el GMAO openMAINT\nKevin Alejandro Cortes Henao: Búsqueda sobre el GMAO Hospitalario\nJoan Moreno Rey: Búsqueda sobre el GMAO CARL Source Healthcare\nRegina Chukwuma: Búsqueda sobre el GMAO eWorkorders"
+        }
+      ],
+      "id": "9c258374-47f4-4276-bc48-bc1061392673",
+      "at": "2026-11-23T18:58:07.421Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
     }
