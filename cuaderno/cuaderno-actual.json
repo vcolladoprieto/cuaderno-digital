@@ -398,8 +398,6 @@
       ],
       "due": "2026-11-02",
       "status": "completada"
-<<<<<<< HEAD
-=======
     },
     {
       "id": "f018b89f-bd9d-4809-8511-4cb80cb07d14",
@@ -452,7 +450,6 @@
       "due": "2026-11-13",
       "status": "en_proceso",
       "blockReason": ""
->>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     }
   ],
   "history": [
@@ -1377,8 +1374,6 @@
       "actorName": "Regina Chukwuma"
     },
     {
-<<<<<<< HEAD
-=======
       "action": "Alta de entrada",
       "entity": "entry",
       "entityId": "456d3e94-8456-4499-9f2f-0ec7e3d65ec0",
@@ -1448,7 +1443,6 @@
       "actorName": "Víctor Collado Prieto"
     },
     {
->>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
       "action": "Cambio de estado de tarea",
       "entity": "task",
       "entityId": "67cd6f6d-e388-45ab-a41c-fd0a0fb0f024",
@@ -1460,12 +1454,6 @@
           "after": "Completada"
         }
       ],
-<<<<<<< HEAD
-      "id": "a526f0ab-b376-432a-a434-7eabf1681c22",
-      "at": "2026-11-02T10:33:54.987Z",
-      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
-      "actorName": "Regina Chukwuma"
-=======
       "id": "9759939b-cd16-483e-8cdd-ba25d64036f6",
       "at": "2026-11-02T20:39:20.941Z",
       "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
@@ -1487,7 +1475,6 @@
       "at": "2026-11-02T20:39:22.651Z",
       "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
       "actorName": "Joan Moreno Rey"
->>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
     },
     {
       "action": "Cambio de estado de tarea",
@@ -1501,12 +1488,6 @@
           "after": "Completada"
         }
       ],
-<<<<<<< HEAD
-      "id": "33731c16-a799-4d61-9ad5-e39867a42d6a",
-      "at": "2026-11-02T10:34:27.760Z",
-      "actorId": "934fca1e-5a89-4800-8436-b7a894c2950e",
-      "actorName": "Regina Chukwuma"
-=======
       "id": "611f5cd8-bb33-4278-9ead-606f829e3b8d",
       "at": "2026-11-02T20:39:24.360Z",
       "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
@@ -1617,9 +1598,6 @@
       "at": "2026-11-02T20:48:34.975Z",
       "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
       "actorName": "Joan Moreno Rey"
-<<<<<<< HEAD
->>>>>>> 2d8730aac6c8061a99899637673efb4a785fcd5d
-=======
     },
     {
       "action": "Alta de entrada",
@@ -1869,7 +1847,6 @@
       "at": "2026-11-07T08:52:36.322Z",
       "actorId": "a297f20b-b158-4002-aa6f-cba7b1146537",
       "actorName": "Víctor Collado Prieto"
->>>>>>> 8fcb4a8166b8f9f9c2590435b40e7d46c5109a93
     }
   ]
 }
