@@ -329,6 +329,35 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "id": "e9d00c10-5a02-44b8-b723-4160e3f79513",
+      "at": "2026-11-25T19:47:00.000Z",
+      "authorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "type": "resultado",
+      "title": "Finalización R2A2",
+      "description": "Unificación y modelación del documento a entregar de la actividad R2A2 sobre soluciones digitales existentes.",
+      "decisions": "Organización y estructura del documento de cara a la entrega final de la actividad.",
+      "results": "Finalización del documento.",
+      "contributions": [
+        {
+          "memberId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+          "description": "Finalización del desarrollo de la decisión de CARL Source Heathcare."
+        },
+        {
+          "memberId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
+          "description": "Finalización del desarrollo de la decisión de GMAO Hospitalario. Nunsys Group."
+        },
+        {
+          "memberId": "a297f20b-b158-4002-aa6f-cba7b1146537",
+          "description": "Finalización del desarrollo de la decisión de OpenMAINT."
+        },
+        {
+          "memberId": "934fca1e-5a89-4800-8436-b7a894c2950e",
+          "description": "Finalización del desarrollo de la decisión de GMAO: eWorkOrders."
+        }
+      ],
+      "evidence": []
     }
   ],
   "tasks": [
@@ -478,7 +507,7 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-11-25",
-      "status": "en_proceso"
+      "status": "completada"
     },
     {
       "id": "0f10bc1e-b696-4efc-a993-e5ecb367c11f",
@@ -491,7 +520,7 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-11-25",
-      "status": "en_proceso",
+      "status": "completada",
       "blockReason": ""
     },
     {
@@ -505,7 +534,21 @@
         "934fca1e-5a89-4800-8436-b7a894c2950e"
       ],
       "due": "2026-11-24",
-      "status": "en_proceso",
+      "status": "completada",
+      "blockReason": ""
+    },
+    {
+      "id": "ef990364-9afa-4b41-81ea-62ebe1632a4d",
+      "title": "Introducción a la actividad 3",
+      "description": "Cada miembro del equipo leerá el enunciado de la actividad R2A3.",
+      "assigneeIds": [
+        "48288741-8af9-43ff-9184-326a9b6c4a6c",
+        "2de5fce2-c7f4-413d-a136-3d636851fed8",
+        "a297f20b-b158-4002-aa6f-cba7b1146537",
+        "934fca1e-5a89-4800-8436-b7a894c2950e"
+      ],
+      "due": "2026-11-25",
+      "status": "pendiente",
       "blockReason": ""
     }
   ],
@@ -2098,6 +2141,146 @@
       "at": "2026-11-23T19:18:45.873Z",
       "actorId": "48288741-8af9-43ff-9184-326a9b6c4a6c",
       "actorName": "Kevin Alejandro Cortes Henao"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "c1b4667d-b204-48ee-a96c-3253d493de2b",
+      "label": "Presentar la duda acerca de la rúbrica.",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "f1bd0659-f6ef-44e1-9f52-9503dab5f507",
+      "at": "2026-11-25T19:42:48.468Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "0f10bc1e-b696-4efc-a993-e5ecb367c11f",
+      "label": "Finalizar el documento conjunto del GMAO.",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "7af3e3c1-78c1-4803-9826-965ed5f079c1",
+      "at": "2026-11-25T19:42:55.188Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Cambio de estado de tarea",
+      "entity": "task",
+      "entityId": "05e033c5-0cf8-4153-8e49-f4a322df2907",
+      "label": "Creación de la propuesta inicial del \"Google Site\"",
+      "changes": [
+        {
+          "field": "Estado",
+          "before": "En proceso",
+          "after": "Completada"
+        }
+      ],
+      "id": "0f1d3aed-46c2-4194-b19d-6940e22675e9",
+      "at": "2026-11-25T19:43:04.525Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Alta de tarea",
+      "entity": "task",
+      "entityId": "ef990364-9afa-4b41-81ea-62ebe1632a4d",
+      "label": "Introducción a la actividad 3",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Cada miembro del equipo leerá el enunciado de la actividad R2A3."
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Introducción a la actividad 3"
+        },
+        {
+          "field": "Responsables",
+          "before": "",
+          "after": "Kevin Alejandro Cortes Henao, Joan Moreno Rey, Víctor Collado Prieto, Regina Chukwuma"
+        },
+        {
+          "field": "Fecha límite",
+          "before": "",
+          "after": "25 nov 2026"
+        },
+        {
+          "field": "Estado",
+          "before": "",
+          "after": "Pendiente"
+        }
+      ],
+      "id": "9a50b143-2288-4fe2-8fd4-8869eece3613",
+      "at": "2026-11-25T19:47:04.999Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
+    },
+    {
+      "action": "Alta de entrada",
+      "entity": "entry",
+      "entityId": "e9d00c10-5a02-44b8-b723-4160e3f79513",
+      "label": "Finalización R2A2",
+      "changes": [
+        {
+          "field": "Descripción",
+          "before": "",
+          "after": "Unificación y modelación del documento a entregar de la actividad R2A2 sobre soluciones digitales existentes."
+        },
+        {
+          "field": "Fecha y hora",
+          "before": "",
+          "after": "25 nov 2026, 20:47"
+        },
+        {
+          "field": "Autoría",
+          "before": "",
+          "after": "Joan Moreno Rey"
+        },
+        {
+          "field": "Actividad",
+          "before": "",
+          "after": "Resultado"
+        },
+        {
+          "field": "Título",
+          "before": "",
+          "after": "Finalización R2A2"
+        },
+        {
+          "field": "Decisiones y justificación",
+          "before": "",
+          "after": "Organización y estructura del documento de cara a la entrega final de la actividad."
+        },
+        {
+          "field": "Resultados",
+          "before": "",
+          "after": "Finalización del documento."
+        },
+        {
+          "field": "Participantes y aportaciones",
+          "before": "",
+          "after": "Joan Moreno Rey: Finalización del desarrollo de la decisión de CARL Source Heathcare.\nKevin Alejandro Cortes Henao: Finalización del desarrollo de la decisión de GMAO Hospitalario. Nunsys Group.\nVíctor Collado Prieto: Finalización del desarrollo de la decisión de OpenMAINT.\nRegina Chukwuma: Finalización del desarrollo de la decisión de GMAO: eWorkOrders."
+        }
+      ],
+      "id": "ea0ff5f0-7ba1-4a89-9650-5ac50177f789",
+      "at": "2026-11-25T19:52:28.139Z",
+      "actorId": "2de5fce2-c7f4-413d-a136-3d636851fed8",
+      "actorName": "Joan Moreno Rey"
     }
   ]
 }
